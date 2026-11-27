@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Urba Ticket — Mobile App Showcase | ISSAM — WEB &amp; MOBILE</title>
+  <meta name="description" content="Explore Urba Ticket: a native Android mobile app built with Kotlin &amp; Jetpack Compose featuring event booking, instant QR Code E-Tickets, Arabic RTL &amp; French UI, and Dark/Light themes.">
+  <link rel="icon" type="image/png" href="../../assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #020617;
+      --surface: rgba(15, 23, 42, 0.78);
+      --border: rgba(148, 163, 184, 0.16);
+      --border-glow: rgba(56, 189, 248, 0.42);
+      --pink: #ec4899;
+      --cyan: #38bdf8;
+      --blue: #2563eb;
+      --emerald: #10b981;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --max: 1220px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Plus Jakarta Sans', 'Cairo', system-ui, sans-serif;
+      background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden;
+    }
+    html[dir="rtl"] body { font-family: 'Cairo', 'Plus Jakarta Sans', system-ui, sans-serif; }
+    .ambient-bg {
+      position: fixed; inset: 0; z-index: -2; pointer-events: none;
+      background:
+        radial-gradient(ellipse 58% 45% at 15% 12%, rgba(236, 72, 153, 0.2), transparent 65%),
+        radial-gradient(ellipse 52% 40% at 85% 14%, rgba(56, 189, 248, 0.18), transparent 60%),
+        radial-gradient(ellipse 55% 42% at 50% 90%, rgba(37, 99, 235, 0.14), transparent 65%),
+        var(--bg);
+    }
+    .grid-overlay {
+      position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.2;
+      background-image:
+        linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+      background-size: 56px 56px;
+    }
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+    /* Navbar */
+    nav {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      background: rgba(2, 6, 23, 0.82); border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: var(--max); margin: 0 auto; padding: 13px 24px;
+      display: flex; align-items: center; justify-content: space-between; gap: 14px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #fff; }
+    .brand img { width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid rgba(56,189,248,0.6); }
+    .brand-name { font-weight: 900; font-size: 15.5px; letter-spacing: 1.6px; display: block; line-height: 1.1; }
+    .brand-sub { font-size: 10px; color: var(--cyan); font-weight: 800; letter-spacing: 1.1px; }
+    .nav-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .lang-switch {
+      display: inline-flex; background: rgba(15, 23, 42, 0.92);
+      border: 1px solid var(--border); border-radius: 99px; padding: 3px;
+    }
+    .lang-btn {
+      border: none; background: transparent; color: var(--muted);
+      padding: 5px 11px; border-radius: 99px; font-size: 12px; font-weight: 800; cursor: pointer;
+    }
+    .lang-btn.active { background: linear-gradient(135deg, var(--pink), var(--blue)); color: #fff; }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 12px 22px; border-radius: 13px; font-weight: 800; font-size: 14px;
+      text-decoration: none; cursor: pointer; border: none; transition: all 0.22s ease;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #22c55e, #10b981); color: #022c22;
+      box-shadow: 0 10px 28px rgba(16, 185, 129, 0.3);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 36px rgba(16, 185, 129, 0.45); }
+    .btn-outline {
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(148,163,184,0.28); color: #f8fafc;
+    }
+    .btn-outline:hover { border-color: var(--cyan); background: rgba(255,255,255,0.09); }
+    .btn-sm { padding: 8px 15px; font-size: 12.5px; border-radius: 10px; }
+
+    /* Interactive Hero Showcase */
+    .showcase { padding: 54px 0 64px; }
+    .showcase-grid {
+      display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 48px; align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px; border-radius: 99px; font-size: 12px; font-weight: 800;
+      background: rgba(236, 72, 153, 0.14); border: 1px solid rgba(236, 72, 153, 0.42);
+      color: #f9a8d4; margin-bottom: 18px;
+    }
+    .pulse-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; }
+    h1 {
+      font-size: clamp(32px, 4.2vw, 52px); font-weight: 900; line-height: 1.12; margin-bottom: 16px;
+    }
+    .grad-text {
+      background: linear-gradient(90deg, #ffffff 0%, #f9a8d4 48%, #7dd3fc 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .lead { color: #cbd5e1; font-size: 16.5px; margin-bottom: 24px; max-width: 560px; }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; }
+    .chip {
+      padding: 6px 13px; border-radius: 99px; font-size: 12px; font-weight: 700;
+      background: rgba(30, 41, 59, 0.78); border: 1px solid var(--border); color: #e2e8f0;
+    }
+
+    /* Screen Selector Pills */
+    .screen-tabs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 26px; }
+    .s-tab {
+      text-align: start; padding: 12px 14px; border-radius: 14px; cursor: pointer;
+      background: rgba(15, 23, 42, 0.72); border: 1px solid var(--border); color: #cbd5e1;
+      transition: all 0.2s; font-family: inherit;
+    }
+    .s-tab:hover { border-color: rgba(56,189,248,0.45); color: #fff; }
+    .s-tab.active {
+      background: linear-gradient(135deg, rgba(236,72,153,0.18), rgba(37,99,235,0.22));
+      border-color: rgba(236,72,153,0.68); color: #fff;
+      box-shadow: 0 8px 24px rgba(236,72,153,0.18);
+    }
+    .s-tab strong { display: block; font-size: 13.5px; font-weight: 800; }
+    .s-tab span { font-size: 11.8px; color: var(--muted); }
+    .s-tab.active span { color: #e2e8f0; }
+
+    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    /* Interactive Phone Frame */
+    .phone-stage { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    .phone-shell {
+      position: relative; width: min(340px, 86vw); padding: 12px; border-radius: 42px;
+      background: linear-gradient(145deg, #1e293b, #020617);
+      border: 2px solid rgba(148, 163, 184, 0.35);
+      box-shadow: 0 32px 85px rgba(0, 0, 0, 0.75), 0 0 60px rgba(236, 72, 153, 0.22);
+    }
+    .phone-notch {
+      position: absolute; top: 18px; left: 50%; transform: translateX(-50%);
+      width: 78px; height: 14px; border-radius: 99px; background: #020617; z-index: 4;
+    }
+    .phone-screen {
+      border-radius: 31px; overflow: hidden; background: #0b1120; aspect-ratio: 412 / 915;
+    }
+    .phone-screen img { width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity 0.22s ease; }
+    .phone-controls { display: flex; align-items: center; gap: 12px; }
+    .ctrl-btn {
+      width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--border);
+      background: var(--surface); color: #fff; font-size: 16px; cursor: pointer; font-weight: 800;
+    }
+    .ctrl-btn:hover { border-color: var(--cyan); }
+    .screen-counter { font-size: 13px; font-weight: 700; color: #cbd5e1; min-width: 120px; text-align: center; }
+
+    /* Feature Strip */
+    .features-sec { padding: 36px 0 68px; }
+    .sec-head { text-align: center; max-width: 720px; margin: 0 auto 38px; }
+    .sec-tag { font-size: 12px; font-weight: 800; letter-spacing: 1.6px; color: var(--cyan); text-transform: uppercase; display: inline-block; margin-bottom: 8px; }
+    .sec-head h2 { font-size: clamp(26px, 3.2vw, 38px); font-weight: 900; margin-bottom: 10px; }
+    .sec-head p { color: var(--muted); font-size: 15.5px; }
+
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .g-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 22px;
+      padding: 18px; display: flex; flex-direction: column; gap: 14px; transition: 0.25s; cursor: pointer;
+    }
+    .g-card:hover { border-color: var(--border-glow); transform: translateY(-5px); }
+    .g-frame {
+      background: #050816; border-radius: 20px; padding: 12px; border: 1px solid rgba(148,163,184,0.18);
+      display: flex; justify-content: center;
+    }
+    .g-frame img { width: 100%; max-width: 230px; border-radius: 16px; display: block; box-shadow: 0 14px 35px rgba(0,0,0,0.55); }
+    .g-card h3 { font-size: 16px; font-weight: 800; }
+    .g-card p { font-size: 13px; color: var(--muted); }
+
+    /* Bottom CTA */
+    .bottom-cta {
+      margin: 16px 0 72px; padding: 40px 32px; border-radius: 26px; text-align: center;
+      background: linear-gradient(135deg, rgba(236,72,153,0.16), rgba(37,99,235,0.2), rgba(15,23,42,0.92));
+      border: 1px solid var(--border-glow);
+    }
+    .bottom-cta h2 { font-size: clamp(24px, 3vw, 34px); font-weight: 900; margin-bottom: 10px; }
+    .bottom-cta p { color: #cbd5e1; max-width: 640px; margin: 0 auto 24px; font-size: 15.5px; }
+
+    footer { border-top: 1px solid var(--border); padding: 28px 0; text-align: center; color: var(--muted); font-size: 13.5px; }
+
+    /* Lightbox */
+    .modal {
+      position: fixed; inset: 0; z-index: 100; background: rgba(2,6,23,0.92); backdrop-filter: blur(12px);
+      display: none; align-items: center; justify-content: center; padding: 20px;
+    }
+    .modal.open { display: flex; }
+    .modal-box {
+      max-width: 440px; width: 100%; background: #0f172a; border: 1px solid var(--border-glow);
+      border-radius: 24px; overflow: hidden;
+    }
+    .modal-top { padding: 14px 18px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
+    .modal-close { background: rgba(255,255,255,0.08); border: none; color: #fff; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-size: 16px; }
+    .modal-body { padding: 18px; display: flex; justify-content: center; background: #020617; max-height: 78vh; overflow: auto; }
+    .modal-body img { max-height: 70vh; width: auto; max-width: 100%; border-radius: 18px; }
+
+    @media (max-width: 960px) {
+      .showcase-grid { grid-template-columns: 1fr; }
+      .phone-stage { order: -1; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .container { padding: 0 16px; }
+      .nav-inner { padding: 10px 14px; }
+      .screen-tabs, .gallery-grid { grid-template-columns: 1fr; }
+      .cta-row .btn { width: 100%; }
+      .showcase { padding: 30px 0 46px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient-bg"></div>
+  <div class="grid-overlay"></div>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="../../index.html" class="brand">
+        <img src="../../assets/logo.png" alt="ISSAM Web &amp; Mobile">
+        <div>
+          <span class="brand-name">ISSAM</span>
+          <span class="brand-sub">WEB &amp; MOBILE</span>
+        </div>
+      </a>
+      <div class="nav-right">
+        <div class="lang-switch">
+          <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+          <button class="lang-btn" id="btn-fr" onclick="setLang('fr')">FR</button>
+          <button class="lang-btn" id="btn-ar" onclick="setLang('ar')">العربية</button>
+        </div>
+        <a href="../../index.html" class="btn btn-outline btn-sm" data-i18n="back_home">← Portfolio</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="showcase">
+    <div class="container">
+      <div class="showcase-grid">
+        <div>
+          <div class="eyebrow"><span class="pulse-dot"></span> <span data-i18n="badge">REAL SHIPPED MOBILE APP • KOTLIN &amp; JETPACK COMPOSE</span></div>
+          <h1><span class="grad-text" data-i18n="title">Urba Ticket — Events &amp; QR E-Ticketing Mobile App</span></h1>
+          <p class="lead" data-i18n="lead">A luxury native mobile ticketing application engineered with smooth animations, instant scannable QR Code gate passes, promo-code checkout, offline ticket storage, Dark/Light themes, and full Arabic (RTL) &amp; French localization.</p>
+
+          <div class="chips">
+            <span class="chip">Kotlin &amp; Jetpack Compose</span>
+            <span class="chip">Material 3</span>
+            <span class="chip">Instant QR E-Tickets</span>
+            <span class="chip">Arabic RTL &amp; French</span>
+            <span class="chip">Dark &amp; Light Mode</span>
+            <span class="chip">Offline Room DB</span>
+          </div>
+
+          <div class="screen-tabs" id="screenTabs"></div>
+
+          <div class="cta-row">
+            <a id="waCtaTop" href="https://wa.me/212706502285" target="_blank" class="btn btn-primary" data-i18n="cta_main">Request a Custom Mobile App on WhatsApp</a>
+            <a href="#all-screens" class="btn btn-outline" data-i18n="cta_gallery">View All 6 Screens ↓</a>
+          </div>
+        </div>
+
+        <div class="phone-stage">
+          <div class="phone-shell">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <img id="activePhoneImg" src="../../assets/urbaticket/01_home_dark.png" alt="Urba Ticket Mobile App Screen">
+            </div>
+          </div>
+          <div class="phone-controls">
+            <button class="ctrl-btn" onclick="stepScreen(-1)" aria-label="Previous">‹</button>
+            <span class="screen-counter" id="screenCounter">1 / 6</span>
+            <button class="ctrl-btn" onclick="stepScreen(1)" aria-label="Next">›</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features-sec" id="all-screens">
+    <div class="container">
+      <div class="sec-head">
+        <span class="sec-tag" data-i18n="gal_tag">COMPLETE APP WALKTHROUGH</span>
+        <h2 data-i18n="gal_title">Every Screen Built for Speed &amp; Conversion</h2>
+        <p data-i18n="gal_sub">Tap any screen to inspect full resolution. We build custom Android &amp; iPhone apps like this for ticketing, e-commerce, restaurants, clinics, real estate, and bookings.</p>
+      </div>
+      <div class="gallery-grid" id="galleryGrid"></div>
+
+      <div class="bottom-cta">
+        <h2 data-i18n="bcta_title">Want a Custom Android &amp; iPhone App Like This for Your Business?</h2>
+        <p data-i18n="bcta_desc">Send your idea on WhatsApp and receive a free tailored visual concept + delivery timeline in Arabic, English, or French.</p>
+        <a id="waCtaBottom" href="https://wa.me/212706502285" target="_blank" class="btn btn-primary" data-i18n="bcta_btn">Get Your Free App Concept on WhatsApp →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <strong>ISSAM — WEB &amp; MOBILE</strong> · <span data-i18n="footer">Websites (HTTPS), E-Commerce Stores &amp; Custom Mobile Apps (Android &amp; iOS)</span>
+    </div>
+  </footer>
+
+  <div class="modal" id="imgModal" onclick="if(event.target===this) closeModal()">
+    <div class="modal-box">
+      <div class="modal-top">
+        <strong id="modalCaption">Screen</strong>
+        <button class="modal-close" onclick="closeModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <img id="modalImg" src="" alt="Urba Ticket Full Screen">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const WA_PHONE = "212706502285";
+    let currentLang = "en";
+    let currentIdx = 0;
+
+    const SCREENS = [
+      {
+        img: "../../assets/urbaticket/01_home_dark.png",
+        title: { en: "Home — Luxury Dark Mode", fr: "Accueil — Mode Sombre Luxe", ar: "الرئيسية — الوضع الداكن الفاخر" },
+        short: { en: "Featured hero, cities & categories", fr: "À la une, villes et catégories", ar: "العروض البارزة والمدن والفئات" },
+        desc: {
+          en: "High-contrast dark interface with featured event carousel, instant city switcher, category pills, and trending picks.",
+          fr: "Interface sombre élégante avec carrousel d'événements à la une, filtre par ville, catégories et tendances.",
+          ar: "واجهة داكنة فاخرة تضم أبرز الفعاليات، فلترة حسب المدينة والفئة، والأكثر طلباً مع انتقال سلس."
+        }
+      },
+      {
+        img: "../../assets/urbaticket/02_home_ar_rtl.png",
+        title: { en: "Native Arabic (RTL) & Light Mode", fr: "Arabe Natif (RTL) & Mode Clair", ar: "واجهة عربية أصلية (RTL) والوضع المضيء" },
+        short: { en: "1-tap language & theme switch", fr: "Bascule langue & thème en 1 clic", ar: "تبديل فوري للغة والوضع الداكن/المضيء" },
+        desc: {
+          en: "Full right-to-left (RTL) Arabic layout mirroring and clean light mode engineered for MENA & Gulf audiences.",
+          fr: "Adaptation native complète en Arabe (RTL) et mode clair fluide pour le Maroc, le Golfe et l'international.",
+          ar: "دعم أصلي كامل للغة العربية من اليمين إلى اليسار (RTL) مع وضع مضيء أنيق ومريح للعين."
+        }
+      },
+      {
+        img: "../../assets/urbaticket/03_event_detail.png",
+        title: { en: "Event Details & Ticket Tiers", fr: "Détails & Catégories de Billets", ar: "تفاصيل الفعالية وفئات التذاكر" },
+        short: { en: "VIP / Gold tiers & live seat count", fr: "Carré Or, VIP & places restantes", ar: "فئات VIP والمربع الذهبي والمقاعد المتبقية" },
+        desc: {
+          en: "Rich poster header, date/venue summary, live remaining seats per tier (Standard, Gold, VIP Lounge) and 1-tap booking bar.",
+          fr: "Affiche plein écran, infos lieu/date, compteur de places restantes par catégorie (Standard, Carré Or, VIP) et commande rapide.",
+          ar: "عرض بصري جذاب مع التاريخ والمكان، عدد المقاعد المتبقية لكل فئة (عادي، ذهبي، VIP) وزر شراء مباشر."
+        }
+      },
+      {
+        img: "../../assets/urbaticket/04_explore.png",
+        title: { en: "Smart Search & Filters", fr: "Recherche Intelligente & Tri", ar: "البحث الذكي والفلترة الفورية" },
+        short: { en: "Filter by artist, city, date & price", fr: "Artiste, ville, week-end & prix", ar: "بحث بالفنان والمدينة والتاريخ والسعر" },
+        desc: {
+          en: "Instant live search across artists, venues, and cities combined with price sorting and weekend/date chips.",
+          fr: "Recherche instantanée par artiste, lieu ou ville combinée au tri par prix croissant/décroissant et filtres de dates.",
+          ar: "بحث فوري حسب الفنان أو المكان أو المدينة مع ترتيب حسب السعر وفلاتر نهاية الأسبوع."
+        }
+      },
+      {
+        img: "../../assets/urbaticket/05_cart_checkout.png",
+        title: { en: "Cart & Promo Checkout", fr: "Panier & Code Promo (-10%)", ar: "السلة وكود الخصم والدفع الآمن" },
+        short: { en: "Promo codes, fees & instant total", fr: "Code URBA10, frais & total en direct", ar: "تطبيق أكواد الخصم وحساب المجموع تلقائياً" },
+        desc: {
+          en: "Multi-ticket cart with quantity steppers, live promo code validation (URBA10 -10%), itemized summary and secure payment flow.",
+          fr: "Panier multi-billets avec gestion des quantités, validation code promo (URBA10 -10%) et récapitulatif clair avant paiement.",
+          ar: "سلة مشتريات متكاملة مع تعديل الكميات، تفعيل كود الخصم (URBA10)، وتفاصيل المجموع قبل الدفع."
+        }
+      },
+      {
+        img: "../../assets/urbaticket/06_tickets_qr.png",
+        title: { en: "Official QR Code E-Tickets", fr: "E-Billets Officiels QR Code", ar: "التذاكر الإلكترونية برمز QR" },
+        short: { en: "Verified gate pass & offline access", fr: "Pass d'accès QR valide hors-ligne", ar: "تصريح دخول رسمي يعمل حتى بدون إنترنت" },
+        desc: {
+          en: "Auto-generated scannable QR codes stored locally in Room DB with ticket status badges, order references, and full-screen scan pass.",
+          fr: "Génération instantanée de QR Codes scannables stockés hors-ligne (Room DB) avec statut VALIDE et référence commande.",
+          ar: "توليد فوري لرمز QR قابل للمسح محفوظ داخل الهاتف (Room DB) مع حالة التذكرة ومرجع الطلب."
+        }
+      }
+    ];
+
+    const I18N = {
+      en: {
+        back_home: "← Portfolio",
+        badge: "REAL SHIPPED MOBILE APP • KOTLIN & JETPACK COMPOSE",
+        title: "Urba Ticket — Events & QR E-Ticketing Mobile App",
+        lead: "A luxury native mobile ticketing application engineered with smooth animations, instant scannable QR Code gate passes, promo-code checkout, offline ticket storage, Dark/Light themes, and full Arabic (RTL) & French localization.",
+        cta_main: "Request a Custom Mobile App on WhatsApp",
+        cta_gallery: "View All 6 Screens ↓",
+        gal_tag: "COMPLETE APP WALKTHROUGH",
+        gal_title: "Every Screen Built for Speed & Conversion",
+        gal_sub: "Tap any screen to inspect full resolution. We build custom Android & iPhone apps like this for ticketing, e-commerce, restaurants, clinics, real estate, and bookings.",
+        bcta_title: "Want a Custom Android & iPhone App Like This for Your Business?",
+        bcta_desc: "Send your idea on WhatsApp and receive a free tailored visual concept + delivery timeline in Arabic, English, or French.",
+        bcta_btn: "Get Your Free App Concept on WhatsApp →",
+        footer: "Websites (HTTPS), E-Commerce Stores & Custom Mobile Apps (Android & iOS)"
+      },
+      fr: {
+        back_home: "← Portfolio",
+        badge: "APPLICATION MOBILE RÉELLE • KOTLIN & JETPACK COMPOSE",
+        title: "Urba Ticket — Application Mobile Billetterie & QR Code",
+        lead: "Application mobile native haut de gamme conçue avec billetterie événements, génération instantanée de E-Billets QR Code, panier avec codes promo, mode hors-ligne, thèmes Sombre/Clair et interface Arabe (RTL) & Français.",
+        cta_main: "Demander une App Mobile sur WhatsApp",
+        cta_gallery: "Voir les 6 Écrans ↓",
+        gal_tag: "EXPLORATION COMPLÈTE",
+        gal_title: "Chaque Écran Pensé pour la Fluidité & la Conversion",
+        gal_sub: "Cliquez sur n'importe quel écran pour l'agrandir. Nous développons des applications Android & iPhone sur mesure pour billetterie, e-commerce, restaurants, cliniques et immobilier.",
+        bcta_title: "Besoin d'une Application Android & iPhone de ce Niveau ?",
+        bcta_desc: "Présentez votre idée sur WhatsApp et recevez gratuitement un premier concept visuel personnalisé pour votre marque.",
+        bcta_btn: "Demander Mon Concept d'App sur WhatsApp →",
+        footer: "Sites Web (HTTPS), Boutiques E-Commerce & Applications Mobiles (Android & iOS)"
+      },
+      ar: {
+        back_home: "← العودة للبورتفوليو",
+        badge: "تطبيق موبايل حقيقي • KOTLIN & JETPACK COMPOSE",
+        title: "Urba Ticket — تطبيق حجز التذاكر والفعاليات بـ QR Code",
+        lead: "تطبيق جوال احترافي فاخر لحجز تذاكر الحفلات والفعاليات، يضم توليداً فورياً لتذاكر QR Code، سلة مشتريات بأكواد خصم، حفظ التذاكر للعمل بدون إنترنت، الوضع الداكن والمضيء، ودعماً كاملاً للغة العربية (RTL) والفرنسية.",
+        cta_main: "اطلب تطبيقاً مخصّصاً لشركتك عبر واتساب",
+        cta_gallery: "مشاهدة جميع الشاشات (6) ↓",
+        gal_tag: "جولة كاملة داخل التطبيق",
+        gal_title: "كل شاشة مصمّمة بعناية للسرعة وسهولة الاستخدام",
+        gal_sub: "اضغط على أي شاشة لمشاهدتها بدقة كاملة. نطوّر تطبيقات أندرويد وآيفون مخصّصة لحجز التذاكر، المتاجر الإلكترونية، المطاعم، العيادات، والعقار.",
+        bcta_title: "هل تريد تطبيق أندرويد وآيفون بنفس الاحترافية لمشروعك؟",
+        bcta_desc: "أرسل لنا فكرة مشروعك عبر واتساب واحصل على تصور أولي مجاني مخصّص باسم شركتك ولغاتك.",
+        bcta_btn: "اطلب تصور تطبيقك المجاني عبر واتساب ←",
+        footer: "مواقع إلكترونية (HTTPS)، متاجر إلكترونية وتطبيقات جوال (Android & iOS)"
+      }
+    };
+
+    function waUrl(msg) { return `https://wa.me/${WA_PHONE}?text=${encodeURIComponent(msg)}`; }
+
+    function selectScreen(idx) {
+      currentIdx = (idx + SCREENS.length) % SCREENS.length;
+      const s = SCREENS[currentIdx];
+      const img = document.getElementById("activePhoneImg");
+      img.style.opacity = "0.25";
+      setTimeout(() => {
+        img.src = s.img;
+        img.alt = s.title[currentLang];
+        img.style.opacity = "1";
+      }, 110);
+      document.getElementById("screenCounter").textContent = `${currentIdx + 1} / ${SCREENS.length}`;
+      document.querySelectorAll(".s-tab").forEach((el, i) => el.classList.toggle("active", i === currentIdx));
+    }
+
+    function stepScreen(delta) { selectScreen(currentIdx + delta); }
+
+    function renderUI() {
+      document.getElementById("screenTabs").innerHTML = SCREENS.map((s, i) => `
+        <button class="s-tab ${i === currentIdx ? 'active' : ''}" onclick="selectScreen(${i})">
+          <strong>0${i + 1} · ${s.title[currentLang]}</strong>
+          <span>${s.short[currentLang]}</span>
+        </button>
+      `).join("");
+
+      document.getElementById("galleryGrid").innerHTML = SCREENS.map((s, i) => `
+        <div class="g-card" onclick="openModal(${i})">
+          <div class="g-frame">
+            <img src="${s.img}" alt="${s.title[currentLang]}" loading="lazy">
+          </div>
+          <h3>${s.title[currentLang]}</h3>
+          <p>${s.desc[currentLang]}</p>
+        </div>
+      `).join("");
+    }
+
+    function openModal(idx) {
+      const s = SCREENS[idx];
+      document.getElementById("modalCaption").textContent = s.title[currentLang];
+      document.getElementById("modalImg").src = s.img;
+      document.getElementById("imgModal").classList.add("open");
+    }
+    function closeModal() { document.getElementById("imgModal").classList.remove("open"); }
+
+    function setLang(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+      ["en","fr","ar"].forEach(l => document.getElementById("btn-" + l).classList.toggle("active", l === lang));
+      const t = I18N[lang];
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const k = el.getAttribute("data-i18n");
+        if (t[k]) el.textContent = t[k];
+      });
+      const msg = lang === "ar"
+        ? "السلام عليكم عصام، شاهدت تطبيق Urba Ticket وأرغب في تطوير تطبيق جوال (Android & iPhone) لمشروعي."
+        : lang === "fr"
+          ? "Bonjour Issam, j'ai vu l'application Urba Ticket et je souhaite développer une application mobile (Android & iPhone) pour mon projet."
+          : "Hello Issam, I saw the Urba Ticket mobile app showcase and would like to build a custom Android & iPhone app for my business.";
+      document.getElementById("waCtaTop").href = waUrl(msg);
+      document.getElementById("waCtaBottom").href = waUrl(msg);
+      renderUI();
+    }
+
+    const urlLang = new URLSearchParams(window.location.search).get("lang");
+    setLang(["en","fr","ar"].includes(urlLang) ? urlLang : "en");
+  </script>
+</body>
+</html>
