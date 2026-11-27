@@ -1,0 +1,27 @@
+name: Unpack Portfolio
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  unpack:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Unpack site.zip into repository root
+        if: hashFiles('site.zip') != ''
+        run: |
+          unzip -o site.zip -d .
+          rm -f site.zip
+          touch .nojekyll
+          git config user.name "issamxx"
+          git config user.email "issamexd@gmail.com"
+          git add -A
+          git commit -m "Deploy ISSAM Web, E-Commerce & Mobile Portfolio with Live Demos"
+          git push origin main
