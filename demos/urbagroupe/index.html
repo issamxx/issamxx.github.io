@@ -1030,6 +1030,38 @@ header.slider.showcase-full .swiper-pagination.dots {
 }
 </style>
 
+
+<style id="urba-home-exact-fit">
+html, body {
+  height: 100vh !important;
+  height: 100dvh !important;
+  min-height: 0 !important;
+  max-height: 100dvh !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+nav.navbar { flex: 0 0 auto !important; width: 100% !important; }
+main {
+  flex: 1 1 auto !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: hidden !important;
+  width: 100% !important;
+}
+header.slider.showcase-full,
+header.slider.showcase-full .swiper-container,
+header.slider.showcase-full .swiper-wrapper,
+header.slider.showcase-full .swiper-slide,
+header.slider.showcase-full .swiper-slide .bg-img {
+  height: 100% !important;
+  min-height: 0 !important;
+  max-height: 100% !important;
+}
+body > section { display: none !important; }
+</style>
+
 </body>
 
 </html>
