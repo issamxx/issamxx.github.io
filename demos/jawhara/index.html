@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaouhara Mode | Haute Confection Professionnelle & Inclusive</title>
+    <meta name="description" content="Découvrez Jaouhara Mode, atelier de confection professionnelle et inclusive, spécialisé en vêtements de travail élégants et durables pour la restauration, la santé et l’hôtellerie.">
+    <meta property="og:title" content="Jaouhara Mode | Haute Confection Professionnelle & Inclusive">
+    <meta property="og:description" content="Découvrez Jaouhara Mode, atelier de confection professionnelle et inclusive, spécialisé en vêtements de travail élégants et durables pour la restauration, la santé et l’hôtellerie.">
+    <meta property="og:image" content="img/logo.png">
+    <link rel="icon" href="img/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --gold: #c5a85c; --gold-dark: #aa8f46; --dark: #111111; --dark-grey: #222222;
+            --text-dark: #1f2937; --text-light: #6b7280; --bg-cream: #fbf9f4; --white: #ffffff;
+            --shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--bg-cream); color: var(--text-dark); line-height: 1.7; padding-top: 80px; }
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Navigation */
+        header { background-color: var(--white); position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; box-shadow: var(--shadow); border-bottom: 1px solid rgba(197, 168, 92, 0.2); }
+        .navbar { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+        .logo-text { font-family: 'Cinzel', serif; font-size: 1.6rem; font-weight: 700; color: var(--dark); text-decoration: none; letter-spacing: 2px; }
+        .logo-text span { color: var(--gold); }
+        .nav-menu { display: flex; gap: 25px; list-style: none; }
+        .nav-link { font-weight: 500; color: var(--dark); text-decoration: none; font-size: 0.95rem; transition: 0.3s; padding-bottom: 5px; position: relative; }
+        .nav-link:hover, .nav-link.active { color: var(--gold-dark); }
+        .nav-link.active::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background-color: var(--gold); }
+        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
+
+        /* Hero */
+        .hero { background: linear-gradient(rgba(17, 17, 17, 0.75), rgba(17, 17, 17, 0.85)), url(img/Gemini_Generated_Image_lgspzqlgspzqlgsp.png) no-repeat center center/cover; min-height: 85vh; display: flex; align-items: center; color: var(--white); text-align: center; padding: 60px 0; }
+        .hero-content { max-width: 900px; margin: 0 auto; }
+        .hero-content h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; font-weight: 700; margin-bottom: 25px; letter-spacing: 2px; line-height: 1.2; }
+        .hero-content h1 span { color: var(--gold); }
+        .hero-content p { font-size: 1.2rem; margin-bottom: 40px; font-weight: 300; opacity: 0.95; line-height: 1.8; }
+        .btn { display: inline-flex; align-items: center; gap: 10px; background-color: var(--gold); color: var(--dark); padding: 15px 38px; font-weight: 600; text-decoration: none; transition: 0.3s; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; border: none; }
+        .btn:hover { background-color: var(--gold-dark); color: var(--white); transform: translateY(-2px); }
+        .btn-outline { background-color: transparent; border: 2px solid var(--white); color: var(--white); margin-left: 15px; }
+        .btn-outline:hover { background-color: var(--white); color: var(--dark); }
+
+        /* Stats Block */
+        .stats-bar { background: var(--dark); color: var(--white); padding: 50px 20px; margin-top: -60px; position: relative; z-index: 10; border-top: 3px solid var(--gold); border-radius: 4px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); text-align: center; gap: 30px; }
+        .stat-item h3 { font-family: 'Cinzel', serif; font-size: 2.8rem; color: var(--gold); margin-bottom: 5px; font-weight: 700; }
+        .stat-item p { color: #cccccc; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px; }
+
+        /* Sections General */
+        .section { padding: 100px 0; }
+        .bg-white { background-color: var(--white); }
+        .section-title { text-align: center; font-family: 'Cinzel', serif; font-size: 2.5rem; font-weight: 700; color: var(--dark); margin-bottom: 15px; letter-spacing: 1px; }
+        .section-subtitle { text-align: center; color: var(--text-light); max-width: 700px; margin: 0 auto 60px auto; font-size: 1.1rem; font-style: italic; }
+        
+        /* Features Expanded */
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .feature-card { background: var(--white); padding: 50px 30px; box-shadow: var(--shadow); text-align: center; border: 1px solid rgba(197, 168, 92, 0.1); transition: 0.3s; border-radius: 4px; }
+        .feature-card:hover { border-color: var(--gold); transform: translateY(-5px); }
+        .feature-card i { font-size: 2.5rem; color: var(--gold); margin-bottom: 25px; }
+        .feature-card h3 { font-family: 'Cinzel', serif; margin-bottom: 15px; font-size: 1.3rem; color: var(--dark); }
+        .feature-card p { color: var(--text-light); font-size: 0.95rem; text-align: justify; }
+
+        /* Detailed Content Block */
+        .detailed-row { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 80px; }
+        .detailed-row img { width: 100%; height: 500px; object-fit: cover; border-radius: 8px; box-shadow: var(--shadow); border: 1px solid rgba(197,168,92,0.1); }
+        .detailed-text h2 { font-family: 'Cinzel', serif; font-size: 2.2rem; color: var(--dark); margin-bottom: 20px; }
+        .detailed-text p { color: var(--text-light); margin-bottom: 20px; font-size: 1.05rem; text-align: justify; }
+        .bullet-list { list-style: none; margin-top: 20px; }
+        .bullet-list li { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; font-weight: 500; font-size: 0.95rem; }
+        .bullet-list li i { color: var(--gold); }
+
+        /* Testimonials */
+        .testimonial-card { background: var(--bg-cream); padding: 45px 35px; box-shadow: var(--shadow); border-left: 4px solid var(--gold); border-radius: 0 4px 4px 0; }
+        .testimonial-card p { font-style: italic; color: var(--text-dark); margin-bottom: 25px; font-size: 1rem; }
+        .user-info { display: flex; align-items: center; gap: 15px; }
+        .user-info img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); }
+        .user-info h4 { font-family: 'Cinzel', serif; font-weight: 600; font-size: 1rem; color: var(--dark); }
+        .user-info span { font-size: 0.8rem; color: var(--text-light); }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .grid-3 { grid-template-columns: repeat(2, 1fr); }
+            .detailed-row { grid-template-columns: 1fr; gap: 40px; }
+            .detailed-row img { height: 350px; }
+        }
+        @media (max-width: 768px) {
+            body { padding-top: 70px; }
+            .navbar { height: 70px; }
+            .menu-toggle { display: block; }
+            .nav-menu { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; background: var(--white); padding: 30px 20px; box-shadow: var(--shadow); gap: 20px; border-top: 1px solid rgba(0,0,0,0.05); }
+            .nav-menu.active { display: flex; }
+            .nav-link.active::after { display: none; }
+            .hero-content h1 { font-size: 2.3rem; }
+            .hero-content p { font-size: 1rem; }
+            .hero-buttons { display: flex; flex-direction: column; gap: 10px; }
+            .btn-outline { margin-left: 0; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+            .stat-item h3 { font-size: 2rem; word-break: break-word; }
+            .stat-item p { white-space: normal; }
+            .grid-3 { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 576px) {
+            .stats-grid { grid-template-columns: 1fr; gap: 18px; }
+            .stats-bar { padding: 35px 15px; }
+            .stat-item h3 { font-size: 1.8rem; }
+            .stat-item p { font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <style>
+    :root {
+        --gold: #c5a85c; --gold-dark: #aa8f46; --dark: #111111; --white: #ffffff;
+        --bg-cream: #fbf9f4; --shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+    header { background-color: var(--white); position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; box-shadow: var(--shadow); border-bottom: 1px solid rgba(197, 168, 92, 0.2); }
+    .navbar { display: flex; justify-content: space-between; align-items: center; height: 80px; position: relative; }
+    .logo-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .logo-brand img { height: 42px; width: auto; display: block; }
+    .logo-text { font-family: 'Cinzel', serif; font-size: 1.6rem; font-weight: 700; color: var(--dark); text-decoration: none; letter-spacing: 2px; }
+    .logo-text span { color: var(--gold); }
+    .nav-menu { display: flex; gap: 25px; list-style: none; }
+    .nav-link { font-weight: 500; color: var(--dark); text-decoration: none; font-size: 0.95rem; transition: 0.3s; padding-bottom: 5px; position: relative; }
+    .nav-link:hover, .nav-link.active { color: var(--gold-dark); }
+    .nav-link.active::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background-color: var(--gold); }
+    .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; background: none; border: none; color: var(--dark); padding: 0; }
+    @media (max-width: 768px) {
+        .navbar { height: 70px; }
+        .menu-toggle { display: block; }
+        .nav-menu { display: none !important; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; max-height: calc(100vh - 70px); overflow-y: auto; background: var(--white); padding: 20px 18px; box-shadow: var(--shadow); gap: 16px; border-top: 1px solid rgba(0,0,0,0.05); z-index: 1001; }
+        .nav-menu.active { display: flex !important; }
+        .nav-menu li { width: 100%; }
+        .nav-link { width: 100%; white-space: nowrap; padding: 12px 0; }
+    }
+</style>
+
+<header>
+    <div class="container" style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+        <div class="navbar">
+            <a href="index.html" class="logo-brand">
+                <img src="img/logo.png" alt="Jaouhara logo">
+                <span class="logo-text">JAOUHARA</span>
+            </a>
+            <button type="button" class="menu-toggle" id="menuToggle" aria-label="Menu mobile">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link active">Accueil</a></li>
+                <li><a href="apropos.html" class="nav-link">À Propos</a></li>
+                <li><a href="produits.html" class="nav-link">Produits</a></li>
+                <li><a href="realisations.html" class="nav-link">Réalisations</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            navMenu.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            if (icon) {
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-xmark');
+            }
+        });
+        document.addEventListener('click', function(event) {
+            if (!navMenu.contains(event.target) && !menuToggle.contains(event.target)) {
+                navMenu.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                if (icon) {
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-xmark');
+                }
+            }
+        });
+    }
+</script>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>L'Équilibre Parfait Entre <span>Élégance Géométrique</span> & Confort Absolu</h1>
+                <p>Manufacture textile de référence pour les associations, institutions et corporations professionnelles. Nous concevons des uniformes, parures et équipements de haute technicité, optimisés structurellement du S au 5XL.</p>
+                <div class="hero-buttons">
+                    <a href="produits.html" class="btn"><i class="fa-solid fa-compass"></i> Explorer le Catalogue</a>
+                    <a href="contact.html" class="btn btn-outline"><i class="fa-solid fa-paper-plane"></i> Demander une étude</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="stats-bar">
+            <div class="stats-grid">
+                <div class="stat-item"><h3>+15 000</h3><p>Pièces Confectionnées</p></div>
+                <div class="stat-item"><h3>S - 5XL</h3><p>Grille de Tailles</p></div>
+                <div class="stat-item"><h3>100%</h3><p>Fibre Certifiée ISO</p></div>
+                <div class="stat-item"><h3>Marrakech</h3><p>Atelier de Déploiement</p></div>
+            </div>
+        </div>
+    </div>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-title">Nos Piliers de Fabrication</div>
+            <div class="section-subtitle">Une approche scientifique du vêtement pour des performances durables au quotidien.</div>
+            
+            <div class="grid-3">
+                <div class="feature-card">
+                    <i class="fa-solid fa-gem"></i>
+                    <h3>Architecture du Vêtement</h3>
+                    <p>Chaque patron est développé par notre bureau d'études en utilisant des règles de symétrie géométrique rigoureuses. Cela garantit une silhouette valorisante, un tombé net et un alignement parfait des coutures, quelle que soit la morphologie de l'utilisateur final.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-feather-pointed"></i>
+                    <h3>Confort Dynamique</h3>
+                    <p>Nous sélectionnons exclusivement des mélanges de fibres textiles extensibles et respirantes. Testés pour résister à des cycles de travail intensifs de plus de 10 heures, nos modèles éliminent les points de friction et offrent une liberté de mouvement totale sur le terrain.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <h3>Robustesse Industrielle</h3>
+                    <p>Nos articles intègrent des coutures triples renforcées et des traitements de surface hydrophobes et anti-tâches. Ils supportent les lavages industriels à haute température sans perdre leur éclat colorimétrique ni subir de déformation structurelle.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-white">
+        <div class="container">
+            <div class="detailed-row">
+                <div class="detailed-text">
+                    <h2>Une infrastructure technologique au service de vos projets</h2>
+                    <p>Au sein de l'atelier **Jaouhara Mode**, nous fusionnons le savoir-faire de la coupe artisanale avec la puissance des outils numériques de pointe. Équipés de stations de programmation laser et de machines de broderie industrielle automatisées, nous gérons l'intégralité de la chaîne de production.</p>
+                    <p>Cette maîtrise technique nous permet de proposer une personnalisation totale : intégration de logos associatifs complexes, pose de bandes réfléchissantes normées et ajustements sur-mesure pour les commandes groupées.</p>
+                    <ul class="bullet-list">
+                        <li><i class="fa-solid fa-check"></i> Broderie numérique haute définition (fils de résistance supérieure)</li>
+                        <li><i class="fa-solid fa-check"></i> Gestion rigoureuse des tailles inclusives (patronages S jusqu'au 5XL)</li>
+                        <li><i class="fa-solid fa-check"></i> Suivi commercial de proximité via une cellule d'assistance WhatsApp dédiée</li>
+                    </ul>
+                </div>
+                <div>
+                    <img  src="img/Gemini_Generated_Image_7ps9ch7ps9ch7ps9.png" alt="Atelier Jaouhara Technology" >
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-white" style="padding-top: 0;">
+        <div class="container">
+            <div class="section-title">Évaluations de nos partenaires</div>
+            <div class="section-subtitle">Découvrez les retours d'expérience des structures qui nous font confiance.</div>
+            
+            <div class="grid-3">
+                <div class="testimonial-card">
+                    <p>"L'intégration de la gamme d'uniformes Jaouhara Mode a transformé l'image de nos équipes d'accueil. Les retours sur le confort des blouses sont unanimes, même après plusieurs mois d'utilisation intensive."</p>
+                    <div class="user-info">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150" alt="Khadija">
+                        <div><h4>Khadija A.</h4><span>Coordonnatrice d'Association</span></div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Le point fort de cette manufacture est sans conteste le respect rigoureux de la charte graphique et la qualité de la broderie. Les finitions intérieures satinées apportent un confort haut de gamme très apprécié."</p>
+                    <div class="user-info">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150" alt="Youssef">
+                        <div><h4>Youssef M.</h4><span>Directeur d'Établissement</span></div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Disposer d'un fournisseur capable de livrer de vraies grandes tailles (jusqu'au 5XL) avec une coupe aussi moderne et ajustée a résolu tous nos problèmes d'habillement corporate. Service client WhatsApp impeccable."</p>
+                    <div class="user-info">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=150" alt="Amina">
+                        <div><h4>Amina T.</h4><span>Responsable de Parc Logistique</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+    footer { background-color: #111111; color: #ffffff; padding: 80px 0 30px 0; border-top: 4px solid #c5a85c; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 50px; }
+    .footer-col h4 { font-family: 'Cinzel', serif; font-size: 1.1rem; margin-bottom: 25px; color: #c5a85c; letter-spacing: 1px; text-transform: uppercase; }
+    .footer-col p { color: #aaaaaa; font-size: 0.9rem; line-height: 1.6; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 12px; }
+    .footer-col ul li a { color: #aaaaaa; text-decoration: none; transition: 0.2s; font-size: 0.9rem; display: inline-block; }
+    .footer-col ul li a:hover { color: #c5a85c; transform: translateX(5px); }
+    
+    .social-icons { display: flex; gap: 15px; margin-top: 20px; }
+    .social-icon { width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; background-color: rgba(197, 168, 92, 0.15); color: #c5a85c; text-decoration: none; border-radius: 50%; transition: all 0.3s ease; border: 1px solid rgba(197, 168, 92, 0.3); }
+    .social-icon:hover { background-color: #c5a85c; color: #111111; transform: translateY(-3px); }
+    
+    .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); color: #666666; font-size: 0.85rem; letter-spacing: 1px; }
+    @media (max-width: 992px) {
+        .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+        .footer-grid { grid-template-columns: 1fr; }
+    }
+</style>
+
+<footer>
+    <div class="container" style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo-text" style="color:white; margin-bottom:20px; font-size: 1.4rem;">JAOUHARA<span style="color: #c5a85c;">.</span></div>
+                <p>Manufacture de prêt-à-porter haut de gamme et d'habillement professionnel technique. Nous combinons des concepts géométriques avancés et des textiles durables pour équiper les organisations d'excellence.</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/jaouhara.vetements.de.travail" target="_blank" class="social-icon" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/jaouhara_mode12/" target="_blank" class="social-icon" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@coop.jaouhara" target="_blank" class="social-icon" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="https://wa.me/212666394606" target="_blank" class="social-icon" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Accueil Principal</a></li>
+                    <li><a href="apropos.html">Histoire & Vision</a></li>
+                    <li><a href="produits.html">Catalogue Général</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Solutions Pro</h4>
+                <ul>
+                    <li><a href="realisations.html">Galerie Réalisations</a></li>
+                    <li><a href="contact.html">Demande de Devis</a></li>
+                    <li><a href="privacy.html">Politique de Confidentialité</a></li>
+                    <li><a href="policy.html">Conditions Générales</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <p style="font-size:0.85rem; color:#aaa;"><i class="fa-solid fa-location-dot" style="color:#c5a85c;"></i> M'hamid c 206 - Marrakech, Maroc</p>
+                <p style="font-size:0.85rem; color:#aaa; margin-top:10px;"><i class="fa-solid fa-envelope" style="color:#c5a85c;"></i> Cooperativejaouhara7@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Jaouhara Mode. Tous droits réservés. Conception d'Infrastructures Textiles de Précision.</p>
+        </div>
+    </div>
+</footer>
+
+<style>
+  .issam-demo-bar {
+    position: fixed; bottom: 18px; left: 18px; z-index: 99999;
+    display: inline-flex; align-items: center; gap: 10px;
+    background: rgba(2, 6, 23, 0.92); color: #f8fafc;
+    border: 1px solid rgba(56, 189, 248, 0.5); border-radius: 99px;
+    padding: 9px 16px; font-family: system-ui, -apple-system, sans-serif;
+    font-size: 13px; font-weight: 700; text-decoration: none;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.45); backdrop-filter: blur(10px);
+    transition: transform 0.2s;
+  }
+  .issam-demo-bar:hover { transform: translateY(-2px); color: #7dd3fc; }
+  .issam-demo-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; }
+</style>
+<a href="../../index.html#live-demos" class="issam-demo-bar">
+  <span class="issam-demo-dot"></span>
+  ← Back to ISSAM Portfolio (Live Demo)
+</a>
+
+</body>
+</html>

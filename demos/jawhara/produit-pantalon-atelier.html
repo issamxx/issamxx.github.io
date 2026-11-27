@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uniforme Bleu Roi | Jaouhara Mode</title>
+    <meta name="description" content="Uniforme bleu roi intense et elegant. Tissu de qualite pour environnement medical professionnel.">
+    <meta property="og:title" content="Uniforme Bleu Roi | Jaouhara Mode">
+    <meta property="og:description" content="Uniforme bleu roi intense et elegant. Tissu de qualite pour environnement medical professionnel.">
+    <meta property="og:image" content="img/27.png">
+    <meta property="og:type" content="product">
+    <link rel="icon" href="img/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --gold: #c5a85c; --gold-dark: #aa8f46; --dark: #111111;
+            --text-dark: #1f2937; --text-light: #6b7280; --bg-cream: #fbf9f4; --white: #ffffff;
+            --shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--bg-cream); color: var(--text-dark); padding-top: 80px; }
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        header { background-color: var(--white); position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; box-shadow: var(--shadow); border-bottom: 1px solid rgba(197, 168, 92, 0.2); }
+        .navbar { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+        .logo-text { font-family: 'Cinzel', serif; font-size: 1.6rem; color: var(--dark); text-decoration: none; }
+        .logo-text span { color: var(--gold); }
+
+        .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; background: var(--white); padding: 45px; box-shadow: var(--shadow); margin-top: 30px; margin-bottom: 60px; border: 1px solid rgba(197,168,92,0.1); border-radius: 4px; }
+        .main-img { width: 100%; max-height: 520px; object-fit: contain; background-color: #f7f7f7; padding: 20px; border: 1px solid rgba(197,168,92,0.15); border-radius: 4px; }
+        .image-gallery { display: grid; gap: 16px; }
+        .image-nav { display: flex; justify-content: center; gap: 12px; margin-top: 6px; }
+        .gallery-dot { width: 14px; height: 14px; border-radius: 50%; border: 2px solid rgba(197,168,92,0.4); background: #f5f5f5; cursor: pointer; transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease; }
+        .gallery-dot.active { background: var(--gold); border-color: var(--gold-dark); transform: scale(1.1); }
+        
+        .product-title { font-family: 'Cinzel', serif; font-size: 2.2rem; color: var(--dark); font-weight: 700; margin-bottom: 15px; }
+        .product-desc { color: var(--text-light); margin-bottom: 30px; font-size: 0.95rem; text-align: justify; line-height: 1.7; }
+        .product-price { color: var(--gold); font-weight: 700; margin-bottom: 24px; display: block; }
+        
+        .option-group { margin-bottom: 22px; }
+        .option-label { font-weight: 600; margin-bottom: 8px; display: block; font-size: 0.85rem; text-transform: uppercase; color: #333; }
+        .select-input { width: 100%; padding: 12px; border: 1px solid rgba(197,168,92,0.2); background: var(--bg-cream); outline: none; font-weight: 500; }
+        
+        .color-options { display: flex; gap: 12px; }
+        .color-dot { width: 38px; height: 38px; border-radius: 50%; border: 2px solid #ddd; cursor: pointer; transition: 0.2s; }
+        .color-dot.active { border-color: var(--gold); transform: scale(1.1); }
+        
+        .btn-whatsapp { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background-color: #111; color: var(--white); width: 100%; padding: 16px; font-weight: 600; border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 15px; text-decoration: none; transition: background-color 0.25s ease, transform 0.25s ease; }
+        .btn-whatsapp:hover { background-color: #222; transform: translateY(-1px); }
+        .btn-back-link { display: inline-flex; align-items: center; justify-content: center; gap: 10px; color: #111; padding: 14px 16px; border: 1px solid rgba(17,17,17,0.15); background: #fff; text-decoration: none; text-transform: uppercase; letter-spacing: 0.4px; font-weight: 600; margin-top: 12px; width: 100%; transition: background-color 0.25s ease, color 0.25s ease; }
+        .btn-back-link:hover { background-color: rgba(17,17,17,0.05); color: #000; }
+        .btn-back-icon { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: rgba(197,168,92,0.1); color: #111; }
+
+        .tech-table { width: 100%; border-collapse: collapse; margin-top: 30px; }
+        .tech-table th, .tech-table td { padding: 12px; border-bottom: 1px solid #f1f5f9; font-size: 0.85rem; }
+        .tech-table th { font-family: 'Cinzel', serif; background-color: var(--bg-cream); text-align: left; color: var(--dark); }
+
+        .size-chart-box { background: var(--white); padding: 40px; box-shadow: var(--shadow); border: 1px solid rgba(197,168,92,0.1); margin-bottom: 80px; border-radius: 4px; overflow-x: auto; }
+        .size-chart-box h3 { font-family: 'Cinzel', serif; margin-bottom: 20px; text-align: center; }
+        .table-responsive { width: 100%; overflow-x: auto; }
+        .size-table { width: 100%; min-width: 640px; border-collapse: collapse; text-align: center; font-size: 0.9rem; }
+        .size-table th, .size-table td { padding: 12px; border-bottom: 1px solid #eee; white-space: nowrap; }
+        .size-table th { background: var(--dark); color: var(--gold); font-family: 'Cinzel', serif; }
+
+        footer { background-color: var(--dark); color: var(--white); padding: 40px 0; text-align: center; }
+
+        @media (max-width: 992px) {
+            .detail-grid { grid-template-columns: 1fr; padding: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <style>
+    :root {
+        --gold: #c5a85c; --gold-dark: #aa8f46; --dark: #111111; --white: #ffffff;
+        --bg-cream: #fbf9f4; --shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+    header { background-color: var(--white); position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; box-shadow: var(--shadow); border-bottom: 1px solid rgba(197, 168, 92, 0.2); }
+    .navbar { display: flex; justify-content: space-between; align-items: center; height: 80px; position: relative; }
+    .logo-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .logo-brand img { height: 42px; width: auto; display: block; }
+    .logo-text { font-family: 'Cinzel', serif; font-size: 1.6rem; font-weight: 700; color: var(--dark); text-decoration: none; letter-spacing: 2px; }
+    .logo-text span { color: var(--gold); }
+    .nav-menu { display: flex; gap: 25px; list-style: none; }
+    .nav-link { font-weight: 500; color: var(--dark); text-decoration: none; font-size: 0.95rem; transition: 0.3s; padding-bottom: 5px; position: relative; }
+    .nav-link:hover, .nav-link.active { color: var(--gold-dark); }
+    .nav-link.active::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background-color: var(--gold); }
+    .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; background: none; border: none; color: var(--dark); padding: 0; }
+    @media (max-width: 768px) {
+        .navbar { height: 70px; }
+        .menu-toggle { display: block; }
+        .nav-menu { display: none !important; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; max-height: calc(100vh - 70px); overflow-y: auto; background: var(--white); padding: 20px 18px; box-shadow: var(--shadow); gap: 16px; border-top: 1px solid rgba(0,0,0,0.05); z-index: 1001; }
+        .nav-menu.active { display: flex !important; }
+        .nav-menu li { width: 100%; }
+        .nav-link { width: 100%; white-space: nowrap; padding: 12px 0; }
+    }
+</style>
+
+<header>
+    <div class="container" style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+        <div class="navbar">
+            <a href="index.html" class="logo-brand">
+                <img src="img/logo.png" alt="Jaouhara logo">
+                <span class="logo-text">JAOUHARA</span>
+            </a>
+            <button type="button" class="menu-toggle" id="menuToggle" aria-label="Menu mobile">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Accueil</a></li>
+                <li><a href="apropos.html" class="nav-link">À Propos</a></li>
+                <li><a href="produits.html" class="nav-link active">Produits</a></li>
+                <li><a href="realisations.html" class="nav-link">Réalisations</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            navMenu.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            if (icon) {
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-xmark');
+            }
+        });
+        document.addEventListener('click', function(event) {
+            if (!navMenu.contains(event.target) && !menuToggle.contains(event.target)) {
+                navMenu.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                if (icon) {
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-xmark');
+                }
+            }
+        });
+    }
+</script>
+    <main class="container">
+        <div class="detail-grid">
+            <div>
+                <div class="image-gallery">
+                    <img id="productImage" src="img/27.png" alt="Uniforme" class="main-img">
+                                            <div class="image-nav">
+                            <button type="button" class="gallery-dot active" data-img="img/27.png" aria-label="Image principale"></button>
+                            <button type="button" class="gallery-dot" data-img="img2/27.png" aria-label="Image secondaire"></button>
+                        </div>
+                                    </div>
+                
+                <table class="tech-table">
+                    <thead><tr><th colspan="2">Spécifications Mécaniques & Textiles</th></tr></thead>
+                    <tbody>
+                        <tr><td>Structure de Tissage</td><td>Polyester-Coton Haute Ténacité (Anti-déchirure)</td></tr>
+                        <tr><td>Stabilité Dimensionnelle</td><td>Garantie après 60 lavages à haute température</td></tr>
+                        <tr><td>Fils de Broderie</td><td>Fils métallisés et satinés à haute résistance UV</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div>
+                <h1 id="productTitle" class="product-title">Uniforme Bleu Roi</h1>
+                <p class="product-price">240 DH</p>
+                <p class="product-desc">Uniforme bleu roi intense et elegant. Tissu de qualite pour environnement medical professionnel.</p>
+
+                                    <div class="option-group">
+                        <label class="option-label">Variante Structurelle</label>
+                        <select id="selectGender" class="select-input">
+                            <option value="Coupe Femme Cintrée">Coupe Femme Ergonomique (Cintrée)</option>
+                            <option value="Coupe Homme Droite">Coupe Homme Droite (Standard)</option>
+                        </select>
+                    </div>
+
+                    <div class="option-group">
+                        <label class="option-label">Taille (Optimisation Inclusive)</label>
+                        <select id="selectSize" class="select-input">
+                            <option value="S">S (36-38)</option><option value="M">M (40-42)</option>
+                            <option value="L">L (44-46)</option><option value="XL">XL (48-50)</option>
+                            <option value="XXL">XXL (52-54)</option><option value="3XL">3XL (56-58)</option>
+                            <option value="4XL">4XL (60-62)</option><option value="5XL">5XL (64-66)</option>
+                        </select>
+                    </div>
+
+                    <a id="btnOrder" href="#" target="_blank" class="btn-whatsapp">
+                        <i class="fa-solid fa-cart-shopping"></i> Acheter maintenant
+                    </a>
+                    <a href="produits.html" class="btn-back-link">
+                        <span class="btn-back-icon"><i class="fa-solid fa-house"></i></span>
+                        Retour à la boutique
+                    </a>
+                            </div>
+        </div>
+
+        <div class="size-chart-box">
+            <h3>Grille des Tailles Officielles (S à 5XL)</h3>
+            <div class="table-responsive">
+                <table class="size-table">
+                    <thead>
+                        <tr><th>Taille</th><th>Tour de Poitrine (cm)</th><th>Tour de Taille (cm)</th><th>Stature Recommandée</th></tr>
+                    </thead>
+                <tbody>
+                    <tr><td>S / M</td><td>88 - 96</td><td>76 - 84</td><td>165 - 175 cm</td></tr>
+                    <tr><td>L / XL</td><td>100 - 108</td><td>88 - 96</td><td>175 - 180 cm</td></tr>
+                    <tr><td>XXL / 3XL</td><td>112 - 120</td><td>100 - 108</td><td>180 - 185 cm</td></tr>
+                    <tr><td>4XL / 5XL</td><td>124 - 132</td><td>112 - 120</td><td>185 - 190 cm+</td></tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </main>
+
+    <style>
+    footer { background-color: #111111; color: #ffffff; padding: 80px 0 30px 0; border-top: 4px solid #c5a85c; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 50px; }
+    .footer-col h4 { font-family: 'Cinzel', serif; font-size: 1.1rem; margin-bottom: 25px; color: #c5a85c; letter-spacing: 1px; text-transform: uppercase; }
+    .footer-col p { color: #aaaaaa; font-size: 0.9rem; line-height: 1.6; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 12px; }
+    .footer-col ul li a { color: #aaaaaa; text-decoration: none; transition: 0.2s; font-size: 0.9rem; display: inline-block; }
+    .footer-col ul li a:hover { color: #c5a85c; transform: translateX(5px); }
+    
+    .social-icons { display: flex; gap: 15px; margin-top: 20px; }
+    .social-icon { width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; background-color: rgba(197, 168, 92, 0.15); color: #c5a85c; text-decoration: none; border-radius: 50%; transition: all 0.3s ease; border: 1px solid rgba(197, 168, 92, 0.3); }
+    .social-icon:hover { background-color: #c5a85c; color: #111111; transform: translateY(-3px); }
+    
+    .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); color: #666666; font-size: 0.85rem; letter-spacing: 1px; }
+    @media (max-width: 992px) {
+        .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+        .footer-grid { grid-template-columns: 1fr; }
+    }
+</style>
+
+<footer>
+    <div class="container" style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo-text" style="color:white; margin-bottom:20px; font-size: 1.4rem;">JAOUHARA<span style="color: #c5a85c;">.</span></div>
+                <p>Manufacture de prêt-à-porter haut de gamme et d'habillement professionnel technique. Nous combinons des concepts géométriques avancés et des textiles durables pour équiper les organisations d'excellence.</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/jaouhara.vetements.de.travail" target="_blank" class="social-icon" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/jaouhara_mode12/" target="_blank" class="social-icon" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@coop.jaouhara" target="_blank" class="social-icon" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="https://wa.me/212666394606" target="_blank" class="social-icon" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Accueil Principal</a></li>
+                    <li><a href="apropos.html">Histoire & Vision</a></li>
+                    <li><a href="produits.html">Catalogue Général</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Solutions Pro</h4>
+                <ul>
+                    <li><a href="realisations.html">Galerie Réalisations</a></li>
+                    <li><a href="contact.html">Demande de Devis</a></li>
+                    <li><a href="privacy.html">Politique de Confidentialité</a></li>
+                    <li><a href="policy.html">Conditions Générales</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <p style="font-size:0.85rem; color:#aaa;"><i class="fa-solid fa-location-dot" style="color:#c5a85c;"></i> M'hamid c 206 - Marrakech, Maroc</p>
+                <p style="font-size:0.85rem; color:#aaa; margin-top:10px;"><i class="fa-solid fa-envelope" style="color:#c5a85c;"></i> Cooperativejaouhara7@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Jaouhara Mode. Tous droits réservés. Conception d'Infrastructures Textiles de Précision.</p>
+        </div>
+    </div>
+</footer>
+
+    <script>
+        const galleryDots = document.querySelectorAll('.gallery-dot');
+        const selectGender = document.getElementById('selectGender');
+        const selectSize = document.getElementById('selectSize');
+        const orderButton = document.getElementById('btnOrder');
+
+        galleryDots.forEach(g => {
+            g.addEventListener('click', function() {
+                galleryDots.forEach(o => o.classList.remove('active'));
+                this.classList.add('active');
+                document.getElementById('productImage').src = this.getAttribute('data-img');
+            });
+        });
+
+        function updateLink() {
+            if (!orderButton) return;
+            const title = document.getElementById('productTitle').textContent;
+            const cut = selectGender ? selectGender.value : '';
+            const size = selectSize ? selectSize.value : '';
+            const msg = `Bonjour Jaouhara Mode, je souhaite configurer un modèle :\n• Article : ${title}\n• Option : ${cut}\n• Taille : ${size}`;
+            orderButton.href = `https://wa.me/212666394606?text=${encodeURIComponent(msg)}`;
+        }
+
+        if (selectGender) selectGender.addEventListener('change', updateLink);
+        if (selectSize) selectSize.addEventListener('change', updateLink);
+        window.onload = updateLink;
+    </script>
+
+<style>
+  .issam-demo-bar {
+    position: fixed; bottom: 18px; left: 18px; z-index: 99999;
+    display: inline-flex; align-items: center; gap: 10px;
+    background: rgba(2, 6, 23, 0.92); color: #f8fafc;
+    border: 1px solid rgba(56, 189, 248, 0.5); border-radius: 99px;
+    padding: 9px 16px; font-family: system-ui, -apple-system, sans-serif;
+    font-size: 13px; font-weight: 700; text-decoration: none;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.45); backdrop-filter: blur(10px);
+    transition: transform 0.2s;
+  }
+  .issam-demo-bar:hover { transform: translateY(-2px); color: #7dd3fc; }
+  .issam-demo-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; }
+</style>
+<a href="../../index.html#live-demos" class="issam-demo-bar">
+  <span class="issam-demo-dot"></span>
+  ← Back to ISSAM Portfolio (Live Demo)
+</a>
+
+</body>
+</html>

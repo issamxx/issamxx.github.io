@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaouhara Mode | Conditions Générales</title>
+    <meta name="description" content="Conditions générales et politiques de Jaouhara Mode concernant l'utilisation du site et des services.">
+    <link rel="icon" href="img/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --gold: #c5a85c; --dark: #111111; --text-dark: #1f2937; --bg-cream: #fbf9f4; --white: #ffffff; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background: var(--bg-cream); color: var(--text-dark); padding-top: 80px; }
+        .container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 20px 60px; }
+        .page-title { font-family: 'Cinzel', serif; font-size: 2.6rem; margin-bottom: 20px; color: var(--dark); text-align: center; }
+        .page-subtitle { text-align: center; color: #6b7280; margin-bottom: 30px; font-size: 1rem; }
+        .content-block { background: #fff; padding: 35px; border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.06); border: 1px solid rgba(197,168,92,0.12); }
+        .content-block h2 { font-family: 'Cinzel', serif; color: #111; margin-top: 30px; margin-bottom: 15px; }
+        .content-block p, .content-block li { line-height: 1.8; color: #4b5563; margin-bottom: 16px; }
+        .content-block ul { list-style: disc inside; margin-left: 0; margin-bottom: 24px; }
+        .content-block li { margin-bottom: 12px; }
+        .back-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; color: var(--dark); text-decoration: none; font-weight: 600; }
+        .back-link:hover { color: var(--gold); }
+    </style>
+</head>
+<body>
+    <style>
+    :root {
+        --gold: #c5a85c; --gold-dark: #aa8f46; --dark: #111111; --white: #ffffff;
+        --bg-cream: #fbf9f4; --shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+    header { background-color: var(--white); position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; box-shadow: var(--shadow); border-bottom: 1px solid rgba(197, 168, 92, 0.2); }
+    .navbar { display: flex; justify-content: space-between; align-items: center; height: 80px; position: relative; }
+    .logo-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .logo-brand img { height: 42px; width: auto; display: block; }
+    .logo-text { font-family: 'Cinzel', serif; font-size: 1.6rem; font-weight: 700; color: var(--dark); text-decoration: none; letter-spacing: 2px; }
+    .logo-text span { color: var(--gold); }
+    .nav-menu { display: flex; gap: 25px; list-style: none; }
+    .nav-link { font-weight: 500; color: var(--dark); text-decoration: none; font-size: 0.95rem; transition: 0.3s; padding-bottom: 5px; position: relative; }
+    .nav-link:hover, .nav-link.active { color: var(--gold-dark); }
+    .nav-link.active::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background-color: var(--gold); }
+    .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; background: none; border: none; color: var(--dark); padding: 0; }
+    @media (max-width: 768px) {
+        .navbar { height: 70px; }
+        .menu-toggle { display: block; }
+        .nav-menu { display: none !important; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; max-height: calc(100vh - 70px); overflow-y: auto; background: var(--white); padding: 20px 18px; box-shadow: var(--shadow); gap: 16px; border-top: 1px solid rgba(0,0,0,0.05); z-index: 1001; }
+        .nav-menu.active { display: flex !important; }
+        .nav-menu li { width: 100%; }
+        .nav-link { width: 100%; white-space: nowrap; padding: 12px 0; }
+    }
+</style>
+
+<header>
+    <div class="container" style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+        <div class="navbar">
+            <a href="index.html" class="logo-brand">
+                <img src="img/logo.png" alt="Jaouhara logo">
+                <span class="logo-text">JAOUHARA</span>
+            </a>
+            <button type="button" class="menu-toggle" id="menuToggle" aria-label="Menu mobile">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Accueil</a></li>
+                <li><a href="apropos.html" class="nav-link">À Propos</a></li>
+                <li><a href="produits.html" class="nav-link">Produits</a></li>
+                <li><a href="realisations.html" class="nav-link">Réalisations</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            navMenu.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            if (icon) {
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-xmark');
+            }
+        });
+        document.addEventListener('click', function(event) {
+            if (!navMenu.contains(event.target) && !menuToggle.contains(event.target)) {
+                navMenu.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                if (icon) {
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-xmark');
+                }
+            }
+        });
+    }
+</script>    <main class="container">
+        <h1 class="page-title">Conditions Générales</h1>
+        <p class="page-subtitle">Découvrez les règles d'utilisation de notre site et notre politique de service.</p>
+        <div class="content-block">
+            <h2>Utilisation du site</h2>
+            <p>Ce site est destiné à présenter nos produits et services de confection professionnelle. L'utilisateur s'engage à naviguer de bonne foi et à respecter les lois applicables.</p>
+            <h2>Propriété intellectuelle</h2>
+            <p>Tous les contenus, images, textes, logos et documents présents sur ce site sont la propriété de Jaouhara Mode ou de leurs auteurs respectifs. Toute reproduction sans autorisation est interdite.</p>
+            <h2>Responsabilité</h2>
+            <p>Jaouhara Mode met tout en œuvre pour fournir des informations fiables, mais ne peut garantir l'absence d'erreurs ni être tenu responsable des conséquences d'une utilisation des informations présentes sur ce site.</p>
+            <h2>Commande et service</h2>
+            <p>Les commandes s'effectuent par contact via WhatsApp ou email. Les délais, prix et conditions sont confirmés au moment de la validation du devis avec notre équipe.</p>
+            <h2>Modification</h2>
+            <p>Jaouhara Mode se réserve le droit de modifier ces conditions à tout moment. Les utilisateurs sont invités à consulter régulièrement cette page pour prendre connaissance des éventuelles mises à jour.</p>
+            <a href="index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Retour à l'accueil</a>
+        </div>
+    </main>
+    <style>
+    footer { background-color: #111111; color: #ffffff; padding: 80px 0 30px 0; border-top: 4px solid #c5a85c; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 50px; }
+    .footer-col h4 { font-family: 'Cinzel', serif; font-size: 1.1rem; margin-bottom: 25px; color: #c5a85c; letter-spacing: 1px; text-transform: uppercase; }
+    .footer-col p { color: #aaaaaa; font-size: 0.9rem; line-height: 1.6; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 12px; }
+    .footer-col ul li a { color: #aaaaaa; text-decoration: none; transition: 0.2s; font-size: 0.9rem; display: inline-block; }
+    .footer-col ul li a:hover { color: #c5a85c; transform: translateX(5px); }
+    
+    .social-icons { display: flex; gap: 15px; margin-top: 20px; }
+    .social-icon { width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; background-color: rgba(197, 168, 92, 0.15); color: #c5a85c; text-decoration: none; border-radius: 50%; transition: all 0.3s ease; border: 1px solid rgba(197, 168, 92, 0.3); }
+    .social-icon:hover { background-color: #c5a85c; color: #111111; transform: translateY(-3px); }
+    
+    .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); color: #666666; font-size: 0.85rem; letter-spacing: 1px; }
+    @media (max-width: 992px) {
+        .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+        .footer-grid { grid-template-columns: 1fr; }
+    }
+</style>
+
+<footer>
+    <div class="container" style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo-text" style="color:white; margin-bottom:20px; font-size: 1.4rem;">JAOUHARA<span style="color: #c5a85c;">.</span></div>
+                <p>Manufacture de prêt-à-porter haut de gamme et d'habillement professionnel technique. Nous combinons des concepts géométriques avancés et des textiles durables pour équiper les organisations d'excellence.</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/jaouhara.vetements.de.travail" target="_blank" class="social-icon" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/jaouhara_mode12/" target="_blank" class="social-icon" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@coop.jaouhara" target="_blank" class="social-icon" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="https://wa.me/212666394606" target="_blank" class="social-icon" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Accueil Principal</a></li>
+                    <li><a href="apropos.html">Histoire & Vision</a></li>
+                    <li><a href="produits.html">Catalogue Général</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Solutions Pro</h4>
+                <ul>
+                    <li><a href="realisations.html">Galerie Réalisations</a></li>
+                    <li><a href="contact.html">Demande de Devis</a></li>
+                    <li><a href="privacy.html">Politique de Confidentialité</a></li>
+                    <li><a href="policy.html">Conditions Générales</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <p style="font-size:0.85rem; color:#aaa;"><i class="fa-solid fa-location-dot" style="color:#c5a85c;"></i> M'hamid c 206 - Marrakech, Maroc</p>
+                <p style="font-size:0.85rem; color:#aaa; margin-top:10px;"><i class="fa-solid fa-envelope" style="color:#c5a85c;"></i> Cooperativejaouhara7@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Jaouhara Mode. Tous droits réservés. Conception d'Infrastructures Textiles de Précision.</p>
+        </div>
+    </div>
+</footer>
+
+<style>
+  .issam-demo-bar {
+    position: fixed; bottom: 18px; left: 18px; z-index: 99999;
+    display: inline-flex; align-items: center; gap: 10px;
+    background: rgba(2, 6, 23, 0.92); color: #f8fafc;
+    border: 1px solid rgba(56, 189, 248, 0.5); border-radius: 99px;
+    padding: 9px 16px; font-family: system-ui, -apple-system, sans-serif;
+    font-size: 13px; font-weight: 700; text-decoration: none;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.45); backdrop-filter: blur(10px);
+    transition: transform 0.2s;
+  }
+  .issam-demo-bar:hover { transform: translateY(-2px); color: #7dd3fc; }
+  .issam-demo-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; }
+</style>
+<a href="../../index.html#live-demos" class="issam-demo-bar">
+  <span class="issam-demo-dot"></span>
+  ← Back to ISSAM Portfolio (Live Demo)
+</a>
+
+</body>
+</html>

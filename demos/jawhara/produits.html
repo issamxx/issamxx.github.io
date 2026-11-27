@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaouhara Mode | Catalogue Officiel Vetements Professionnels</title>
+    <meta name="description" content="Parcourez le catalogue Jaouhara Mode : blouses, ensembles médicaux et vêtements de visibilité fabriqués pour le confort, la sécurité et le style professionnel.">
+    <meta property="og:title" content="Jaouhara Mode | Catalogue Officiel Vetements Professionnels">
+    <meta property="og:description" content="Parcourez le catalogue Jaouhara Mode : blouses, ensembles médicaux et vêtements de visibilité fabriqués pour le confort, la sécurité et le style professionnel.">
+    <meta property="og:image" content="img/logo.png">
+    <link rel="icon" href="img/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --gold: #c5a85c;
+            --gold-dark: #aa8f46;
+            --dark: #111111;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-cream: #fbf9f4;
+            --white: #ffffff;
+            --shadow-fixed: 0 10px 30px rgba(0,0,0,0.04);
+            --border-gold: rgba(197, 168, 92, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            padding-top: 80px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero-section {
+            text-align: center;
+            margin: 50px 0 40px 0;
+        }
+
+        .page-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.8rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .page-subtitle {
+            color: var(--text-light);
+            font-size: 1rem;
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        /* Filters removed: unified product list shown */
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 35px;
+            margin-bottom: 90px;
+        }
+
+        .product-card {
+            background: var(--white);
+            border: 1px solid rgba(197, 168, 92, 0.1);
+            overflow: hidden;
+            box-shadow: var(--shadow-fixed);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        .product-image-holder {
+            position: relative;
+            height: 340px;
+            background-color: #f7f7f7;
+            overflow: hidden;
+            padding: 16px;
+        }
+
+        .product-image-holder img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.4s ease;
+        }
+
+        .product-card:hover .product-image-holder img {
+            transform: scale(1.02);
+        }
+
+        .product-details {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            background: var(--white);
+            border-top: 1px solid rgba(0, 0, 0, 0.02);
+        }
+
+        .product-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .product-description {
+            color: var(--text-light);
+            font-size: 0.92rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            flex-grow: 1;
+            text-align: justify;
+        }
+
+        .product-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 15px;
+            border-top: 1px dashed rgba(197, 168, 92, 0.2);
+        }
+
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .product-price span {
+            color: var(--gold);
+            font-size: 0.9rem;
+            margin-left: 2px;
+        }
+
+        .action-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 12px 20px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .product-card { cursor: pointer; }
+        .product-card:hover { box-shadow: 0 15px 40px rgba(0,0,0,0.08); }
+        .action-link:hover {
+            background-color: var(--gold);
+            color: var(--dark);
+        }
+
+        @media (max-width: 768px) {
+            /* Responsive adjustments retained for product cards */
+        }
+    </style>
+</head>
+<body>
+
+    <style>
+    :root {
+        --gold: #c5a85c; --gold-dark: #aa8f46; --dark: #111111; --white: #ffffff;
+        --bg-cream: #fbf9f4; --shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+    header { background-color: var(--white); position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; box-shadow: var(--shadow); border-bottom: 1px solid rgba(197, 168, 92, 0.2); }
+    .navbar { display: flex; justify-content: space-between; align-items: center; height: 80px; position: relative; }
+    .logo-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .logo-brand img { height: 42px; width: auto; display: block; }
+    .logo-text { font-family: 'Cinzel', serif; font-size: 1.6rem; font-weight: 700; color: var(--dark); text-decoration: none; letter-spacing: 2px; }
+    .logo-text span { color: var(--gold); }
+    .nav-menu { display: flex; gap: 25px; list-style: none; }
+    .nav-link { font-weight: 500; color: var(--dark); text-decoration: none; font-size: 0.95rem; transition: 0.3s; padding-bottom: 5px; position: relative; }
+    .nav-link:hover, .nav-link.active { color: var(--gold-dark); }
+    .nav-link.active::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background-color: var(--gold); }
+    .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; background: none; border: none; color: var(--dark); padding: 0; }
+    @media (max-width: 768px) {
+        .navbar { height: 70px; }
+        .menu-toggle { display: block; }
+        .nav-menu { display: none !important; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; max-height: calc(100vh - 70px); overflow-y: auto; background: var(--white); padding: 20px 18px; box-shadow: var(--shadow); gap: 16px; border-top: 1px solid rgba(0,0,0,0.05); z-index: 1001; }
+        .nav-menu.active { display: flex !important; }
+        .nav-menu li { width: 100%; }
+        .nav-link { width: 100%; white-space: nowrap; padding: 12px 0; }
+    }
+</style>
+
+<header>
+    <div class="container" style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+        <div class="navbar">
+            <a href="index.html" class="logo-brand">
+                <img src="img/logo.png" alt="Jaouhara logo">
+                <span class="logo-text">JAOUHARA</span>
+            </a>
+            <button type="button" class="menu-toggle" id="menuToggle" aria-label="Menu mobile">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Accueil</a></li>
+                <li><a href="apropos.html" class="nav-link">À Propos</a></li>
+                <li><a href="produits.html" class="nav-link active">Produits</a></li>
+                <li><a href="realisations.html" class="nav-link">Réalisations</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            navMenu.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            if (icon) {
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-xmark');
+            }
+        });
+        document.addEventListener('click', function(event) {
+            if (!navMenu.contains(event.target) && !menuToggle.contains(event.target)) {
+                navMenu.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                if (icon) {
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-xmark');
+                }
+            }
+        });
+    }
+</script>
+    <main class="container">
+        
+        <section class="hero-section">
+            <h1 class="page-title">Nos Collections</h1>
+            <p class="page-subtitle">Decouvrez notre gamme de vetements professionnels de haute qualite, alliant protection rigoureuse, confort durable et elegance.</p>
+        </section>
+
+        <!-- Filter buttons removed: showing all products in a single list -->
+
+        
+        <div class="products-grid" id="shopGrid">
+                            <div class="product-card" data-category="blouses" data-link="produit-blouse-signature.html">
+                    <div class="product-image-holder">
+                        <img src="img/1.png" alt="Tablier">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">Tablier Noir &amp; Nœud Papillon</h3>
+                        <p class="product-description">Tablier professionnel noir elegant avec nœud papillon coordonne. Ideal pour la restauration et l accueil avec style traditionnel et sophistique.</p>
+                        <div class="product-meta">
+                            <p class="product-price">149.99 <span>DH</span></p>
+                            <a href="produit-blouse-signature.html" class="action-link" target="_blank">
+                                Detailles <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                            <div class="product-card" data-category="ensembles" data-link="produit-combinaison-elite.html">
+                    <div class="product-image-holder">
+                        <img src="img/2.png" alt="Ensemble">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">Ensemble Vert Sapin</h3>
+                        <p class="product-description">Ensemble medical elegant de couleur vert sapin. Coupe professionnelle confortable avec finitions de qualite pour environnement medical.</p>
+                        <div class="product-meta">
+                            <p class="product-price">340 <span>DH</span></p>
+                            <a href="produit-combinaison-elite.html" class="action-link" target="_blank">
+                                Detailles <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                            <div class="product-card" data-category="visibilite" data-link="produit-gilet-provis.html">
+                    <div class="product-image-holder">
+                        <img src="img/3.png" alt="Veste">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">Veste Cuisine Blanche</h3>
+                        <p class="product-description">Veste de cuisine blanche professionnelle. Tissu resistant aux taches et aux eclaboussures, facile d entretien et hygenique.</p>
+                        <div class="product-meta">
+                            <p class="product-price">99.99 <span>DH</span></p>
+                            <a href="produit-gilet-provis.html" class="action-link" target="_blank">
+                                Detailles <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                            <div class="product-card" data-category="blouses" data-link="produit-tunique-luxe.html">
+                    <div class="product-image-holder">
+                        <img src="img/4.png" alt="Ensemble">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">Ensemble Rose &amp; Gris</h3>
+                        <p class="product-description">Ensemble medical harmonieux combinant le rose et le gris. Coupe elegante et confortable pour les professionnels de sante.</p>
+                        <div class="product-meta">
+                            <p class="product-price">220 <span>DH</span></p>
+                            <a href="produit-tunique-luxe.html" class="action-link" target="_blank">
+                                Detailles <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                            <div class="product-card" data-category="ensembles" data-link="produit-veste-canvas.html">
+                    <div class="product-image-holder">
+                        <img src="img/5.png" alt="Tenue">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">Tenue Médicale Fleurs Rouges</h3>
+                        <p class="product-description">Tenue medicale avec motif fleuri en rouge elegant. Tissu doux et confortable ideal pour environnement medical.</p>
+                        <div class="product-meta">
+                            <p class="product-price">280 <span>DH</span></p>
+                            <a href="produit-veste-canvas.html" class="action-link" target="_blank">
+                                Detailles <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                            <div class="product-card" data-category="visibilite" data-link="produit-parka-fluo.html">
+                    <div class="product-image-holder">
+                        <img src="img/6.png" alt="Ensemble">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">Ensemble Fuchsia Asymétrique</h3>
+                        <p class="product-description">Ensemble medical fuchsia avec coupe asymetrique moderne. Tissu confortable et elegance pour un look professionnel distingue.</p>
+                        <div class="product-meta">
+                            <p class="product-price">450 <span>DH</span></p>
+                            <a href="produit-parka-fluo.html" class="action-link" target="_blank">
+                                Detailles <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                            <div class="product-card" data-category="blouses" data-link="produit-blouse-comfort.html">
+                    <div class="product-image-holder">
+                        <img src="img/7.png" alt="Tenue">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">Tenue Noire &amp; Jaune</h3>
+                        <p class="product-description">Tenue medicale elegante en noir et jaune. Combinaison de couleurs contrastees pour un look moderne et professionnel.</p>
+                        <div class="product-meta">
+                            <p class="product-price">175 <span>DH</span></p>
+                            <a href="produit-blouse-comfort.html" class="action-link" target="_blank">
+                                Detailles <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                            <div class="product-card" data-category="blouses" data-link="produit-chemise-pure.html">
+                    <div class="product-image-holder">
+                        <img src="img/8.png" alt="Ensemble">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">Ensemble Gris à Fleurs</h3>
+                        <p class="product-description">Ensemble medical gris agremente de motifs floraux delicats. Coupe confortable et elegante pour professionnels de sante.</p>
+                        <div class="product-meta">
+                            <p class="product-price">165 <span>DH</span></p>
+                            <a href="produit-chemise-pure.html" class="action-link" target="_blank">
+                                Detailles <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                            <div class="product-card" data-category="blouses" data-link="produit-tunique-active.html">
+                    <div class="product-image-holder">
+                        <img src="img/9.png" alt="Haut">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">Haut Blanc Motifs Noirs</h3>
+                        <p class="product-description">Haut blanc elegant avec motifs noirs distingues. Ideal pour environnement medical avec style epure et professionnel.</p>
+                        <div class="product-meta">
+                            <p class="product-price">200 <span>DH</span></p>
+                            <a href="produit-tunique-active.html" class="action-link" target="_blank">
+                                Detailles <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                            <div class="product-card" data-category="blouses" data-link="produit-blouse-spa.html">
+                    <div class="product-image-holder">
+                        <img src="img/9.png" alt="Haut">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">Haut Blanc Motifs Noirs</h3>
+                        <p class="product-description">Haut blanc elegance avec motifs noirs sophistiques. Parfait pour environnement medical avec qualite et confort optimaux.</p>
+                        <div class="product-meta">
+                            <p class="product-price">210 <span>DH</span></p>
+                            <a href="produit-blouse-spa.html" class="action-link" target="_blank">
+                                Detailles <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                            <div class="product-card" data-category="ensembles" data-link="produit-ensemble-modular.html">
+                    <div class="product-image-holder">
+                        <img src="img/10.png" alt="Ensemble">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">Ensemble Bordeaux Asymétrique</h3>
+                        <p class="product-description">Ensemble medical bordeaux a coupe asymetrique moderne. Tissu confortable avec finitions elegantes pour look professionnel.</p>
+                        <div class="product-meta">
+                            <p class="product-price">360 <span>DH</span></p>
+                            <a href="produit-ensemble-modular.html" class="action-link" target="_blank">
+                                Detailles <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                            <div class="product-card" data-category="ensembles" data-link="produit-salopette-hydra.html">
+                    <div class="product-image-holder">
+                        <img src="img/11.png" alt="Tenue">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">Tenue Médicale Bleue Motifs</h3>
+                        <p class="product-description">Tenue medicale bleue avec motifs elegants et distincts. Confortable et pratique pour professionnels de sante modernes.</p>
+                        <div class="product-meta">
+                            <p class="product-price">310 <span>DH</span></p>
+                            <a href="produit-salopette-hydra.html" class="action-link" target="_blank">
+                                Detailles <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                            <div class="product-card" data-category="ensembles" data-link="produit-ensemble-ultra.html">
+                    <div class="product-image-holder">
+                        <img src="img/12.png" alt="Ensemble">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">Ensemble Camouflage</h3>
+                        <p class="product-description">Ensemble de travail motif camouflage robuste et fonctionnel. Ideal pour metiers exigeant resistant et praticite.</p>
+                        <div class="product-meta">
+                            <p class="product-price">390 <span>DH</span></p>
+                            <a href="produit-ensemble-ultra.html" class="action-link" target="_blank">
+                                Detailles <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                            <div class="product-card" data-category="visibilite" data-link="produit-gilet-route-360.html">
+                    <div class="product-image-holder">
+                        <img src="img/13.png" alt="Ensemble">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">Gilet Rouge &amp; Pantalon Noir</h3>
+                        <p class="product-description">Ensemble professionnel avec gilet rouge vif et pantalon noir. Combinaison elegante et contrastee pour look moderne.</p>
+                        <div class="product-meta">
+                            <p class="product-price">95 <span>DH</span></p>
+                            <a href="produit-gilet-route-360.html" class="action-link" target="_blank">
+                                Detailles <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                            <div class="product-card" data-category="visibilite" data-link="produit-blouson-nuit.html">
+                    <div class="product-image-holder">
+                        <img src="img/14.png" alt="Pack">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">Pack 3 Tenues Médicales</h3>
+                        <p class="product-description">Pack economique contenant 3 tenues medicales assorties. Solution pratique pour constitution d une garde-robe professionnelle.</p>
+                        <div class="product-meta">
+                            <p class="product-price">305 <span>DH</span></p>
+                            <a href="produit-blouson-nuit.html" class="action-link" target="_blank">
+                                Detailles <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                            <div class="product-card" data-category="visibilite" data-link="produit-veste-antibuee.html">
+                    <div class="product-image-holder">
+                        <img src="img/15.png" alt="Veste">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">Veste Blanche Bande Colorée</h3>
+                        <p class="product-description">Veste blanche profesionnelle avec bande de couleur distinctive. Elegante avec details soignes pour environnement medical.</p>
+                        <div class="product-meta">
+                            <p class="product-price">415 <span>DH</span></p>
+                            <a href="produit-veste-antibuee.html" class="action-link" target="_blank">
+                                Detailles <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                            <div class="product-card" data-category="blouses" data-link="produit-tunique-flex.html">
+                    <div class="product-image-holder">
+                        <img src="img/16.png" alt="Veste">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">Veste Noire Détails Rouges</h3>
+                        <p class="product-description">Veste noire elegante avec details en rouge vif. Style moderne et professionnel ideal pour environnement medical.</p>
+                        <div class="product-meta">
+                            <p class="product-price">185 <span>DH</span></p>
+                            <a href="produit-tunique-flex.html" class="action-link" target="_blank">
+                                Detailles <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                            <div class="product-card" data-category="blouses" data-link="produit-blouse-dentiste.html">
+                    <div class="product-image-holder">
+                        <img src="img/17.png" alt="Veste">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">Veste Noire Liseré Blanc</h3>
+                        <p class="product-description">Veste noire de qualite avec liseré blanc elegant. Finition soignee pour look professionnel distingue.</p>
+                        <div class="product-meta">
+                            <p class="product-price">205 <span>DH</span></p>
+                            <a href="produit-blouse-dentiste.html" class="action-link" target="_blank">
+                                Detailles <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                            <div class="product-card" data-category="blouses" data-link="produit-tunique-dentiste.html">
+                    <div class="product-image-holder">
+                        <img src="img/18.png" alt="Ensemble">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">Ensemble Bleu Marine Asymétrique</h3>
+                        <p class="product-description">Ensemble medical bleu marine avec coupe asymetrique elegante. Confortable et moderne pour professionnels sante.</p>
+                        <div class="product-meta">
+                            <p class="product-price">210 <span>DH</span></p>
+                            <a href="produit-tunique-dentiste.html" class="action-link" target="_blank">
+                                Detailles <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                            <div class="product-card" data-category="blouses" data-link="produit-uniforme-spa.html">
+                    <div class="product-image-holder">
+                        <img src="img/19.png" alt="Ensemble">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">Ensemble Bleu Marine</h3>
+                        <p class="product-description">Ensemble medical bleu marine classique et intemporel. Coupe confortable et elegante pour professionnels sante.</p>
+                        <div class="product-meta">
+                            <p class="product-price">215 <span>DH</span></p>
+                            <a href="produit-uniforme-spa.html" class="action-link" target="_blank">
+                                Detailles <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                            <div class="product-card" data-category="ensembles" data-link="produit-ensemble-sport-pro.html">
+                    <div class="product-image-holder">
+                        <img src="img/20.png" alt="Tunique">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">Tunique Bordeaux Longue</h3>
+                        <p class="product-description">Tunique longue en bordeaux elegant et intemporel. Coupe comfortable ideal pour environnement medical.</p>
+                        <div class="product-meta">
+                            <p class="product-price">330 <span>DH</span></p>
+                            <a href="produit-ensemble-sport-pro.html" class="action-link" target="_blank">
+                                Detailles <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                            <div class="product-card" data-category="ensembles" data-link="produit-veste-flash.html">
+                    <div class="product-image-holder">
+                        <img src="img/21.png" alt="Ensemble">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">Ensemble Marron Boutonné</h3>
+                        <p class="product-description">Ensemble marron classe avec boutons coordonnes. Style elegant et professionnel pour environnement medical.</p>
+                        <div class="product-meta">
+                            <p class="product-price">295 <span>DH</span></p>
+                            <a href="produit-veste-flash.html" class="action-link" target="_blank">
+                                Detailles <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                            <div class="product-card" data-category="ensembles" data-link="produit-ensemble-matrix.html">
+                    <div class="product-image-holder">
+                        <img src="img/22.png" alt="Tenue">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">Haut Gris &amp; Pantalon Violet</h3>
+                        <p class="product-description">Tenue medicale combinant haut gris et pantalon violet. Harmonie de couleurs pour look moderne et professionnel.</p>
+                        <div class="product-meta">
+                            <p class="product-price">370 <span>DH</span></p>
+                            <a href="produit-ensemble-matrix.html" class="action-link" target="_blank">
+                                Detailles <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                            <div class="product-card" data-category="blouses" data-link="produit-blouse-cuisine.html">
+                    <div class="product-image-holder">
+                        <img src="img/23.png" alt="Veste">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">Veste Blanche Col Tricolore</h3>
+                        <p class="product-description">Veste blanche elegante avec col tricolore distingue. Details raffines pour look professionnel et moderne.</p>
+                        <div class="product-meta">
+                            <p class="product-price">180 <span>DH</span></p>
+                            <a href="produit-blouse-cuisine.html" class="action-link" target="_blank">
+                                Detailles <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                            <div class="product-card" data-category="blouses" data-link="produit-blouse-antitaches.html">
+                    <div class="product-image-holder">
+                        <img src="img/24.png" alt="Veste">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">Veste Cuisine Bordeaux</h3>
+                        <p class="product-description">Veste de cuisine en bordeaux riche et elegant. Tissu resistant aux taches et aux eclaboussures.</p>
+                        <div class="product-meta">
+                            <p class="product-price">198 <span>DH</span></p>
+                            <a href="produit-blouse-antitaches.html" class="action-link" target="_blank">
+                                Detailles <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                            <div class="product-card" data-category="blouses" data-link="produit-tunique-esthetique.html">
+                    <div class="product-image-holder">
+                        <img src="img/25.png" alt="Uniforme">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">Uniforme Marron Officier</h3>
+                        <p class="product-description">Uniforme marron classe au style officier rafine. Elegance et professionnalisme pour environnement premium.</p>
+                        <div class="product-meta">
+                            <p class="product-price">225 <span>DH</span></p>
+                            <a href="produit-tunique-esthetique.html" class="action-link" target="_blank">
+                                Detailles <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                            <div class="product-card" data-category="ensembles" data-link="produit-veste-artisan.html">
+                    <div class="product-image-holder">
+                        <img src="img/26.png" alt="Ensemble">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">Ensemble Beige &amp; Turban</h3>
+                        <p class="product-description">Ensemble beige elegant avec turban assorti. Tenue complete et harmonieuse pour look professionnel sophistique.</p>
+                        <div class="product-meta">
+                            <p class="product-price">325 <span>DH</span></p>
+                            <a href="produit-veste-artisan.html" class="action-link" target="_blank">
+                                Detailles <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                            <div class="product-card" data-category="ensembles" data-link="produit-pantalon-atelier.html">
+                    <div class="product-image-holder">
+                        <img src="img/27.png" alt="Uniforme">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">Uniforme Bleu Roi</h3>
+                        <p class="product-description">Uniforme bleu roi intense et elegant. Tissu de qualite pour environnement medical professionnel.</p>
+                        <div class="product-meta">
+                            <p class="product-price">240 <span>DH</span></p>
+                            <a href="produit-pantalon-atelier.html" class="action-link" target="_blank">
+                                Detailles <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                            <div class="product-card" data-category="ensembles" data-link="produit-veste-reparation.html">
+                    <div class="product-image-holder">
+                        <img src="img/28.png" alt="Haut">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">Haut Croisé Noir &amp; Rouge</h3>
+                        <p class="product-description">Haut croise noir et rouge avec style elegant. Coupe distinguee pour look moderne et professionnel.</p>
+                        <div class="product-meta">
+                            <p class="product-price">275 <span>DH</span></p>
+                            <a href="produit-veste-reparation.html" class="action-link" target="_blank">
+                                Detailles <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                            <div class="product-card" data-category="visibilite" data-link="produit-ensemble-cycliste.html">
+                    <div class="product-image-holder">
+                        <img src="img/29.png" alt="Haut">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">Haut Croisé Bleu Roi</h3>
+                        <p class="product-description">Haut croise bleu roi avec finitions elegantes. Style professionnel pour environnement medical moderne.</p>
+                        <div class="product-meta">
+                            <p class="product-price">260 <span>DH</span></p>
+                            <a href="produit-ensemble-cycliste.html" class="action-link" target="_blank">
+                                Detailles <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                            <div class="product-card" data-category="visibilite" data-link="produit-poncho-fluo.html">
+                    <div class="product-image-holder">
+                        <img src="img/30.png" alt="Tenue">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">Tenue Médicale Bleu Vif</h3>
+                        <p class="product-description">Tenue medicale en bleu vif eclatant. Moderne et confortable pour professionnels de sante dynamiques.</p>
+                        <div class="product-meta">
+                            <p class="product-price">130 <span>DH</span></p>
+                            <a href="produit-poncho-fluo.html" class="action-link" target="_blank">
+                                Detailles <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                            <div class="product-card" data-category="visibilite" data-link="produit-gilet-chauffant.html">
+                    <div class="product-image-holder">
+                        <img src="img/31.png" alt="Ensemble">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">Ensemble Gris Clair à Fleurs</h3>
+                        <p class="product-description">Ensemble gris clair agremente de motifs floraux. Elegance et douceur pour environnement medical professionnel.</p>
+                        <div class="product-meta">
+                            <p class="product-price">345 <span>DH</span></p>
+                            <a href="produit-gilet-chauffant.html" class="action-link" target="_blank">
+                                Detailles <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                    </div>
+    </main>
+
+    <style>
+    footer { background-color: #111111; color: #ffffff; padding: 80px 0 30px 0; border-top: 4px solid #c5a85c; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 50px; }
+    .footer-col h4 { font-family: 'Cinzel', serif; font-size: 1.1rem; margin-bottom: 25px; color: #c5a85c; letter-spacing: 1px; text-transform: uppercase; }
+    .footer-col p { color: #aaaaaa; font-size: 0.9rem; line-height: 1.6; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 12px; }
+    .footer-col ul li a { color: #aaaaaa; text-decoration: none; transition: 0.2s; font-size: 0.9rem; display: inline-block; }
+    .footer-col ul li a:hover { color: #c5a85c; transform: translateX(5px); }
+    
+    .social-icons { display: flex; gap: 15px; margin-top: 20px; }
+    .social-icon { width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; background-color: rgba(197, 168, 92, 0.15); color: #c5a85c; text-decoration: none; border-radius: 50%; transition: all 0.3s ease; border: 1px solid rgba(197, 168, 92, 0.3); }
+    .social-icon:hover { background-color: #c5a85c; color: #111111; transform: translateY(-3px); }
+    
+    .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); color: #666666; font-size: 0.85rem; letter-spacing: 1px; }
+    @media (max-width: 992px) {
+        .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+        .footer-grid { grid-template-columns: 1fr; }
+    }
+</style>
+
+<footer>
+    <div class="container" style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo-text" style="color:white; margin-bottom:20px; font-size: 1.4rem;">JAOUHARA<span style="color: #c5a85c;">.</span></div>
+                <p>Manufacture de prêt-à-porter haut de gamme et d'habillement professionnel technique. Nous combinons des concepts géométriques avancés et des textiles durables pour équiper les organisations d'excellence.</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/jaouhara.vetements.de.travail" target="_blank" class="social-icon" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/jaouhara_mode12/" target="_blank" class="social-icon" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@coop.jaouhara" target="_blank" class="social-icon" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="https://wa.me/212666394606" target="_blank" class="social-icon" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Accueil Principal</a></li>
+                    <li><a href="apropos.html">Histoire & Vision</a></li>
+                    <li><a href="produits.html">Catalogue Général</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Solutions Pro</h4>
+                <ul>
+                    <li><a href="realisations.html">Galerie Réalisations</a></li>
+                    <li><a href="contact.html">Demande de Devis</a></li>
+                    <li><a href="privacy.html">Politique de Confidentialité</a></li>
+                    <li><a href="policy.html">Conditions Générales</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <p style="font-size:0.85rem; color:#aaa;"><i class="fa-solid fa-location-dot" style="color:#c5a85c;"></i> M'hamid c 206 - Marrakech, Maroc</p>
+                <p style="font-size:0.85rem; color:#aaa; margin-top:10px;"><i class="fa-solid fa-envelope" style="color:#c5a85c;"></i> Cooperativejaouhara7@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Jaouhara Mode. Tous droits réservés. Conception d'Infrastructures Textiles de Précision.</p>
+        </div>
+    </div>
+</footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const productCards = document.querySelectorAll('.product-card[data-link]');
+            productCards.forEach(card => {
+                card.addEventListener('click', function (event) {
+                    if (event.target.closest('a')) return;
+                    const link = card.getAttribute('data-link');
+                    if (link) window.open(link, '_blank');
+                });
+            });
+        });
+    </script>
+
+<style>
+  .issam-demo-bar {
+    position: fixed; bottom: 18px; left: 18px; z-index: 99999;
+    display: inline-flex; align-items: center; gap: 10px;
+    background: rgba(2, 6, 23, 0.92); color: #f8fafc;
+    border: 1px solid rgba(56, 189, 248, 0.5); border-radius: 99px;
+    padding: 9px 16px; font-family: system-ui, -apple-system, sans-serif;
+    font-size: 13px; font-weight: 700; text-decoration: none;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.45); backdrop-filter: blur(10px);
+    transition: transform 0.2s;
+  }
+  .issam-demo-bar:hover { transform: translateY(-2px); color: #7dd3fc; }
+  .issam-demo-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; }
+</style>
+<a href="../../index.html#live-demos" class="issam-demo-bar">
+  <span class="issam-demo-dot"></span>
+  ← Back to ISSAM Portfolio (Live Demo)
+</a>
+
+</body>
+</html>
+

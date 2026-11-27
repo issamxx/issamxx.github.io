@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ISSAM — Web &amp; Mobile Development | Live Demos · Websites &amp; Android / iOS Apps</title>
+  <meta name="description" content="Flagship websites (HTTPS) and custom Android &amp; iPhone mobile apps engineered for conversion. Explore real Live Demos in Arabic, English &amp; French.">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #020617;
+      --surface: rgba(15, 23, 42, 0.72);
+      --surface-2: rgba(30, 41, 59, 0.5);
+      --border: rgba(148, 163, 184, 0.15);
+      --border-glow: rgba(56, 189, 248, 0.42);
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --cyan: #38bdf8;
+      --blue: #2563eb;
+      --emerald: #10b981;
+      --wa: #22c55e;
+      --radius: 22px;
+      --max: 1240px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Plus Jakarta Sans', 'Cairo', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.62;
+      overflow-x: hidden;
+    }
+    html[dir="rtl"] body {
+      font-family: 'Cairo', 'Plus Jakarta Sans', system-ui, sans-serif;
+    }
+
+    /* Animated Ambient Studio Mesh + Grid */
+    .ambient-bg {
+      position: fixed; inset: 0; z-index: -2; pointer-events: none;
+      background:
+        radial-gradient(ellipse 60% 42% at 15% 6%, rgba(37, 99, 235, 0.22), transparent 65%),
+        radial-gradient(ellipse 50% 38% at 88% 14%, rgba(16, 185, 129, 0.14), transparent 60%),
+        radial-gradient(ellipse 55% 42% at 50% 88%, rgba(56, 189, 248, 0.10), transparent 65%),
+        var(--bg);
+    }
+    .grid-overlay {
+      position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.22;
+      background-image:
+        linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(ellipse 75% 60% at 50% 25%, #000 15%, transparent 80%);
+      -webkit-mask-image: radial-gradient(ellipse 75% 60% at 50% 25%, #000 15%, transparent 80%);
+    }
+
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+    /* Reveal Animations */
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.65s cubic-bezier(.16,1,.3,1), transform 0.65s cubic-bezier(.16,1,.3,1); }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+
+    /* Navbar */
+    nav {
+      position: sticky; top: 0; z-index: 60;
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      background: rgba(2, 6, 23, 0.78);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: var(--max); margin: 0 auto; padding: 13px 24px;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #fff; }
+    .brand img {
+      width: 42px; height: 42px; border-radius: 50%;
+      border: 1.5px solid rgba(56, 189, 248, 0.6);
+      box-shadow: 0 0 22px rgba(56, 189, 248, 0.28);
+    }
+    .brand-text { display: flex; flex-direction: column; line-height: 1.1; }
+    .brand-name { font-weight: 900; font-size: 16px; letter-spacing: 1.8px; }
+    .brand-sub { font-size: 10.5px; color: var(--cyan); font-weight: 800; letter-spacing: 1.2px; }
+
+    .nav-links { display: flex; align-items: center; gap: 24px; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none; font-size: 13.5px; font-weight: 600;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #fff; }
+
+    .nav-right { display: flex; align-items: center; gap: 10px; }
+    .lang-switch {
+      display: inline-flex; background: rgba(15, 23, 42, 0.92);
+      border: 1px solid var(--border); border-radius: 99px; padding: 3px;
+    }
+    .lang-btn {
+      border: none; background: transparent; color: var(--muted);
+      padding: 5px 11px; border-radius: 99px; font-size: 12px; font-weight: 800;
+      cursor: pointer; transition: 0.2s;
+    }
+    .lang-btn.active { background: linear-gradient(135deg, var(--cyan), var(--blue)); color: #fff; }
+    .burger {
+      display: none; background: rgba(255,255,255,0.06); border: 1px solid var(--border);
+      color: #fff; width: 40px; height: 40px; border-radius: 10px; font-size: 19px; cursor: pointer;
+    }
+    .mobile-drawer {
+      display: none; flex-direction: column; gap: 10px;
+      padding: 16px 24px 20px; background: rgba(2, 6, 23, 0.97);
+      border-bottom: 1px solid var(--border);
+    }
+    .mobile-drawer.open { display: flex; }
+    .mobile-drawer a {
+      color: #e2e8f0; text-decoration: none; font-weight: 700; font-size: 15px;
+      padding: 10px 12px; border-radius: 10px; background: rgba(255,255,255,0.04);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 13px 24px; border-radius: 13px; font-weight: 800; font-size: 14px;
+      text-decoration: none; cursor: pointer; border: none; transition: all 0.22s ease;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #22c55e, #10b981);
+      color: #022c22; box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 38px rgba(16, 185, 129, 0.45); }
+    .btn-cyan {
+      background: linear-gradient(135deg, #38bdf8, #2563eb);
+      color: #fff; box-shadow: 0 10px 28px rgba(37, 99, 235, 0.35);
+    }
+    .btn-cyan:hover { transform: translateY(-2px); box-shadow: 0 16px 36px rgba(56, 189, 248, 0.45); }
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(148, 163, 184, 0.28); color: #f8fafc;
+    }
+    .btn-outline:hover { background: rgba(255, 255, 255, 0.09); border-color: var(--cyan); }
+    .btn-sm { padding: 9px 16px; font-size: 13px; border-radius: 10px; }
+
+    /* Hero */
+    .hero { padding: 68px 0 48px; }
+    .hero-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px; align-items: center; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 9px;
+      padding: 6px 15px; border-radius: 99px;
+      background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.36);
+      color: #7dd3fc; font-size: 12.5px; font-weight: 700; margin-bottom: 20px;
+    }
+    .pulse-dot {
+      width: 8px; height: 8px; border-radius: 50%; background: var(--wa);
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(34,197,94,0.7); }
+      70% { box-shadow: 0 0 0 10px rgba(34,197,94,0); }
+      100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+    }
+    .hero h1 {
+      font-size: clamp(34px, 4.4vw, 56px); font-weight: 900; line-height: 1.1;
+      letter-spacing: -0.025em; margin-bottom: 20px;
+    }
+    .grad-text {
+      background: linear-gradient(90deg, #ffffff 0%, #7dd3fc 52%, #34d399 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero p { font-size: 17px; color: #cbd5e1; max-width: 560px; margin-bottom: 28px; }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 34px; }
+    .hero-visual {
+      position: relative; border-radius: 26px; padding: 10px;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.32), rgba(16, 185, 129, 0.18), rgba(15, 23, 42, 0.4));
+      box-shadow: 0 32px 90px rgba(0, 0, 0, 0.65);
+    }
+    .hero-visual img { width: 100%; display: block; border-radius: 17px; border: 1px solid rgba(255,255,255,0.08); }
+    .trust-strip {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+      padding-top: 24px; border-top: 1px solid var(--border);
+    }
+    .trust-item strong { display: block; font-size: 18px; color: #fff; font-weight: 800; }
+    .trust-item span { font-size: 12.5px; color: var(--muted); }
+
+    /* Tech Stack Strip */
+    .tech-bar {
+      padding: 20px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.45);
+    }
+    .tech-inner {
+      display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px;
+    }
+    .tech-chip {
+      padding: 7px 15px; border-radius: 99px; font-size: 12.5px; font-weight: 700;
+      color: #cbd5e1; background: rgba(30, 41, 59, 0.65); border: 1px solid var(--border);
+    }
+
+    /* Sections */
+    section { padding: 76px 0; }
+    .sec-head { text-align: center; max-width: 740px; margin: 0 auto 48px; }
+    .sec-tag {
+      display: inline-block; font-size: 12px; font-weight: 800; letter-spacing: 1.6px;
+      text-transform: uppercase; color: var(--cyan); margin-bottom: 10px;
+    }
+    .sec-head h2 { font-size: clamp(28px, 3.4vw, 42px); font-weight: 900; margin-bottom: 12px; line-height: 1.18; }
+    .sec-head p { color: var(--muted); font-size: 16px; }
+
+    /* Flagship LIVE INTERACTIVE DEMOS */
+    .live-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .live-card {
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.68));
+      border: 1px solid var(--border-glow); border-radius: 24px; overflow: hidden;
+      display: flex; flex-direction: column; transition: all 0.28s ease;
+      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.5);
+    }
+    .live-card:hover { transform: translateY(-7px); box-shadow: 0 30px 75px rgba(37, 99, 235, 0.28); }
+    .live-thumb { position: relative; aspect-ratio: 16 / 10.5; overflow: hidden; background: #0b1120; }
+    .live-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform 0.45s ease; }
+    .live-card:hover .live-thumb img { transform: scale(1.05); }
+    .live-pill {
+      position: absolute; top: 14px; inset-inline-start: 14px;
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 5px 12px; border-radius: 99px; font-size: 11px; font-weight: 800;
+      background: rgba(2, 6, 23, 0.88); color: #4ade80;
+      border: 1px solid rgba(34, 197, 94, 0.55); backdrop-filter: blur(8px);
+    }
+    .live-body { padding: 22px 22px 24px; display: flex; flex-direction: column; flex: 1; }
+    .live-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+    .live-tag {
+      font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 99px;
+      background: rgba(56, 189, 248, 0.12); color: #7dd3fc; border: 1px solid rgba(56, 189, 248, 0.28);
+    }
+    .live-body h3 { font-size: 20px; font-weight: 900; margin-bottom: 8px; }
+    .live-body p { font-size: 13.8px; color: #cbd5e1; margin-bottom: 20px; flex: 1; }
+
+    /* Services */
+    .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .service-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 26px 22px; transition: all 0.25s ease;
+    }
+    .service-card:hover { border-color: var(--border-glow); transform: translateY(-4px); }
+    .s-icon {
+      width: 48px; height: 48px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 18px;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.18), rgba(37, 99, 235, 0.24));
+      border: 1px solid rgba(56, 189, 248, 0.32);
+    }
+    .service-card h3 { font-size: 17px; font-weight: 800; margin-bottom: 10px; }
+    .service-card p { font-size: 13.5px; color: var(--muted); }
+
+    /* Mobile Apps Spotlight */
+    .spotlight {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.94), rgba(15, 23, 42, 0.65));
+      border: 1px solid var(--border-glow); border-radius: 28px;
+      padding: 42px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: center;
+      box-shadow: 0 28px 75px rgba(0, 0, 0, 0.55);
+    }
+    .spotlight img { width: 100%; border-radius: 18px; display: block; border: 1px solid rgba(255,255,255,0.1); }
+    .feature-list { list-style: none; display: grid; gap: 12px; margin: 22px 0 28px; }
+    .feature-list li { display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: #e2e8f0; }
+    .check {
+      width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0;
+      background: rgba(16, 185, 129, 0.18); color: #34d399;
+      display: inline-flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 900;
+    }
+
+    /* Portfolio Gallery */
+    .filter-bar { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-bottom: 34px; }
+    .filter-btn {
+      padding: 9px 18px; border-radius: 99px; border: 1px solid var(--border);
+      background: var(--surface); color: var(--muted); font-size: 13.5px; font-weight: 700;
+      cursor: pointer; transition: 0.2s;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: linear-gradient(135deg, var(--cyan), var(--blue)); color: #fff; border-color: transparent;
+    }
+    .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .p-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+      overflow: hidden; transition: all 0.25s ease; display: flex; flex-direction: column;
+    }
+    .p-card:hover { border-color: var(--border-glow); transform: translateY(-5px); }
+    .p-thumb { position: relative; aspect-ratio: 16 / 11; overflow: hidden; background: #0b1120; cursor: pointer; }
+    .p-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform 0.4s ease; }
+    .p-card:hover .p-thumb img { transform: scale(1.04); }
+    .p-badge {
+      position: absolute; top: 12px; inset-inline-start: 12px;
+      padding: 4px 11px; border-radius: 99px; font-size: 11px; font-weight: 800;
+      background: rgba(2, 6, 23, 0.85); border: 1px solid rgba(56, 189, 248, 0.4); color: #7dd3fc;
+    }
+    .p-body { padding: 18px 20px 20px; display: flex; flex-direction: column; flex: 1; }
+    .p-body h3 { font-size: 16.5px; font-weight: 800; margin-bottom: 6px; }
+    .p-body p { font-size: 13px; color: var(--muted); margin-bottom: 16px; flex: 1; }
+    .p-actions { display: flex; gap: 8px; }
+    .p-actions .btn { flex: 1; padding: 9px 12px; font-size: 12.5px; }
+
+    /* Process */
+    .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .step-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px 24px; }
+    .step-num {
+      font-size: 40px; font-weight: 900; line-height: 1; margin-bottom: 14px;
+      background: linear-gradient(135deg, var(--cyan), var(--emerald));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .step-card h3 { font-size: 18px; font-weight: 800; margin-bottom: 8px; }
+    .step-card p { font-size: 14px; color: var(--muted); }
+
+    /* FAQ Accordion */
+    .faq-list { max-width: 820px; margin: 0 auto; display: grid; gap: 12px; }
+    .faq-item {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden;
+    }
+    .faq-q {
+      width: 100%; background: transparent; border: none; color: #fff;
+      padding: 18px 22px; font-family: inherit; font-size: 15.5px; font-weight: 800;
+      display: flex; justify-content: space-between; align-items: center; cursor: pointer; text-align: start;
+    }
+    .faq-a {
+      display: none; padding: 0 22px 18px; color: #cbd5e1; font-size: 14px; line-height: 1.7;
+    }
+    .faq-item.open { border-color: var(--border-glow); }
+    .faq-item.open .faq-a { display: block; }
+    .faq-icon { color: var(--cyan); font-size: 20px; font-weight: 700; transition: transform 0.2s; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+    /* Contact / Quick Estimator */
+    .cta-box {
+      background: linear-gradient(135deg, rgba(30, 58, 138, 0.35), rgba(15, 23, 42, 0.94));
+      border: 1px solid var(--border-glow); border-radius: 28px;
+      padding: 46px 42px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
+    }
+    .cta-box h2 { font-size: clamp(26px, 3vw, 36px); font-weight: 900; margin-bottom: 14px; line-height: 1.2; }
+    .cta-box p { color: #cbd5e1; font-size: 15.5px; margin-bottom: 22px; }
+    .contact-pills { display: flex; flex-direction: column; gap: 10px; }
+    .c-pill { display: inline-flex; align-items: center; gap: 10px; color: #e2e8f0; text-decoration: none; font-size: 14.5px; font-weight: 700; }
+    .form-card {
+      background: rgba(2, 6, 23, 0.76); border: 1px solid var(--border);
+      border-radius: 20px; padding: 26px; display: grid; gap: 14px;
+    }
+    .field label { display: block; font-size: 12.5px; font-weight: 700; color: var(--muted); margin-bottom: 6px; }
+    .field input, .field select {
+      width: 100%; padding: 12px 14px; border-radius: 12px;
+      border: 1px solid var(--border); background: #0f172a; color: #fff;
+      font-family: inherit; font-size: 14px; outline: none;
+    }
+    .field input:focus, .field select:focus { border-color: var(--cyan); }
+
+    footer { border-top: 1px solid var(--border); padding: 32px 0; text-align: center; color: var(--muted); font-size: 13.5px; }
+
+    .wa-fab {
+      position: fixed; bottom: 24px; inset-inline-end: 24px; z-index: 60;
+      background: linear-gradient(135deg, #22c55e, #16a34a); color: #022c22;
+      padding: 13px 20px; border-radius: 99px; font-weight: 800; font-size: 14px;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+      box-shadow: 0 12px 32px rgba(34, 197, 94, 0.42); transition: 0.2s;
+    }
+    .wa-fab:hover { transform: translateY(-3px); }
+
+    /* Lightbox */
+    .modal {
+      position: fixed; inset: 0; z-index: 100; background: rgba(2, 6, 23, 0.92);
+      backdrop-filter: blur(12px); display: none; align-items: center; justify-content: center; padding: 24px;
+    }
+    .modal.open { display: flex; }
+    .modal-inner {
+      max-width: 1040px; width: 100%; background: #0f172a;
+      border: 1px solid var(--border-glow); border-radius: 22px; overflow: hidden;
+    }
+    .modal-top { padding: 16px 22px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
+    .modal-close { background: rgba(255,255,255,0.08); border: none; color: #fff; width: 34px; height: 34px; border-radius: 50%; cursor: pointer; font-size: 18px; }
+    .modal-img-wrap { max-height: 70vh; overflow: auto; background: #020617; }
+    .modal-img-wrap img { width: 100%; display: block; }
+    .modal-bottom { padding: 16px 22px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; border-top: 1px solid var(--border); }
+
+    @media (max-width: 1020px) {
+      .hero-grid, .spotlight, .cta-box { grid-template-columns: 1fr; }
+      .live-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+      .process-grid { grid-template-columns: 1fr; }
+      .nav-links, .nav-cta-desktop { display: none; }
+      .burger { display: inline-flex; align-items: center; justify-content: center; }
+    }
+    @media (max-width: 640px) {
+      .services-grid, .portfolio-grid, .trust-strip { grid-template-columns: 1fr; }
+      .cta-box, .spotlight { padding: 26px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient-bg"></div>
+  <div class="grid-overlay"></div>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#top" class="brand">
+        <img src="assets/logo.png" alt="ISSAM Web &amp; Mobile">
+        <div class="brand-text">
+          <span class="brand-name">ISSAM</span>
+          <span class="brand-sub">WEB &amp; MOBILE</span>
+        </div>
+      </a>
+
+      <div class="nav-links">
+        <a href="#live-demos" data-i18n="nav_live">Live Demos</a>
+        <a href="#services" data-i18n="nav_services">Services</a>
+        <a href="#mobile-apps" data-i18n="nav_apps">Mobile Apps</a>
+        <a href="#portfolio" data-i18n="nav_portfolio">Concepts</a>
+        <a href="#faq" data-i18n="nav_faq">FAQ</a>
+      </div>
+
+      <div class="nav-right">
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+          <button class="lang-btn" id="btn-fr" onclick="setLang('fr')">FR</button>
+          <button class="lang-btn" id="btn-ar" onclick="setLang('ar')">العربية</button>
+        </div>
+        <a href="#contact" class="btn btn-primary btn-sm nav-cta-desktop" data-i18n="nav_cta">Free Prototype</a>
+        <button class="burger" onclick="toggleDrawer()" aria-label="Menu">☰</button>
+      </div>
+    </div>
+    <div class="mobile-drawer" id="mobileDrawer">
+      <a href="#live-demos" onclick="toggleDrawer()" data-i18n="nav_live">Live Demos</a>
+      <a href="#services" onclick="toggleDrawer()" data-i18n="nav_services">Services</a>
+      <a href="#mobile-apps" onclick="toggleDrawer()" data-i18n="nav_apps">Mobile Apps</a>
+      <a href="#portfolio" onclick="toggleDrawer()" data-i18n="nav_portfolio">Concepts</a>
+      <a href="#faq" onclick="toggleDrawer()" data-i18n="nav_faq">FAQ</a>
+      <a href="#contact" onclick="toggleDrawer()" data-i18n="nav_cta">Free Prototype</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero" id="top">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="reveal in">
+          <div class="eyebrow">
+            <span class="pulse-dot"></span>
+            <span data-i18n="hero_badge">Available Worldwide • Websites, E-Commerce &amp; Mobile Apps</span>
+          </div>
+          <h1><span class="grad-text" data-i18n="hero_title">Websites &amp; Mobile Apps Engineered to Convert Clients</span></h1>
+          <p data-i18n="hero_desc">High-speed, secure (HTTPS) business websites, custom high-converting E-Commerce stores (COD, online payments &amp; WhatsApp checkout), and custom Android &amp; iPhone apps. Full Arabic, English &amp; French support.</p>
+          <div class="hero-ctas">
+            <a href="#live-demos" class="btn btn-cyan" data-i18n="hero_cta_live">Explore Live Demos ↗</a>
+            <a id="heroWaLink" href="https://wa.me/212706502285" target="_blank" class="btn btn-primary" data-i18n="hero_cta_1">Free Prototype on WhatsApp</a>
+          </div>
+          <div class="trust-strip">
+            <div class="trust-item"><strong>3+ Live</strong><span data-i18n="stat_1">Interactive Demos</span></div>
+            <div class="trust-item"><strong>iOS &amp; Android</strong><span data-i18n="stat_2">Custom Apps</span></div>
+            <div class="trust-item"><strong>AR · EN · FR</strong><span data-i18n="stat_3">Multilingual</span></div>
+            <div class="trust-item"><strong>100%</strong><span data-i18n="stat_4">Free First Mockup</span></div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal in">
+          <img src="assets/hero_3d.jpg" alt="ISSAM Web &amp; Mobile 3D Showcase">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tech Stack Bar -->
+  <div class="tech-bar">
+    <div class="container tech-inner">
+      <span class="tech-chip">Laravel &amp; PHP</span>
+      <span class="tech-chip">React &amp; Next.js</span>
+      <span class="tech-chip">Android &amp; iOS Apps</span>
+      <span class="tech-chip">E-Commerce &amp; Booking</span>
+      <span class="tech-chip">HTTPS &amp; Security</span>
+      <span class="tech-chip">Google Maps &amp; SEO</span>
+      <span class="tech-chip">WhatsApp Automation</span>
+    </div>
+  </div>
+
+  <!-- FLAGSHIP: LIVE INTERACTIVE DEMOS -->
+  <section id="live-demos">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="sec-tag" data-i18n="live_tag">REAL INTERACTIVE WORK</span>
+        <h2 data-i18n="live_title">Test Our Live Production Websites &amp; Interactive Demos</h2>
+        <p data-i18n="live_sub">Don't just look at screenshots—click inside our real builds, browse catalogs, test dark/light themes, and feel the speed yourself.</p>
+      </div>
+
+      <div class="live-grid">
+        <!-- Live Demo 1: Embrospace -->
+        <div class="live-card reveal">
+          <div class="live-thumb">
+            <img src="assets/live_embrospace.jpg" alt="Embrospace Live Demo">
+            <span class="live-pill"><span class="pulse-dot"></span> LIVE DEMO</span>
+          </div>
+          <div class="live-body">
+            <div class="live-tags">
+              <span class="live-tag">Laravel</span>
+              <span class="live-tag">E-Commerce</span>
+              <span class="live-tag">Dark / Light UI</span>
+            </div>
+            <h3>Embro Space</h3>
+            <p data-i18n="ld1_desc">Full digital embroidery marketplace with interactive Before/After comparison slider, 50+ collections, shop catalog, product pages, and custom design requests.</p>
+            <a href="demos/embrospace/index.html" class="btn btn-cyan" style="width:100%;" data-i18n="btn_launch_live">Launch Live Demo ↗</a>
+          </div>
+        </div>
+
+        <!-- Live Demo 2: Jaouhara -->
+        <div class="live-card reveal">
+          <div class="live-thumb">
+            <img src="assets/live_jawhara.jpg" alt="Jaouhara Mode Live Demo">
+            <span class="live-pill"><span class="pulse-dot"></span> LIVE DEMO</span>
+          </div>
+          <div class="live-body">
+            <div class="live-tags">
+              <span class="live-tag">PHP</span>
+              <span class="live-tag">Luxury Catalog</span>
+              <span class="live-tag">32 Products</span>
+            </div>
+            <h3>Jaouhara Mode</h3>
+            <p data-i18n="ld2_desc">Refined corporate workwear &amp; medical apparel showcase featuring 32 detailed product sheets, gold luxury aesthetic, realizations gallery, and direct contact.</p>
+            <a href="demos/jawhara/index.html" class="btn btn-cyan" style="width:100%;" data-i18n="btn_launch_live">Launch Live Demo ↗</a>
+          </div>
+        </div>
+
+        <!-- Live Demo 3: Urbagroupe -->
+        <div class="live-card reveal">
+          <div class="live-thumb">
+            <img src="assets/live_urbagroupe.jpg" alt="Urbagroupe Live Production Website">
+            <span class="live-pill"><span class="pulse-dot"></span> LIVE ONLINE</span>
+          </div>
+          <div class="live-body">
+            <div class="live-tags">
+              <span class="live-tag">Production</span>
+              <span class="live-tag">Corporate Web</span>
+              <span class="live-tag">HTTPS</span>
+            </div>
+            <h3>Urbagroupe</h3>
+            <p data-i18n="ld3_desc">Live corporate web platform deployed in production—modern institutional presentation, fast mobile navigation, and clear service structure.</p>
+            <a href="https://urbagroupe.ma" target="_blank" rel="noopener" class="btn btn-cyan" style="width:100%;" data-i18n="btn_visit_live">Visit Live Website ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" style="padding-top: 24px;">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="sec-tag" data-i18n="srv_tag">EXPERTISE</span>
+        <h2 data-i18n="srv_title">Complete Digital Solutions for Ambitious Businesses</h2>
+        <p data-i18n="srv_sub">Everything you need to look credible on Google, convert visitors into WhatsApp clients, and automate bookings.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="s-icon">🌐</div>
+          <h3 data-i18n="s1_t">Modern Business Websites</h3>
+          <p data-i18n="s1_d">Responsive, ultra-fast HTTPS websites crafted for clinics, hotels, agencies, rentals, and service companies—built to convert on mobile and desktop.</p>
+        </div>
+        <div class="service-card reveal" style="border-color: rgba(16, 185, 129, 0.42); background: linear-gradient(180deg, rgba(16, 185, 129, 0.10), rgba(15, 23, 42, 0.78));">
+          <div class="s-icon" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.22), rgba(56, 189, 248, 0.22)); border-color: rgba(16, 185, 129, 0.45);">🛒</div>
+          <h3 data-i18n="s3_t">High-Converting E-Commerce Stores</h3>
+          <p data-i18n="s3_d">Custom online stores for brands &amp; e-com sellers—1-click COD &amp; WhatsApp checkout, card payments, upsells, order dashboard &amp; zero monthly commissions.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="s-icon">📱</div>
+          <h3 data-i18n="s2_t">Android &amp; iPhone Mobile Apps</h3>
+          <p data-i18n="s2_d">Custom mobile apps built for Google Play &amp; App Store with e-commerce, online bookings, push notifications, client accounts, and full admin dashboards.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="s-icon">🌍</div>
+          <h3 data-i18n="s4_t">Multilingual, WhatsApp &amp; SEO</h3>
+          <p data-i18n="s4_d">Clean Arabic (RTL), English, and French interfaces engineered for fast loading, Google Maps visibility, and MENA, Gulf &amp; European clients.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mobile Apps Spotlight -->
+  <section id="mobile-apps" style="padding-top: 20px;">
+    <div class="container">
+      <div class="spotlight reveal">
+        <div>
+          <span class="sec-tag" data-i18n="app_tag">ON-DEMAND MOBILE DEVELOPMENT</span>
+          <h2 style="font-size: clamp(26px, 3vw, 38px); font-weight: 900; line-height: 1.2; margin-bottom: 14px;" data-i18n="app_title">Put Your Brand in Every Client's Pocket (Android &amp; iOS)</h2>
+          <p style="color: #cbd5e1; font-size: 15.5px;" data-i18n="app_desc">Need more than a website? We design and build custom mobile apps tailored to your workflow—bookings, e-commerce, real estate, clinics, or VIP loyalty.</p>
+          <ul class="feature-list">
+            <li><span class="check">✓</span> <span data-i18n="app_f1">Smooth native experience on both Android &amp; iPhone</span></li>
+            <li><span class="check">✓</span> <span data-i18n="app_f2">Instant Push Notifications for offers, orders &amp; reminders</span></li>
+            <li><span class="check">✓</span> <span data-i18n="app_f3">Easy-to-use Admin Dashboard to manage everything live</span></li>
+            <li><span class="check">✓</span> <span data-i18n="app_f4">Full Arabic (RTL), English &amp; French support</span></li>
+          </ul>
+          <a id="appWaLink" href="https://wa.me/212706502285" target="_blank" class="btn btn-primary" data-i18n="app_cta">Discuss Your Mobile App Idea</a>
+        </div>
+        <div>
+          <img src="assets/mobile_apps_pro.jpg" alt="Custom Android and iPhone Mobile Apps">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industry Concepts Showcase -->
+  <section id="portfolio">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="sec-tag" data-i18n="port_tag">INDUSTRY CONCEPTS</span>
+        <h2 data-i18n="port_title">Tailored Website &amp; App Concepts by Sector</h2>
+        <p data-i18n="port_sub">Click any design to preview full-size. Every project is 100% customized with your logo, colors, currency, and languages.</p>
+      </div>
+
+      <div class="filter-bar">
+        <button class="filter-btn active" onclick="filterPortfolio('all', this)" data-i18n="f_all">All Sectors (10)</button>
+        <button class="filter-btn" onclick="filterPortfolio('ecom', this)" data-i18n="f_ecom">E-Commerce &amp; Stores</button>
+        <button class="filter-btn" onclick="filterPortfolio('app', this)" data-i18n="f_apps">Mobile Apps</button>
+        <button class="filter-btn" onclick="filterPortfolio('health', this)" data-i18n="f_health">Health &amp; Beauty</button>
+        <button class="filter-btn" onclick="filterPortfolio('business', this)" data-i18n="f_biz">Real Estate, Rental &amp; Services</button>
+      </div>
+
+      <div class="portfolio-grid" id="portfolioGrid"></div>
+    </div>
+  </section>
+
+  <!-- 3-Step Risk-Free Process -->
+  <section id="process" style="padding-top: 24px;">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="sec-tag" data-i18n="proc_tag">HOW WE WORK</span>
+        <h2 data-i18n="proc_title">Zero-Risk Process in 3 Simple Steps</h2>
+        <p data-i18n="proc_sub">See the quality of your custom design before making any commitment.</p>
+      </div>
+
+      <div class="process-grid">
+        <div class="step-card reveal">
+          <div class="step-num">01</div>
+          <h3 data-i18n="p1_t">Free Custom Mockup</h3>
+          <p data-i18n="p1_d">Send your business name and sector on WhatsApp. We prepare a tailored preview showing how your website or app will look—completely free.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-num">02</div>
+          <h3 data-i18n="p2_t">Development &amp; Fine-Tuning</h3>
+          <p data-i18n="p2_d">Once approved, we develop the complete responsive website or mobile app with your languages, photos, booking forms, and WhatsApp integration.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-num">03</div>
+          <h3 data-i18n="p3_t">Launch &amp; Ongoing Support</h3>
+          <p data-i18n="p3_d">We deploy on fast HTTPS hosting (or Google Play / App Store), connect your Google Maps profile, and provide dedicated post-launch support.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" style="padding-top: 24px;">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="sec-tag">FAQ</span>
+        <h2 data-i18n="faq_title">Frequently Asked Questions</h2>
+      </div>
+      <div class="faq-list" id="faqList"></div>
+    </div>
+  </section>
+
+  <!-- Contact / Quick Estimator -->
+  <section id="contact">
+    <div class="container">
+      <div class="cta-box reveal">
+        <div>
+          <span class="sec-tag" data-i18n="cta_tag">START TODAY</span>
+          <h2 data-i18n="cta_title">Ready for Your Free Personalized Mockup?</h2>
+          <p data-i18n="cta_desc">Tell us about your project in 30 seconds and get a direct response on WhatsApp with a free concept tailored to your brand.</p>
+          <div class="contact-pills">
+            <a href="https://wa.me/212706502285" target="_blank" class="c-pill">💬 <span dir="ltr">+212 7 06 50 22 85</span> (WhatsApp)</a>
+            <a href="mailto:issamexd@gmail.com" class="c-pill">✉️ <span dir="ltr">issamexd@gmail.com</span></a>
+          </div>
+        </div>
+
+        <form class="form-card" onsubmit="sendBrief(event)">
+          <div class="field">
+            <label for="fType" data-i18n="form_type_l">What do you need?</label>
+            <select id="fType">
+              <option value="E-Commerce Online Store (COD / Payments)" data-i18n="opt_ecom">E-Commerce Online Store (COD, Card &amp; WhatsApp)</option>
+              <option value="Website" data-i18n="opt_web">Professional Business Website (HTTPS)</option>
+              <option value="Mobile App (Android & iOS)" data-i18n="opt_app">Custom Mobile App (Android &amp; iPhone)</option>
+              <option value="Website / Store + Mobile App" data-i18n="opt_both">Complete Pack: Website / Store + Mobile App</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="fBiz" data-i18n="form_biz_l">Your Business / Brand Name</label>
+            <input type="text" id="fBiz" required placeholder="e.g. Royal Hotel / Smile Dental Clinic">
+          </div>
+          <div class="field">
+            <label for="fSec" data-i18n="form_sec_l">Industry / Sector</label>
+            <input type="text" id="fSec" required placeholder="e.g. Real Estate, Clinic, Car Rental, Events...">
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%; margin-top:4px;" data-i18n="form_btn">Request Free Mockup on WhatsApp →</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <strong>ISSAM — WEB &amp; MOBILE</strong> · <span data-i18n="footer_txt">Websites (HTTPS) &amp; Custom Mobile Applications (Android &amp; iOS) · AR / EN / FR</span>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a id="fabWaLink" href="https://wa.me/212706502285" target="_blank" class="wa-fab">
+    <span>💬</span> <span data-i18n="fab_txt">WhatsApp</span>
+  </a>
+
+  <!-- Lightbox Modal -->
+  <div class="modal" id="lightbox" onclick="if(event.target===this) closeModal()">
+    <div class="modal-inner">
+      <div class="modal-top">
+        <h3 id="modalTitle">Preview</h3>
+        <button class="modal-close" onclick="closeModal()">✕</button>
+      </div>
+      <div class="modal-img-wrap">
+        <img id="modalImg" src="" alt="Demo Preview">
+      </div>
+      <div class="modal-bottom">
+        <span id="modalDesc" style="font-size:13.5px; color:#cbd5e1;"></span>
+        <a id="modalWa" href="https://wa.me/212706502285" target="_blank" class="btn btn-primary btn-sm" data-i18n="modal_cta">Request Similar Project on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const WA_PHONE = "212706502285";
+    let currentLang = "en";
+    let currentFilter = "all";
+
+    const I18N = {
+      en: {
+        nav_live: "Live Demos", nav_services: "Services", nav_apps: "Mobile Apps", nav_portfolio: "Concepts", nav_faq: "FAQ", nav_cta: "Free Prototype",
+        hero_badge: "Available Worldwide • Websites, E-Commerce & Mobile Apps",
+        hero_title: "Websites & Mobile Apps Engineered to Convert Clients",
+        hero_desc: "High-speed, secure (HTTPS) business websites, custom high-converting E-Commerce stores (COD, online payments & WhatsApp checkout), and custom Android & iPhone apps. Full Arabic, English & French support.",
+        hero_cta_live: "Explore Live Demos ↗", hero_cta_1: "Free Prototype on WhatsApp",
+        stat_1: "Interactive Demos", stat_2: "Custom Apps", stat_3: "Multilingual", stat_4: "Free First Mockup",
+        live_tag: "REAL INTERACTIVE WORK", live_title: "Test Our Live Production Websites & Interactive Demos",
+        live_sub: "Don't just look at screenshots—click inside our real builds, browse catalogs, test dark/light themes, and feel the speed yourself.",
+        ld1_desc: "Full digital embroidery marketplace with interactive Before/After comparison slider, 50+ collections, shop catalog, product pages, and custom design requests.",
+        ld2_desc: "Refined corporate workwear & medical apparel showcase featuring 32 detailed product sheets, gold luxury aesthetic, realizations gallery, and direct contact.",
+        ld3_desc: "Live corporate web platform deployed in production—modern institutional presentation, fast mobile navigation, and clear service structure.",
+        btn_launch_live: "Launch Live Demo ↗", btn_visit_live: "Visit Live Website ↗",
+        srv_tag: "EXPERTISE", srv_title: "Complete Digital Solutions for Ambitious Businesses",
+        srv_sub: "Everything you need to look credible on Google, convert visitors into WhatsApp clients, and automate bookings.",
+        s1_t: "Modern Business Websites", s1_d: "Responsive, ultra-fast HTTPS websites crafted for clinics, hotels, agencies, rentals, and service companies—built to convert on mobile and desktop.",
+        s2_t: "Android & iPhone Mobile Apps", s2_d: "Custom mobile apps built for Google Play & App Store with e-commerce, online bookings, push notifications, client accounts, and full admin dashboards.",
+        s3_t: "High-Converting E-Commerce Stores", s3_d: "Custom online stores for brands & e-com sellers—1-click COD & WhatsApp checkout, card payments, upsells, order dashboard & zero monthly commissions.",
+        s4_t: "Multilingual, WhatsApp & SEO", s4_d: "Clean Arabic (RTL), English, and French interfaces engineered for fast loading, Google Maps visibility, and MENA, Gulf & European clients.",
+        app_tag: "ON-DEMAND MOBILE DEVELOPMENT", app_title: "Put Your Brand in Every Client's Pocket (Android & iOS)",
+        app_desc: "Need more than a website? We design and build custom mobile apps tailored to your workflow—bookings, e-commerce, real estate, clinics, or VIP loyalty.",
+        app_f1: "Smooth native experience on both Android & iPhone", app_f2: "Instant Push Notifications for offers, orders & reminders",
+        app_f3: "Easy-to-use Admin Dashboard to manage everything live", app_f4: "Full Arabic (RTL), English & French support",
+        app_cta: "Discuss Your Mobile App Idea",
+        port_tag: "INDUSTRY CONCEPTS", port_title: "Tailored Website & App Concepts by Sector",
+        port_sub: "Click any design to preview full-size. Every project is 100% customized with your logo, colors, currency, and languages.",
+        f_all: "All Sectors (10)", f_ecom: "E-Commerce & Stores", f_apps: "Mobile Apps", f_health: "Health & Beauty", f_biz: "Real Estate, Rental & Services",
+        proc_tag: "HOW WE WORK", proc_title: "Zero-Risk Process in 3 Simple Steps", proc_sub: "See the quality of your custom design before making any commitment.",
+        p1_t: "Free Custom Mockup", p1_d: "Send your business name and sector on WhatsApp. We prepare a tailored preview showing how your website or app will look—completely free.",
+        p2_t: "Development & Fine-Tuning", p2_d: "Once approved, we develop the complete responsive website or mobile app with your languages, photos, booking forms, and WhatsApp integration.",
+        p3_t: "Launch & Ongoing Support", p3_d: "We deploy on fast HTTPS hosting (or Google Play / App Store), connect your Google Maps profile, and provide dedicated post-launch support.",
+        faq_title: "Frequently Asked Questions",
+        cta_tag: "START TODAY", cta_title: "Ready for Your Free Personalized Mockup?",
+        cta_desc: "Tell us about your project in 30 seconds and get a direct response on WhatsApp with a free concept tailored to your brand.",
+        form_type_l: "What do you need?", opt_ecom: "E-Commerce Online Store (COD, Card & WhatsApp)", opt_web: "Professional Business Website (HTTPS)", opt_app: "Custom Mobile App (Android & iPhone)", opt_both: "Complete Pack: Website / Store + Mobile App",
+        form_biz_l: "Your Business / Brand Name", form_sec_l: "Industry / Sector", form_btn: "Request Free Mockup on WhatsApp →",
+        footer_txt: "Websites (HTTPS), E-Commerce Stores & Custom Mobile Applications (Android & iOS) · AR / EN / FR",
+        fab_txt: "WhatsApp", btn_preview: "Preview", btn_order: "Request Similar", modal_cta: "Request Similar Project on WhatsApp",
+        ph_biz: "e.g. Royal Store / Smile Dental Clinic", ph_sec: "e.g. E-Commerce, Fashion, Real Estate, Clinic, Car Rental..."
+      },
+      fr: {
+        nav_live: "Démos Live", nav_services: "Services", nav_apps: "Apps Mobiles", nav_portfolio: "Modèles", nav_faq: "FAQ", nav_cta: "Maquette Gratuite",
+        hero_badge: "Disponible à l'International • Sites Web, E-Commerce & Apps",
+        hero_title: "Sites Web & Applications Mobiles conçus pour attirer vos clients",
+        hero_desc: "Sites web rapides (HTTPS), boutiques E-Commerce à forte conversion (paiement à la livraison COD, carte bancaire & commande WhatsApp) et applications Android & iPhone sur mesure. Arabe, Français et Anglais.",
+        hero_cta_live: "Tester les Démos Live ↗", hero_cta_1: "Maquette Gratuite WhatsApp",
+        stat_1: "Démos Interactives", stat_2: "Apps Sur Mesure", stat_3: "Multilingue", stat_4: "1ère Maquette Offerte",
+        live_tag: "RÉALISATIONS INTERACTIVES", live_title: "Testez nos Sites en Production & Démos Live",
+        live_sub: "Ne vous contentez pas d'images — explorez nos vrais projets, naviguez dans les catalogues, testez le mode sombre/clair et jugez la rapidité par vous-même.",
+        ld1_desc: "Marketplace complète de broderie digitale avec comparateur interactif Avant/Après, +50 collections, boutique, fiches produits et demandes sur mesure.",
+        ld2_desc: "Catalogue élégant de tenues professionnelles & médicales avec 32 fiches produits détaillées, design or & blanc, galerie réalisations et contact direct.",
+        ld3_desc: "Site corporate en production réelle — présentation institutionnelle moderne, navigation mobile rapide et mise en valeur claire des prestations.",
+        btn_launch_live: "Ouvrir la Démo Live ↗", btn_visit_live: "Visiter le Site Live ↗",
+        srv_tag: "EXPERTISE", srv_title: "Des Solutions Digitales Complètes pour votre Croissance",
+        srv_sub: "Tout ce qu'il faut pour inspirer confiance sur Google, convertir vos visiteurs sur WhatsApp et recevoir des réservations directes.",
+        s1_t: "Sites Web Professionnels", s1_d: "Sites vitrines et plateformes rapides (HTTPS) pour cliniques, hôtels, agences immobilières, location de voitures et sociétés de services.",
+        s2_t: "Applications Android & iPhone", s2_d: "Développement d'applications mobiles sur mesure pour Google Play & App Store avec e-commerce, réservation, notifications push et tableau de bord.",
+        s3_t: "Boutiques E-Commerce (COD & Carte)", s3_d: "Boutiques ultra-rapides sur mesure pour marques et e-commerçants : commande 1-clic COD & WhatsApp, paiement en ligne, upsells et 0% de commission mensuelle.",
+        s4_t: "Multilingue, WhatsApp & SEO", s4_d: "Interfaces fluides en Français, Arabe (RTL) et Anglais connectées à Google Maps et WhatsApp pour le Maghreb, le Golfe et l'Europe.",
+        app_tag: "DÉVELOPPEMENT MOBILE SUR MESURE", app_title: "Votre Marque dans la Poche de Chaque Client (Android & iOS)",
+        app_desc: "Besoin d'aller plus loin qu'un site web ? Nous développons des applications mobiles adaptées à votre activité : réservations, commandes, immobilier, cliniques et fidélité.",
+        app_f1: "Expérience fluide et moderne sur Android et iPhone", app_f2: "Notifications Push instantanées pour vos offres et rappels",
+        app_f3: "Tableau de bord d'administration simple et complet", app_f4: "Support natif Arabe (RTL), Français et Anglais",
+        app_cta: "Discuter de votre Application Mobile",
+        port_tag: "CONCEPTS PAR SECTEUR", port_title: "Modèles Web & Mobile Adaptés à Votre Activité",
+        port_sub: "Cliquez sur n'importe quel concept pour l'agrandir. Chaque projet est 100% personnalisé à votre marque, devise et langues.",
+        f_all: "Tous les Secteurs (10)", f_ecom: "E-Commerce & Boutiques", f_apps: "Apps Mobiles", f_health: "Santé & Beauté", f_biz: "Immobilier, Location & Services",
+        proc_tag: "NOTRE MÉTHODE", proc_title: "Un Processus Sans Risque en 3 Étapes", proc_sub: "Découvrez la qualité de votre design avant le moindre engagement.",
+        p1_t: "Maquette Gratuite Personnalisée", p1_d: "Envoyez-nous le nom et le secteur de votre entreprise sur WhatsApp. Nous préparons un premier aperçu sur mesure gratuitement.",
+        p2_t: "Développement & Ajustements", p2_d: "Une fois validé, nous développons votre site complet ou application mobile avec vos textes, photos, langues et bouton WhatsApp.",
+        p3_t: "Mise en Ligne & Support", p3_d: "Déploiement sur hébergement sécurisé HTTPS (ou Stores), connexion à Google Maps et accompagnement après livraison.",
+        faq_title: "Questions Fréquentes",
+        cta_tag: "DÉMARRER MAINTENANT", cta_title: "Prêt pour votre Maquette Gratuite ?",
+        cta_desc: "Décrivez votre besoin en 30 secondes et recevez une réponse directe sur WhatsApp avec une proposition adaptée à votre activité.",
+        form_type_l: "De quoi avez-vous besoin ?", opt_ecom: "Boutique E-Commerce (COD, Carte & WhatsApp)", opt_web: "Site Web Professionnel (HTTPS)", opt_app: "Application Mobile Sur Mesure (Android & iPhone)", opt_both: "Pack Complet : Site / Boutique + Application Mobile",
+        form_biz_l: "Nom de votre Entreprise / Marque", form_sec_l: "Domaine d'activité", form_btn: "Demander ma Maquette Gratuite sur WhatsApp →",
+        footer_txt: "Sites Web (HTTPS), Boutiques E-Commerce & Applications Mobiles (Android & iOS) · AR / EN / FR",
+        fab_txt: "WhatsApp", btn_preview: "Aperçu", btn_order: "Demander Similaire", modal_cta: "Demander un Projet Similaire sur WhatsApp",
+        ph_biz: "ex. Ma Boutique / Clinique Sourire", ph_sec: "ex. E-Commerce, Mode, Immobilier, Clinique, Hôtel..."
+      },
+      ar: {
+        nav_live: "تجارب حية", nav_services: "الخدمات", nav_apps: "تطبيقات الجوال", nav_portfolio: "النماذج", nav_faq: "الأسئلة الشائعة", nav_cta: "نموذج مجاني",
+        hero_badge: "نخدم العملاء في الخليج والمغرب وأوروبا • مواقع، متاجر وتطبيقات",
+        hero_title: "مواقع إلكترونية وتطبيقات جوال مصمّمة لمضاعفة عملائك",
+        hero_desc: "نصمم مواقع إلكترونية سريعة وآمنة (HTTPS)، متاجر إلكترونية مخصّصة للبيع أونلاين (الدفع عند الاستلام COD، البطاقة البنكية والطلب المباشر عبر واتساب)، وتطبيقات أندرويد وآيفون باللغات العربية والإنجليزية والفرنسية.",
+        hero_cta_live: "جرّب المواقع الحية الآن ↗", hero_cta_1: "اطلب نموذج مجاني عبر واتساب",
+        stat_1: "مشاريع حية للتجربة", stat_2: "تطبيقات حسب الطلب", stat_3: "متعدد اللغات", stat_4: "نموذج أولي مجاني",
+        live_tag: "أعمال حقيقية للتجربة المباشرة", live_title: "تصفّح وجرّب مشاريعنا الحية بنفسك (Live Demos)",
+        live_sub: "لا تكتفِ بالصور — ادخل مباشرة إلى مشاريعنا الحقيقية، تصفّح الكتالوجات، جرّب الوضع الداكن والمضيء، واختبر السرعة بنفسك.",
+        ld1_desc: "منصة تجارة إلكترونية متكاملة لتصاميم التطريز الرقمي (Laravel) تضم أداة مقارنة تفاعلية قبل/بعد، أكثر من 50 تصنيفاً، متجراً متكاملاً وطلبات تصميم خاص.",
+        ld2_desc: "موقع فاخر لعلامة أزياء مهنية وطبية يضم 32 صفحة منتج تفصيلية بتصميم ذهبي أنيق، معرض أعمال وصفحة تواصل مباشرة.",
+        ld3_desc: "موقع مؤسسي حي منشور فعلياً على الإنترنت — واجهة حديثة، تصفح سريع على الجوال وعرض واضح واحترافي للخدمات.",
+        btn_launch_live: "تشغيل العرض الحي ↗", btn_visit_live: "زيارة الموقع المباشر ↗",
+        srv_tag: "خدماتنا", srv_title: "حلول رقمية متكاملة للشركات والمشاريع الطموحة",
+        srv_sub: "كل ما تحتاجه لتعزيز ثقة عملائك على جوجل، تحويل الزوار مباشرة إلى واتساب، واستقبال الحجوزات بدون عمولة.",
+        s1_t: "مواقع إلكترونية احترافية", s1_d: "مواقع سريعة ومتجاوبة مع الجوال للعيادات، الفنادق، العقار، تأجير السيارات، وشركات الخدمات بتصميم عصري فخم.",
+        s2_t: "تطبيقات أندرويد وآيفون", s2_d: "تطوير تطبيقات جوال مخصّصة للنشر على Google Play و App Store للمتاجر الإلكترونية والحجوزات مع إشعارات فورية ولوحة تحكم شاملة.",
+        s3_t: "متاجر إلكترونية (E-Commerce & COD)", s3_d: "متاجر فائقة السرعة لأصحاب التجارة الإلكترونية والعلامات التجارية: طلب بضغطة زر (الدفع عند الاستلام COD أو البطاقة أو واتساب)، لوحة طلبات و 0% عمولة شهرية.",
+        s4_t: "متعدد اللغات، واتساب و SEO", s4_d: "واجهات متقنة بالعربية والإنجليزية والفرنسية مربوطة بواتساب وخرائط جوجل ومُهيّأة لمحركات البحث للخليج والمغرب وأوروبا.",
+        app_tag: "برمجة تطبيقات الجوال حسب الطلب", app_title: "اجعل علامتك التجارية في جيب كل عميل (Android & iOS)",
+        app_desc: "تحتاج إلى ما هو أكثر من موقع ويب؟ نطوّر تطبيقات جوال متكاملة مخصّصة لطبيعة نشاطك — للحجوزات، المتاجر، العقار، العيادات، أو برامج الولاء.",
+        app_f1: "أداء سلس واحترافي على أجهزة أندرويد وآيفون معاً", app_f2: "إشعارات فورية (Push) للعروض، الطلبات، وتذكير المواعيد",
+        app_f3: "لوحة تحكم سهلة لإدارة المحتوى والعملاء في أي وقت", app_f4: "دعم كامل للغة العربية (RTL) والإنجليزية والفرنسية",
+        app_cta: "ناقش فكرة تطبيقك عبر واتساب",
+        port_tag: "نماذج حسب القطاع", port_title: "تصاميم مواقع وتطبيقات مخصّصة لمختلف المجالات",
+        port_sub: "اضغط على أي نموذج لمشاهدته بالحجم الكامل. كل مشروع يُصمّم 100% بشعارك وألوانك وعملتك ولغاتك.",
+        f_all: "جميع القطاعات (10)", f_ecom: "التجارة الإلكترونية والمتاجر", f_apps: "تطبيقات الجوال", f_health: "الصحة والتجميل", f_biz: "العقار، السيارات والخدمات",
+        proc_tag: "كيف نعمل", proc_title: "خطوات واضحة بدون أي مخاطرة", proc_sub: "شاهد جودة التصميم المخصّص لشركتك قبل أي التزام مالي.",
+        p1_t: "نموذج أولي مجاني باسمك", p1_d: "أرسل لنا اسم شركتك ومجال عملك عبر واتساب، وسنجهّز لك تصوّراً أولياً مخصّصاً لشكل موقعك أو تطبيقك مجاناً.",
+        p2_t: "التطوير والتخصيص الكامل", p2_d: "بعد موافقتك، نبني الموقع أو التطبيق كاملاً باللغات والصور والخدمات ونماذج الحجز المباشر مع واتساب.",
+        p3_t: "الإطلاق والدعم الفني", p3_d: "ننشر موقعك بشهادة أمان HTTPS (أو نرفع تطبيقك للمتاجر)، نربطه بـ Google Maps، ونوفر دعماً مستمراً بعد الإطلاق.",
+        faq_title: "الأسئلة الشائعة",
+        cta_tag: "ابدأ الآن", cta_title: "جاهز للحصول على نموذج مجاني باسم شركتك؟",
+        cta_desc: "أخبرنا عن مشروعك في 30 ثانية وسنتواصل معك فوراً عبر واتساب بعرض مخصّص ونموذج أولي مجاني.",
+        form_type_l: "ما الخدمة المطلوبة؟", opt_ecom: "متجر إلكتروني احترافي (COD / دفع أونلاين / واتساب)", opt_web: "موقع إلكتروني احترافي (HTTPS)", opt_app: "تطبيق جوال حسب الطلب (Android & iPhone)", opt_both: "باقة متكاملة: موقع / متجر إلكتروني + تطبيق جوال",
+        form_biz_l: "اسم الشركة أو المتجر", form_sec_l: "المجال / القطاع", form_btn: "اطلب النموذج المجاني عبر واتساب ←",
+        footer_txt: "تطوير المواقع الإلكترونية (HTTPS)، المتاجر الإلكترونية وتطبيقات الجوال (Android & iOS) · عربي / إنجليزي / فرنسي",
+        fab_txt: "واتساب", btn_preview: "معاينة", btn_order: "اطلب مماثلاً", modal_cta: "اطلب مشروعاً مشابهاً عبر واتساب",
+        ph_biz: "مثال: متجر النخبة / عيادة الابتسامة", ph_sec: "مثال: تجارة إلكترونية، أزياء، عقار، عيادة، تأجير سيارات..."
+      }
+    };
+
+    const FAQS = [
+      {
+        q: { en: "How fast can you deliver a business website?", fr: "Quel est le délai de livraison pour un site web ?", ar: "كم يستغرق تنفيذ موقع إلكتروني احترافي؟" },
+        a: { en: "Most business websites are delivered within 5 to 10 days after mockup approval, fully responsive, secure (HTTPS), and connected to WhatsApp and Google Maps.", fr: "La majorité des sites vitrines et catalogues sont livrés sous 5 à 10 jours après validation de la maquette, sécurisés en HTTPS et reliés à WhatsApp.", ar: "يتم تسليم أغلب المواقع الاحترافية خلال 5 إلى 10 أيام بعد اعتماد النموذج الأولي، جاهزة وآمنة (HTTPS) ومربوطة بالواتساب وخرائط جوجل." }
+      },
+      {
+        q: { en: "Is the first mockup really free?", fr: "La première maquette est-elle vraiment gratuite ?", ar: "هل النموذج الأولي مجاني فعلاً؟" },
+        a: { en: "Yes! We prepare a custom visual preview tailored to your company name and sector so you can evaluate the quality before making any payment or commitment.", fr: "Oui ! Nous préparons un premier aperçu personnalisé au nom de votre entreprise afin que vous jugiez la qualité avant tout engagement.", ar: "نعم بالتأكيد! نجهّز لك تصوّراً أولياً باسم شركتك ومجالك لتشاهد الجودة بنفسك قبل أي دفعة أو التزام." }
+      },
+      {
+        q: { en: "Do you build custom Android & iPhone apps too?", fr: "Développez-vous aussi des applications Android & iPhone ?", ar: "هل توفرون برمجة تطبيقات جوال أندرويد وآيفون؟" },
+        a: { en: "Yes, we build custom Android & iOS mobile apps on demand—for bookings, e-commerce, deliveries, clinics, real estate, or customer loyalty—complete with an admin dashboard.", fr: "Oui, nous développons des applications mobiles sur mesure (Android & iOS) selon vos besoins : réservation, e-commerce, suivi clients et espace administrateur.", ar: "نعم، نبرمج تطبيقات أندرويد وآيفون حسب الطلب (حجوزات، متاجر، عقار، عيادات، أو برامج ولاء) مع لوحة تحكم متكاملة." }
+      },
+      {
+        q: { en: "Do you build custom E-Commerce stores (COD & online payments)?", fr: "Créez-vous des boutiques E-Commerce (COD & paiement en ligne) ?", ar: "هل تنشئون متاجر إلكترونية (E-Commerce) مع الدفع عند الاستلام COD أو البطاقة؟" },
+        a: { en: "Yes! We build ultra-fast custom E-Commerce stores tailored for online sellers and brands—with 1-click Cash on Delivery (COD) forms, WhatsApp order confirmation, card payment gateways, upsells, and an admin dashboard with zero monthly platform commissions.", fr: "Oui ! Nous développons des boutiques E-Commerce sur mesure ultra-rapides : formulaire de commande 1-clic (COD), confirmation WhatsApp, paiement par carte, gestion des stocks et 0% de commission mensuelle.", ar: "نعم! نطوّر متاجر إلكترونية سريعة ومخصّصة لأصحاب التجارة الإلكترونية والعلامات التجارية — مع نموذج طلب سريع للدفع عند الاستلام (COD)، تأكيد فوري عبر واتساب، بوابات الدفع الإلكتروني، ولوحة إدارة الطلبات بدون أي عمولات شهرية على المبيعات." }
+      },
+      {
+        q: { en: "Do you work with clients in the Gulf, Europe, and worldwide?", fr: "Travaillez-vous avec des clients au Golfe, en Europe et à l'international ?", ar: "هل تعملون مع شركات في الخليج وأوروبا؟" },
+        a: { en: "Yes! All communication, design reviews, and deployment are handled smoothly online in Arabic, English, or French for clients across UAE, Saudi Arabia, Qatar, North Africa, and Europe.", fr: "Oui ! Tous nos projets sont gérés à distance de manière fluide en Arabe, Français et Anglais pour des clients au Maghreb, dans le Golfe et en Europe.", ar: "نعم بكل تأكيد! نعمل عن بُعد باحترافية كاملة مع عملاء في الإمارات، السعودية، قطر، الكويت، المغرب، وأوروبا باللغات العربية والإنجليزية والفرنسية." }
+      }
+    ];
+
+    const ITEMS = [
+      { img: "assets/live_embrospace.jpg", cat: "ecom", badge: { en: "E-Commerce & COD", fr: "E-Commerce & COD", ar: "متجر إلكتروني" }, title: { en: "High-Converting E-Commerce Store", fr: "Boutique E-Commerce Haute Conversion", ar: "متجر إلكتروني احترافي (COD & دفع أونلاين)" }, desc: { en: "Ultra-fast product catalog, 1-click COD & WhatsApp checkout, upsells & order dashboard with 0% monthly fees.", fr: "Catalogue rapide, commande 1-clic COD & WhatsApp, gestion des commandes et 0% de commission mensuelle.", ar: "متجر فائق السرعة مع نموذج طلب سريع (COD) وتأكيد واتساب ولوحة إدارة الطلبات بدون عمولات شهرية." } },
+      { img: "assets/mobile_apps_pro.jpg", cat: "app", badge: { en: "Android & iOS", fr: "Android & iOS", ar: "أندرويد وآيفون" }, title: { en: "Custom Mobile Apps (Android & iPhone)", fr: "Applications Mobiles Sur Mesure", ar: "تطبيقات جوال أندرويد وآيفون حسب الطلب" }, desc: { en: "Booking, e-commerce, live tracking & push notifications with full admin panel.", fr: "Réservation, e-commerce, suivi en direct et notifications push avec back-office.", ar: "حجز فوري، متجر إلكتروني، تتبّع طلبات وإشعارات مع لوحة تحكم متكاملة." } },
+      { img: "assets/demo_01_car.png", cat: "business", badge: { en: "Car Rental", fr: "Location Voitures", ar: "تأجير السيارات" }, title: { en: "Luxury Car Rental Platform", fr: "Site Location de Voitures", ar: "موقع وكالة تأجير سيارات" }, desc: { en: "Fleet catalog, instant WhatsApp booking form & zero-commission reservations.", fr: "Catalogue flotte, réservation instantanée sur WhatsApp sans commission.", ar: "كتالوج سيارات متكامل مع نموذج حجز فوري عبر واتساب بدون عمولة." } },
+      { img: "assets/demo_03_immo.png", cat: "business", badge: { en: "Real Estate", fr: "Immobilier", ar: "العقار" }, title: { en: "Real Estate & Luxury Properties", fr: "Portail Agence Immobilière", ar: "بوابة وكالة عقارية فخمة" }, desc: { en: "Smart filters by city, property type & budget with 1-click viewing requests.", fr: "Filtres intelligents par quartier, budget et type de bien avec visite WhatsApp.", ar: "فلاتر ذكية حسب المدينة والنوع والميزانية مع حجز معاينة بضغطة زر." } },
+      { img: "assets/demo_04_dental.png", cat: "health", badge: { en: "Medical & Dental", fr: "Clinique Dentaire", ar: "عيادة أسنان" }, title: { en: "Dental & Medical Clinic Website", fr: "Site Cabinet & Clinique Dentaire", ar: "موقع عيادة أسنان ومركز طبي" }, desc: { en: "Treatments showcase, doctor credentials & instant appointment booking.", fr: "Présentation des soins, équipe médicale et prise de rendez-vous en ligne.", ar: "عرض العلاجات والخدمات الطبية مع حجز موعد سريع عبر واتساب." } },
+      { img: "assets/demo_05_spa.png", cat: "health", badge: { en: "Beauty & Spa", fr: "Beauté & Spa", ar: "التجميل والسبا" }, title: { en: "Beauty Center & Luxury Spa", fr: "Site Centre Esthétique & Spa", ar: "موقع مركز تجميل وسبا فاخر" }, desc: { en: "Elegant service menu, gift cards & direct WhatsApp appointment confirmation.", fr: "Carte des soins élégante, cartes cadeaux et confirmation directe WhatsApp.", ar: "قائمة علاجات فاخرة وحجز جلسات فوري عبر واتساب بدون انتظار." } },
+      { img: "assets/demo_02_btp.png", cat: "business", badge: { en: "Construction", fr: "BTP & Architecture", ar: "المقاولات والبناء" }, title: { en: "Construction & Engineering Firm", fr: "Site Société BTP & Construction", ar: "موقع شركة مقاولات وهندسة" }, desc: { en: "Completed projects showcase, corporate credibility & online quote estimator.", fr: "Vitrine de réalisations, crédibilité institutionnelle et demande de devis.", ar: "معرض المشاريع المنجزة لتعزيز الثقة واستقبال طلبات عروض الأسعار." } },
+      { img: "assets/demo_06_vet.png", cat: "health", badge: { en: "Veterinary", fr: "Clinique Vétérinaire", ar: "عيادة بيطرية" }, title: { en: "Veterinary Clinic & 24/7 Care", fr: "Site Clinique Vétérinaire", ar: "موقع عيادة بيطرية وطوارئ" }, desc: { en: "Emergency hotline, vaccination reminders & online pet consultation booking.", fr: "Urgences 24/7, rappels vaccinaux et prise de rendez-vous en ligne.", ar: "طوارئ 24/7، تذكير اللقاحات وحجز استشارات سريع عبر واتساب." } },
+      { img: "assets/demo_08_optic.png", cat: "health", badge: { en: "Optical Store", fr: "Opticien", ar: "البصريات" }, title: { en: "Optical Boutique & Eye Care", fr: "Site Opticien & Lunetterie", ar: "موقع محل بصريات ونظارات" }, desc: { en: "Eyewear collections, free eye-test booking & WhatsApp prescription upload.", fr: "Collections optiques & solaires, bilan visuel et envoi d'ordonnance WhatsApp.", ar: "تشكيلة نظارات طبية وشمسية مع إرسال الوصفة الطبية مباشرة عبر واتساب." } },
+      { img: "assets/demo_07_auto.png", cat: "business", badge: { en: "Training & Academy", fr: "Auto-École", ar: "التكوين والسياقة" }, title: { en: "Driving School & Training Center", fr: "Site Auto-École & Formation", ar: "موقع مدرسة سياقة ومركز تكوين" }, desc: { en: "Course packages, success stats & 2-minute WhatsApp pre-registration.", fr: "Formules permis, taux de réussite et pré-inscription rapide sur WhatsApp.", ar: "باقات التكوين ونسب النجاح مع تسجيل أولي سريع عبر واتساب." } }
+    ];
+
+    function waUrl(msg) { return `https://wa.me/${WA_PHONE}?text=${encodeURIComponent(msg)}`; }
+    function toggleDrawer() { document.getElementById("mobileDrawer").classList.toggle("open"); }
+
+    function renderPortfolio() {
+      const grid = document.getElementById("portfolioGrid");
+      const t = I18N[currentLang];
+      const list = currentFilter === "all" ? ITEMS : ITEMS.filter(i => i.cat === currentFilter);
+      grid.innerHTML = list.map(item => {
+        const realIdx = ITEMS.indexOf(item);
+        const waMsg = currentLang === "ar"
+          ? `السلام عليكم عصام، أعجبني نموذج "${item.title.ar}" وأرغب في نموذج أولي مجاني لمشروعي.`
+          : currentLang === "fr"
+            ? `Bonjour Issam, j'aime beaucoup le modèle "${item.title.fr}" et je souhaite une maquette gratuite pour mon activité.`
+            : `Hello Issam, I like the "${item.title.en}" concept and would like a free prototype for my business.`;
+        return `
+          <div class="p-card">
+            <div class="p-thumb" onclick="openModal(${realIdx})">
+              <img src="${item.img}" alt="${item.title[currentLang]}" loading="lazy">
+              <span class="p-badge">${item.badge[currentLang]}</span>
+            </div>
+            <div class="p-body">
+              <h3>${item.title[currentLang]}</h3>
+              <p>${item.desc[currentLang]}</p>
+              <div class="p-actions">
+                <button class="btn btn-outline" onclick="openModal(${realIdx})">${t.btn_preview}</button>
+                <a href="${waUrl(waMsg)}" target="_blank" class="btn btn-primary">${t.btn_order}</a>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function renderFaq() {
+      const el = document.getElementById("faqList");
+      el.innerHTML = FAQS.map((f, idx) => `
+        <div class="faq-item ${idx === 0 ? 'open' : ''}">
+          <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            <span>${f.q[currentLang]}</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">${f.a[currentLang]}</div>
+        </div>
+      `).join("");
+    }
+
+    function filterPortfolio(cat, btn) {
+      currentFilter = cat;
+      document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      renderPortfolio();
+    }
+
+    function openModal(idx) {
+      const item = ITEMS[idx];
+      document.getElementById("modalTitle").textContent = item.title[currentLang];
+      document.getElementById("modalImg").src = item.img;
+      document.getElementById("modalDesc").textContent = item.desc[currentLang];
+      const waMsg = currentLang === "ar"
+        ? `السلام عليكم عصام، أرغب في مشروع مشابه لـ "${item.title.ar}" (مع نموذج أولي مجاني).`
+        : currentLang === "fr"
+          ? `Bonjour Issam, je souhaite un projet similaire à "${item.title.fr}" avec maquette gratuite.`
+          : `Hello Issam, I would like a project similar to "${item.title.en}" with a free prototype.`;
+      document.getElementById("modalWa").href = waUrl(waMsg);
+      document.getElementById("lightbox").classList.add("open");
+    }
+
+    function closeModal() { document.getElementById("lightbox").classList.remove("open"); }
+
+    function setLang(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+      ["en","fr","ar"].forEach(l => document.getElementById("btn-" + l).classList.toggle("active", l === lang));
+      const t = I18N[lang];
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const k = el.getAttribute("data-i18n");
+        if (t[k]) el.textContent = t[k];
+      });
+      document.getElementById("fBiz").placeholder = t.ph_biz;
+      document.getElementById("fSec").placeholder = t.ph_sec;
+
+      const defaultMsg = lang === "ar"
+        ? "السلام عليكم عصام، أرغب في الاستفسار عن تصميم موقع إلكتروني / تطبيق جوال والحصول على نموذج أولي مجاني."
+        : lang === "fr"
+          ? "Bonjour Issam, je souhaite obtenir une maquette gratuite pour mon site web / application mobile."
+          : "Hello Issam, I would like to request a free prototype for my website / mobile app.";
+      const appMsg = lang === "ar"
+        ? "السلام عليكم عصام، لدي فكرة تطبيق جوال (Android & iPhone) وأرغب في مناقشتها معكم."
+        : lang === "fr"
+          ? "Bonjour Issam, j'ai un projet d'application mobile (Android & iPhone) et je souhaite en discuter."
+          : "Hello Issam, I have a custom Android & iPhone mobile app project I would like to discuss.";
+
+      document.getElementById("heroWaLink").href = waUrl(defaultMsg);
+      document.getElementById("fabWaLink").href = waUrl(defaultMsg);
+      document.getElementById("appWaLink").href = waUrl(appMsg);
+      renderPortfolio();
+      renderFaq();
+    }
+
+    function sendBrief(e) {
+      e.preventDefault();
+      const type = document.getElementById("fType").value;
+      const biz = document.getElementById("fBiz").value.trim();
+      const sec = document.getElementById("fSec").value.trim();
+      let msg = "";
+      if (currentLang === "ar") {
+        msg = `السلام عليكم عصام،\nأرغب في طلب نموذج أولي مجاني:\n• الخدمة: ${type}\n• اسم الشركة: ${biz}\n• المجال: ${sec}`;
+      } else if (currentLang === "fr") {
+        msg = `Bonjour Issam,\nJe souhaite demander une maquette gratuite :\n• Projet : ${type}\n• Entreprise : ${biz}\n• Secteur : ${sec}`;
+      } else {
+        msg = `Hello Issam,\nI would like to request a free prototype:\n• Project: ${type}\n• Business: ${biz}\n• Sector: ${sec}`;
+      }
+      window.open(waUrl(msg), "_blank");
+    }
+
+    // Scroll Reveal Observer
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(en => { if (en.isIntersecting) en.target.classList.add("in"); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll(".reveal").forEach(el => obs.observe(el));
+
+    setLang("en");
+  </script>
+</body>
+</html>

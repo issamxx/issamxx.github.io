@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaouhara Mode | Contact Commercial & FAQ</title>
+    <meta name="description" content="Contactez Jaouhara Mode pour commander des tenues professionnelles, demander un devis ou poser une question sur nos solutions textiles inclusives et durables.">
+    <meta property="og:title" content="Jaouhara Mode | Contact Commercial & FAQ">
+    <meta property="og:description" content="Contactez Jaouhara Mode pour commander des tenues professionnelles, demander un devis ou poser une question sur nos solutions textiles inclusives et durables.">
+    <meta property="og:image" content="img/logo.png">
+    <link rel="icon" href="img/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --gold: #c5a85c; --gold-dark: #aa8f46; --dark: #111111;
+            --text-dark: #1f2937; --text-light: #6b7280; --bg-cream: #fbf9f4; --white: #ffffff;
+            --shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--bg-cream); color: var(--text-dark); padding-top: 80px; }
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 45px; margin-bottom: 60px; }
+        .info-pane, .form-pane { background: var(--white); padding: 45px 35px; box-shadow: var(--shadow); border: 1px solid rgba(197,168,92,0.1); border-radius: 4px; }
+        .info-pane h2, .form-pane h2 { font-family: 'Cinzel', serif; color: var(--dark); margin-bottom: 25px; }
+        
+        .contact-item { display: flex; gap: 15px; margin-bottom: 25px; align-items: flex-start; }
+        .contact-item i { font-size: 1.2rem; color: var(--gold); background: var(--bg-cream); padding: 12px; border: 1px solid rgba(197,168,92,0.15); }
+        .contact-item h4 { font-family: 'Cinzel', serif; font-size: 1.05rem; margin-bottom: 4px; }
+        .contact-item p { color: var(--text-light); font-size: 0.9rem; }
+        .map-wrapper { margin-top: 20px; border: 1px solid rgba(197,168,92,0.15); overflow: hidden; border-radius: 4px; }
+        .map-wrapper iframe { width: 100%; height: 300px; border: 0; display: block; }
+
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 0.85rem; text-transform: uppercase; color: #444; }
+        .form-control { width: 100%; padding: 12px; border: 1px solid rgba(197,168,92,0.25); background: var(--bg-cream); outline: none; }
+        .form-control:focus { border-color: var(--dark); }
+        
+        .btn-whatsapp,
+        .btn-email {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 16px 18px;
+            font-weight: 700;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            box-shadow: 0 14px 30px rgba(0,0,0,0.08);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+            color: var(--white);
+        }
+
+        .btn-whatsapp { background-color: #25d366; }
+        .btn-email { background-color: #1a73e8; }
+
+        .btn-whatsapp:hover,
+        .btn-email:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 18px 38px rgba(0,0,0,0.12);
+            opacity: 0.98;
+        }
+
+        .btn-whatsapp:active,
+        .btn-email:active {
+            transform: translateY(0);
+            box-shadow: 0 10px 22px rgba(0,0,0,0.09);
+        }
+
+        /* FAQ Section Expansion */
+        .faq-section { background: var(--white); padding: 60px 40px; box-shadow: var(--shadow); border: 1px solid rgba(0,0,0,0.02); margin-bottom: 80px; border-radius: 4px; }
+        .faq-section h2 { font-family: 'Cinzel', serif; text-align: center; margin-bottom: 40px; }
+        .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .faq-item h4 { font-family: 'Inter', sans-serif; font-weight: 600; color: var(--dark); margin-bottom: 8px; font-size: 1.05rem; display: flex; align-items: center; gap: 10px; }
+        .faq-item h4 i { color: var(--gold); }
+        .faq-item p { color: var(--text-light); font-size: 0.9rem; text-align: justify; }
+
+        @media (max-width: 992px) {
+            .contact-grid, .faq-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            .contact-grid, .faq-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 600px) {
+            .container { padding: 0 16px; }
+            .info-pane, .form-pane, .faq-section { padding: 30px 20px; }
+            .contact-item { gap: 12px; }
+            .contact-item i { padding: 10px; font-size: 1.1rem; }
+            .btn-whatsapp, .btn-email { padding: 14px 16px; font-size: 0.95rem; }
+            .faq-item h4 { font-size: 1rem; }
+            .faq-item p { font-size: 0.88rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <style>
+    :root {
+        --gold: #c5a85c; --gold-dark: #aa8f46; --dark: #111111; --white: #ffffff;
+        --bg-cream: #fbf9f4; --shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+    header { background-color: var(--white); position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; box-shadow: var(--shadow); border-bottom: 1px solid rgba(197, 168, 92, 0.2); }
+    .navbar { display: flex; justify-content: space-between; align-items: center; height: 80px; position: relative; }
+    .logo-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .logo-brand img { height: 42px; width: auto; display: block; }
+    .logo-text { font-family: 'Cinzel', serif; font-size: 1.6rem; font-weight: 700; color: var(--dark); text-decoration: none; letter-spacing: 2px; }
+    .logo-text span { color: var(--gold); }
+    .nav-menu { display: flex; gap: 25px; list-style: none; }
+    .nav-link { font-weight: 500; color: var(--dark); text-decoration: none; font-size: 0.95rem; transition: 0.3s; padding-bottom: 5px; position: relative; }
+    .nav-link:hover, .nav-link.active { color: var(--gold-dark); }
+    .nav-link.active::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background-color: var(--gold); }
+    .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; background: none; border: none; color: var(--dark); padding: 0; }
+    @media (max-width: 768px) {
+        .navbar { height: 70px; }
+        .menu-toggle { display: block; }
+        .nav-menu { display: none !important; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; max-height: calc(100vh - 70px); overflow-y: auto; background: var(--white); padding: 20px 18px; box-shadow: var(--shadow); gap: 16px; border-top: 1px solid rgba(0,0,0,0.05); z-index: 1001; }
+        .nav-menu.active { display: flex !important; }
+        .nav-menu li { width: 100%; }
+        .nav-link { width: 100%; white-space: nowrap; padding: 12px 0; }
+    }
+</style>
+
+<header>
+    <div class="container" style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+        <div class="navbar">
+            <a href="index.html" class="logo-brand">
+                <img src="img/logo.png" alt="Jaouhara logo">
+                <span class="logo-text">JAOUHARA</span>
+            </a>
+            <button type="button" class="menu-toggle" id="menuToggle" aria-label="Menu mobile">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Accueil</a></li>
+                <li><a href="apropos.html" class="nav-link">À Propos</a></li>
+                <li><a href="produits.html" class="nav-link">Produits</a></li>
+                <li><a href="realisations.html" class="nav-link">Réalisations</a></li>
+                <li><a href="contact.html" class="nav-link active">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            navMenu.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            if (icon) {
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-xmark');
+            }
+        });
+        document.addEventListener('click', function(event) {
+            if (!navMenu.contains(event.target) && !menuToggle.contains(event.target)) {
+                navMenu.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                if (icon) {
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-xmark');
+                }
+            }
+        });
+    }
+</script>
+        <main class="container">
+            <div class="contact-grid">
+                <div class="info-pane">
+                    <h2>Bureau des Commandes</h2>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-building-ngo"></i>
+                        <div>
+                            <h4>Atelier Central de Confection</h4>
+                            <p>M'hamid c 206 - Marrakech, Maroc</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-envelope-open-text"></i>
+                        <div>
+                            <h4>Correspondance d'Étude</h4>
+                            <p>Cooperativejaouhara7@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-clock"></i>
+                        <div>
+                            <h4>Horaires d'Ouverture</h4>
+                            <p>7j/7j</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <div>
+                            <h4>Téléphone</h4>
+                            <p><a href="tel:+212666394606">+212 666 394 606</a> &amp; <a href="tel:+212653450380">+212 653 450 380</a></p>
+                        </div>
+                    </div>
+                    <div class="map-wrapper">
+                        <iframe src="https://maps.google.com/maps?q=Cooperative%20jaouhara%20Marrakech&z=16&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+                <div class="form-pane">
+                    <h2>Lancer une étude de modèle</h2>
+                    <div class="form-group">
+                        <label>Nom ou Identification de la Structure</label>
+                        <input type="text" id="contactName" class="form-control" placeholder="Ex: Association Régionale Souss">
+                    </div>
+                    <div class="form-group">
+                        <label>Description du besoin (Volume, Modèle, Tailles)</label>
+                        <textarea id="contactNeed" class="form-control" rows="3" placeholder="Ex: 50 Blouses Signature en taille XL et 5XL avec broderie du logo..."></textarea>
+                    </div>
+                    <button type="button" id="btnContactWA" class="btn-whatsapp">
+                        <i class="fa-brands fa-whatsapp"></i> Transmettre le dossier par WhatsApp
+                    </button>
+                    <button type="button" id="btnContactEmail" class="btn-email" style="margin-top: 15px; background:#1a73e8;">
+                        <i class="fa-solid fa-envelope"></i> Envoyer le dossier par email
+                    </button>
+                </div>
+            </div>
+
+            <div class="faq-section">
+                <h2>Foire Aux Questions (FAQ)</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h4><i class="fa-solid fa-circle-question"></i> Prenez-vous en charge les très grandes tailles ?</h4>
+                        <p>Oui, absolument. Notre manufacture est spécialisée dans l'inclusivité totale. Nous développons nos gabarits spécifiques du S jusqu'au 5XL pour assurer la même fluidité de mouvement à chaque collaborateur.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4><i class="fa-solid fa-circle-question"></i> Est-il possible de broder le logo de notre association ?</h4>
+                        <p>Tout à fait. Nos machines de broderie numérique automatisées de dernière génération traduisent vos chartes graphiques avec une fidélité absolue en utilisant des fils haute résistance.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4><i class="fa-solid fa-circle-question"></i> Quels sont vos délais moyens de fabrication ?</h4>
+                        <p>Les délais dépendent du volume de la commande et du niveau de personnalisation requis. Une estimation précise vous est fournie dès la validation du cahier des charges sur WhatsApp.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4><i class="fa-solid fa-circle-question"></i> Vos tissus résistent-ils aux lavages fréquents ?</h4>
+                        <p>Nos matières premières subissent des tests de torsion et de décoloration industriels stricts. Elles conservent leur éclat structurel et colorimétrique même après de multiples cycles à haute température.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <style>
+    footer { background-color: #111111; color: #ffffff; padding: 80px 0 30px 0; border-top: 4px solid #c5a85c; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 50px; }
+    .footer-col h4 { font-family: 'Cinzel', serif; font-size: 1.1rem; margin-bottom: 25px; color: #c5a85c; letter-spacing: 1px; text-transform: uppercase; }
+    .footer-col p { color: #aaaaaa; font-size: 0.9rem; line-height: 1.6; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 12px; }
+    .footer-col ul li a { color: #aaaaaa; text-decoration: none; transition: 0.2s; font-size: 0.9rem; display: inline-block; }
+    .footer-col ul li a:hover { color: #c5a85c; transform: translateX(5px); }
+    
+    .social-icons { display: flex; gap: 15px; margin-top: 20px; }
+    .social-icon { width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; background-color: rgba(197, 168, 92, 0.15); color: #c5a85c; text-decoration: none; border-radius: 50%; transition: all 0.3s ease; border: 1px solid rgba(197, 168, 92, 0.3); }
+    .social-icon:hover { background-color: #c5a85c; color: #111111; transform: translateY(-3px); }
+    
+    .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); color: #666666; font-size: 0.85rem; letter-spacing: 1px; }
+    @media (max-width: 992px) {
+        .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+        .footer-grid { grid-template-columns: 1fr; }
+    }
+</style>
+
+<footer>
+    <div class="container" style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo-text" style="color:white; margin-bottom:20px; font-size: 1.4rem;">JAOUHARA<span style="color: #c5a85c;">.</span></div>
+                <p>Manufacture de prêt-à-porter haut de gamme et d'habillement professionnel technique. Nous combinons des concepts géométriques avancés et des textiles durables pour équiper les organisations d'excellence.</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/jaouhara.vetements.de.travail" target="_blank" class="social-icon" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/jaouhara_mode12/" target="_blank" class="social-icon" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@coop.jaouhara" target="_blank" class="social-icon" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="https://wa.me/212666394606" target="_blank" class="social-icon" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Accueil Principal</a></li>
+                    <li><a href="apropos.html">Histoire & Vision</a></li>
+                    <li><a href="produits.html">Catalogue Général</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Solutions Pro</h4>
+                <ul>
+                    <li><a href="realisations.html">Galerie Réalisations</a></li>
+                    <li><a href="contact.html">Demande de Devis</a></li>
+                    <li><a href="privacy.html">Politique de Confidentialité</a></li>
+                    <li><a href="policy.html">Conditions Générales</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <p style="font-size:0.85rem; color:#aaa;"><i class="fa-solid fa-location-dot" style="color:#c5a85c;"></i> M'hamid c 206 - Marrakech, Maroc</p>
+                <p style="font-size:0.85rem; color:#aaa; margin-top:10px;"><i class="fa-solid fa-envelope" style="color:#c5a85c;"></i> Cooperativejaouhara7@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Jaouhara Mode. Tous droits réservés. Conception d'Infrastructures Textiles de Précision.</p>
+        </div>
+    </div>
+</footer>
+
+        <script>
+            function buildContactMessage() {
+                const name = document.getElementById('contactName')?.value.trim() || '';
+                const need = document.getElementById('contactNeed')?.value.trim() || '';
+
+                let msg = 'Bonjour Jaouhara Mode,';
+                msg += '\n\nNom / identification de la structure : ' + (name || 'Non renseigné');
+                msg += '\nDescription du besoin : ' + (need || 'Non renseigné');
+                msg += '\n\nMerci de revenir vers nous rapidement.';
+                return msg;
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+                const btnContactWA = document.getElementById('btnContactWA');
+                const btnContactEmail = document.getElementById('btnContactEmail');
+
+                if (btnContactWA) {
+                    btnContactWA.addEventListener('click', function(event) {
+                        event.preventDefault();
+                        const msg = buildContactMessage();
+                        const url = `https://wa.me/212666394606?text=${encodeURIComponent(msg)}`;
+                        const opened = window.open(url, '_blank');
+                        if (!opened) {
+                            window.location.href = url;
+                        }
+                    });
+                }
+
+                if (btnContactEmail) {
+                    btnContactEmail.addEventListener('click', function(event) {
+                        event.preventDefault();
+                        const msg = buildContactMessage();
+                        const mailto = `mailto:cooperativejaouhara7@gmail.com?subject=${encodeURIComponent('Demande de dossier Jaouhara Mode')}&body=${encodeURIComponent(msg)}`;
+                        const opened = window.open(mailto, '_blank');
+                        if (!opened) {
+                            window.location.href = mailto;
+                        }
+                    });
+                }
+
+            });
+        </script>
+    
+<style>
+  .issam-demo-bar {
+    position: fixed; bottom: 18px; left: 18px; z-index: 99999;
+    display: inline-flex; align-items: center; gap: 10px;
+    background: rgba(2, 6, 23, 0.92); color: #f8fafc;
+    border: 1px solid rgba(56, 189, 248, 0.5); border-radius: 99px;
+    padding: 9px 16px; font-family: system-ui, -apple-system, sans-serif;
+    font-size: 13px; font-weight: 700; text-decoration: none;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.45); backdrop-filter: blur(10px);
+    transition: transform 0.2s;
+  }
+  .issam-demo-bar:hover { transform: translateY(-2px); color: #7dd3fc; }
+  .issam-demo-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; }
+</style>
+<a href="../../index.html#live-demos" class="issam-demo-bar">
+  <span class="issam-demo-dot"></span>
+  ← Back to ISSAM Portfolio (Live Demo)
+</a>
+
+</body>
+    </html>
+
+

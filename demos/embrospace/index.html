@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embro Space | Discover One-of-a-Kind Embroidery Designs</title>
+    <meta name="description" content="Shop premium machine embroidery designs and request custom digitizing from Embro Space.">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="index.html">
+    <meta property="og:site_name" content="Embro Space">
+    <meta property="og:title" content="Embro Space | Discover One-of-a-Kind Embroidery Designs">
+    <meta property="og:description" content="Shop premium machine embroidery designs and request custom digitizing from Embro Space.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://demo.local/">
+    <meta property="og:image" content="images/logo-dark.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Embro Space | Discover One-of-a-Kind Embroidery Designs">
+    <meta name="twitter:description" content="Shop premium machine embroidery designs and request custom digitizing from Embro Space.">
+    <link rel="icon" type="image/png" href="images/favicon.ico">
+    <!-- خطوط جوجل الأنيقة -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* 1. متغيرات الألوان للوضع الداكن (الافتراضي) */
+        :root {
+            --bg-main: #121212;
+            --header-purple: #1e1428;
+            --accent-purple: #3b2352;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --sky-blue: #38bdf8;
+            --top-bar-bg: #1a1a1a;
+            --border-color: #262626;
+            --search-bg: #2b1f3d;
+            --nav-bg: #ffffff;
+            --footer-bg: #161616;
+            --footer-border: #222222;
+        }
+
+        /* 2. متغيرات الألوان للوضع المضيء */
+        [data-theme="light"] {
+            --bg-main: #f8fafc;
+            --header-purple: #f1f5f9;
+            --accent-purple: #cbd5e1;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --sky-blue: #0284c7;
+            --top-bar-bg: #e2e8f0;
+            --border-color: #cbd5e1;
+            --search-bg: #ffffff;
+            --nav-bg: #f8fafc;
+            --footer-bg: #f1f5f9;
+            --footer-border: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        /* الشريط العلوي الرفيع */
+        .top-announcement-bar {
+            background-color: var(--top-bar-bg);
+            color: var(--text-secondary);
+            font-size: 13px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 40px;
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.4s ease;
+        }
+        .top-announcement-bar a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-right: 20px;
+            transition: color 0.3s;
+        }
+        .top-announcement-bar a:hover {
+            color: var(--sky-blue);
+        }
+        .top-right-links a {
+            margin-left: 20px;
+            margin-right: 0;
+        }
+
+        /* رابط الداشبورد للأدمن */
+        .admin-dashboard-link {
+            color: #f59e0b !important;
+            font-weight: 700;
+            border: 1px solid #f59e0b;
+            padding: 3px 10px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+        .admin-dashboard-link:hover {
+            background: #f59e0b;
+            color: #121212 !important;
+        }
+
+        /* تنسيق الروابط المتغيرة في الشريط العلوي */
+        .dynamic-social-link {
+            color: var(--sky-blue) !important;
+            text-decoration: none !important;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            margin: 0 !important;
+        }
+        .dynamic-social-link:hover {
+            color: #0284c7 !important;
+            text-decoration: underline !important;
+        }
+
+        /* الشريط الرئيسي */
+        .main-header {
+            background: var(--header-purple);
+            padding: 15px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border-color);
+            transition: background 0.4s ease;
+        }
+        .brand-logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            height: 50px;
+            overflow: visible;
+        }
+        
+        .logo-light, .logo-dark {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+            transform: scale(1.0);
+            transform-origin: left center;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-light { display: none !important; }
+        .logo-dark { display: block !important; }
+
+        [data-theme="light"] .logo-light { display: block !important; }
+        [data-theme="light"] .logo-dark { display: none !important; }
+
+        /* خانة البحث */
+        .search-container {
+            width: 100%;
+            position: relative;
+            display: flex;
+        }
+        .search-input {
+            width: 100%;
+            background-color: var(--search-bg);
+            border: 1px solid var(--accent-purple);
+            border-radius: 30px;
+            padding: 10px 20px;
+            color: var(--text-primary);
+            outline: none;
+            font-size: 14px;
+            transition: all 0.4s ease;
+        }
+        .search-input::placeholder {
+            color: var(--text-secondary);
+        }
+        .search-btn {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--accent-purple);
+            border: none;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            color: var(--text-primary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* أيقونات اليمين */
+        .header-icons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .header-icon-btn, .theme-btn {
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 18px;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: transform 0.3s ease;
+        }
+        .theme-btn {
+            font-size: 22px;
+        }
+        .theme-btn:hover, .header-icon-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* شريط التصنيفات الأفقية */
+.categories-navbar {
+    background: var(--nav-bg);
+    padding: 12px 40px;
+    display: flex;
+    justify-content: center; /* أضف هذا السطر لتوسيط الروابط في المنتصف */
+    align-items: center;     /* لمحاذاة العناصر عمودياً بشكل مثالي */
+    gap: 30px;
+    overflow-x: auto;
+    white-space: nowrap;
+    border-bottom: 1px solid var(--border-color);
+    transition: background 0.4s ease;
+}
+        .categories-navbar::-webkit-scrollbar {
+            display: none;
+        }
+        .categories-navbar a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .categories-navbar a:hover, .categories-navbar a.active {
+            color: var(--sky-blue);
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 30px 20px;
+        }
+
+        /* تنسيقات القوائم الجانبية (السلة والمفضلة) Slide-over */
+        .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 9998;
+            display: none;
+        }
+        .slide-sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 380px;
+            height: 100%;
+            background: var(--bg-main);
+            color: var(--text-primary);
+            z-index: 9999;
+            box-shadow: -5px 0 25px rgba(0,0,0,0.5);
+            transition: right 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .slide-sidebar.open {
+            right: 0;
+        }
+        .sidebar-header {
+            padding: 20px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .sidebar-close-btn {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .sidebar-body {
+            padding: 20px;
+            flex: 1;
+            overflow-y: auto;
+        }
+        .slide-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+            align-items: center;
+        }
+        .slide-item-img {
+            width: 55px;
+            height: 55px;
+            background: var(--border-color);
+            border-radius: 6px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .slide-item-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .slide-item-details {
+            flex: 1;
+            min-width: 0;
+        }
+        .slide-item-title {
+            font-size: 13px;
+            margin-bottom: 5px;
+            color: var(--text-primary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .slide-item-price {
+            font-size: 13px;
+            color: var(--sky-blue);
+            font-weight: bold;
+        }
+        .sidebar-footer {
+            padding: 20px;
+            border-top: 1px solid var(--border-color);
+            background: var(--bg-main);
+        }
+        .cart-total-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 15px;
+            font-weight: bold;
+        }
+        .btn-checkout {
+            display: block;
+            width: 100%;
+            background: var(--sky-blue);
+            color: #fff;
+            text-align: center;
+            padding: 12px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            box-sizing: border-box;
+            transition: opacity 0.2s;
+        }
+        .btn-checkout:hover {
+            opacity: 0.9;
+        }
+
+        /* تذييل الصفحة */
+        .site-footer {
+            background-color: var(--footer-bg);
+            color: var(--text-secondary);
+            padding: 60px 40px 20px;
+            border-top: 1px solid var(--border-color);
+            margin-top: auto;
+            transition: background 0.4s ease;
+        }
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+        }
+        .footer-col h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+        .footer-col ul li a, .footer-col p {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+        .footer-col ul li a:hover {
+            color: var(--sky-blue);
+        }
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 40px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid var(--footer-border);
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+    </style>
+
+    <!-- استرجاع وضع الإضاءة المحفوظ -->
+    <script>
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        }
+    </script>
+        <style>
+    .home-wrapper {
+        background-color: var(--bg-main);
+        color: var(--text-primary);
+        padding-bottom: 60px;
+        transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    /* --- قسم الهيرو الترحيبي مع سلايدر المقارنة --- */
+    .hero-section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 60px 4%;
+        background: linear-gradient(to bottom, var(--header-purple), var(--bg-main));
+        transition: background 0.4s ease;
+        gap: 60px;
+        max-width: 1250px;
+        margin: 0 auto;
+    }
+
+    .hero-text {
+        flex: 1;
+        max-width: 480px;
+    }
+    .hero-text h1 {
+        font-size: 38px;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 20px;
+        line-height: 1.2;
+    }
+    .hero-text p {
+        color: var(--text-secondary);
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 30px;
+    }
+    .hero-btn {
+        display: inline-block;
+        background: var(--sky-blue);
+        color: #fff;
+        padding: 12px 30px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 15px;
+        transition: opacity 0.3s;
+    }
+    .hero-btn:hover {
+        opacity: 0.9;
+    }
+
+    .comparison-slider-wrapper {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .comparison-slider {
+        position: relative;
+        width: 100%;
+        max-width: 430px;
+        aspect-ratio: 1 / 1; 
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        transition: opacity 0.3s ease;
+    }
+
+    .comparison-slider img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        pointer-events: none;
+    }
+
+    .slider-img-after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .slider-img-before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%); 
+    }
+
+    .slider-handle {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 4px;
+        height: 100%;
+        background-color: #fff;
+        transform: translateX(-50%);
+        cursor: ew-resize;
+        z-index: 10;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    .slider-handle-circle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 40px;
+        height: 40px;
+        background-color: #fff;
+        border-radius: 50%;
+        border: 2px solid var(--sky-blue);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+    
+    .slider-handle-circle::before,
+    .slider-handle-circle::after {
+        content: '';
+        border: solid var(--sky-blue);
+        border-width: 0 2px 2px 0;
+        display: inline-block;
+        padding: 4px;
+    }
+    .slider-handle-circle::before {
+        transform: rotate(135deg);
+        margin-right: 4px;
+    }
+    .slider-handle-circle::after {
+        transform: rotate(-45deg);
+        margin-left: 4px;
+    }
+
+    .slider-label {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0,0,0,0.6);
+        color: #fff;
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+    .comparison-slider:hover .slider-label {
+        opacity: 1;
+    }
+    .label-before { left: 15px; }
+    .label-after { right: 15px; }
+
+    @media (max-width: 850px) {
+        .hero-section {
+            flex-direction: column;
+            text-align: center;
+        }
+        .hero-text {
+            max-width: 100%;
+        }
+    }
+
+    /* --- قسم البطاقات الثلاث (Shop by Collection) أولاً --- */
+    .collections-section {
+        max-width: 1100px;
+        margin: 50px auto 0;
+        padding: 0 20px;
+        text-align: center;
+    }
+    
+    .collections-grid {
+        display: flex;
+        justify-content: center;
+        gap: 18px;
+        margin-top: 30px;
+        height: 280px;
+    }
+
+    .collection-card {
+        position: relative;
+        flex: 1;
+        max-width: 260px;
+        height: 100%;
+        border-radius: 16px;
+        overflow: hidden;
+        text-decoration: none;
+        border: 1px solid var(--border-color);
+        background: #0d1117;
+        transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    }
+
+    .collection-bg-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(0.65) contrast(1.05);
+        transition: all 0.5s ease;
+    }
+
+    .collection-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to top, rgba(10, 12, 18, 0.95) 0%, rgba(10, 12, 18, 0.3) 50%, rgba(0,0,0,0.05) 100%);
+        pointer-events: none;
+    }
+
+    .collection-title {
+        position: absolute;
+        bottom: 22px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        color: #fff; 
+        font-size: 16px;
+        font-weight: 700;
+        padding: 0 15px;
+        transition: all 0.3s ease;
+        text-shadow: 0 2px 8px rgba(0,0,0,0.9);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        z-index: 2;
+        letter-spacing: 0.5px;
+    }
+
+    .collection-card:hover {
+        flex: 2.2;
+        max-width: 480px;
+        border-color: var(--sky-blue);
+        box-shadow: 0 12px 30px rgba(56, 189, 248, 0.25);
+    }
+
+    .collection-card:hover .collection-bg-img {
+        filter: brightness(0.9) contrast(1.1);
+        transform: scale(1.08);
+    }
+
+    .collection-card:hover .collection-title {
+        font-size: 19px;
+        color: var(--sky-blue);
+        bottom: 26px;
+    }
+
+    @media (max-width: 768px) {
+        .collections-grid {
+            flex-direction: column;
+            height: auto;
+            gap: 15px;
+        }
+        .collection-card {
+            max-width: 100%;
+            height: 160px;
+        }
+        .collection-card:hover {
+            flex: 1;
+            max-width: 100%;
+        }
+    }
+
+    /* --- قسم المنتجات الحصرية (New Arrivals) ثانياً --- */
+    .section-title {
+        text-align: center;
+        font-size: 22px;
+        font-weight: 600;
+        margin: 60px 0 20px;
+        letter-spacing: 1px;
+        color: var(--text-primary);
+    }
+
+    .slider-container {
+        position: relative;
+        max-width: 1250px;
+        margin: 0 auto;
+        padding: 0 50px;
+    }
+
+    .products-slider {
+        display: flex;
+        gap: 20px;
+        overflow-x: auto;
+        padding: 20px 5px;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+    }
+    .products-slider::-webkit-scrollbar {
+        display: none;
+    }
+
+    .slider-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: var(--top-bar-bg);
+        color: var(--text-primary);
+        border: 1px solid var(--border-color);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 10;
+        font-size: 18px;
+        transition: all 0.3s ease;
+    }
+    .slider-arrow:hover {
+        background-color: var(--sky-blue);
+        border-color: var(--sky-blue);
+        color: #fff;
+    }
+    .slider-prev { left: 0; }
+    .slider-next { right: 0; }
+
+    /* تثبيت مقاسات البطاقات والصور المربعة بدقة */
+    .home-product-card {
+        flex: 0 0 220px !important;
+        width: 220px !important;
+        max-width: 220px !important;
+        background: transparent;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+    }
+
+    .home-product-img {
+        background-color: var(--top-bar-bg);
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        width: 100% !important;
+        height: 220px !important;
+        aspect-ratio: 1 / 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-secondary);
+        margin-bottom: 15px;
+        overflow: hidden;
+        padding: 10px;
+        box-sizing: border-box;
+        transition: border-color 0.3s ease, background-color 0.4s ease;
+    }
+    .home-product-img img {
+        width: 100% !important;
+        height: 100% !important;
+        max-width: 100% !important;
+        max-height: 100% !important;
+        object-fit: contain !important;
+        display: block;
+        transition: transform 0.4s ease;
+    }
+    .home-product-card:hover .home-product-img {
+        border-color: var(--sky-blue);
+    }
+    .home-product-card:hover .home-product-img img {
+        transform: scale(1.05);
+    }
+
+    .home-product-info { padding: 0 5px; }
+    .home-product-name {
+        font-size: 14px;
+        color: var(--text-primary);
+        margin: 5px 0;
+        line-height: 1.4;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .home-product-actions {
+        margin-top: auto;
+        padding-top: 15px;
+    }
+    .home-product-price {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--sky-blue);
+        margin-bottom: 10px;
+    }
+
+    .btn-cart {
+        display: block;
+        width: 100%;
+        background-color: transparent;
+        color: var(--text-primary);
+        border: 1px solid var(--text-secondary);
+        padding: 10px 0;
+        border-radius: 8px;
+        text-align: center;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    .btn-cart:hover {
+        background-color: var(--sky-blue);
+        border-color: var(--sky-blue);
+        color: #fff;
+    }
+
+    .all-products-btn-container {
+        text-align: center;
+        margin-top: 35px;
+    }
+    .btn-all-products {
+        display: inline-block;
+        background: linear-gradient(135deg, var(--sky-blue) 0%, var(--bg-main) 100%);
+        color: var(--text-primary);
+        padding: 12px 40px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 600;
+        border: 1px solid var(--sky-blue);
+        box-shadow: 0 4px 15px rgba(56, 189, 248, 0.2);
+        transition: all 0.3s ease;
+    }
+    .btn-all-products:hover {
+        transform: translateY(-2px);
+    }
+
+    /* النشرة البريدية */
+    .newsletter-section {
+        text-align: center;
+        margin-top: 80px;
+        padding: 40px 20px;
+        border-top: 1px solid var(--border-color);
+    }
+    .newsletter-section h3 {
+        font-size: 18px;
+        margin-bottom: 15px;
+        color: var(--text-primary);
+    }
+    .newsletter-form {
+        display: inline-flex;
+        gap: 10px;
+        max-width: 450px;
+        width: 100%;
+    }
+    .newsletter-input {
+        flex: 1;
+        padding: 10px 15px;
+        background: var(--search-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        color: var(--text-primary);
+        outline: none;
+    }
+    .newsletter-btn {
+        background: var(--sky-blue);
+        color: #fff;
+        border: none;
+        padding: 0 20px;
+        border-radius: 4px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+    <!-- الشريط العلوي الرفيع -->
+    <div class="top-announcement-bar">
+        <div class="top-left-links" style="flex: 1;">
+            <a href="about.html">About Us</a>
+            <a href="support.html">Customer Support</a>
+        </div>
+        
+        <div id="social-banner" style="flex: 1; text-align: center; transition: opacity 0.3s ease;">
+            <span style="color: var(--text-secondary);">More designs on our </span>
+            <a href="https://pinterest.com/embrospace" target="_blank" class="dynamic-social-link">Pinterest</a>
+            <span style="color: var(--text-secondary);"> account!</span>
+        </div>
+        
+        <div class="top-right-links" style="flex: 1; display: flex; gap: 15px; justify-content: flex-end; align-items: center;">
+                            <a href="index.html">Log In</a>
+                <a href="index.html" style="color: var(--sky-blue); font-weight: bold;">Sign Up</a>
+                    </div>
+    </div>
+
+    <!-- الشريط الرئيسي -->
+    <header class="main-header" style="position: relative;">
+        <a href="index.html" class="brand-logo">
+            <img src="images/logo-light.png" alt="Embro Space Logo" class="logo-light">
+            <img src="images/logo-dark.png" alt="Embro Space Logo" class="logo-dark">
+        </a>
+        
+        <!-- نموذج البحث -->
+        <div style="position: relative; flex: 0 0 400px;">
+            <form action="shop.html" method="GET" class="search-container" style="flex: unset;">
+                <input type="text" name="query" id="searchInput" class="search-input" placeholder="Search a product" value="" autocomplete="off" required>
+                <button type="submit" class="search-btn">🔍</button>
+            </form>
+            <div id="searchSuggestions" style="position: absolute; top: 100%; left: 0; width: 100%; background: var(--top-bar-bg); border: 1px solid var(--border-color); border-radius: 8px; margin-top: 5px; z-index: 9999; display: none; box-shadow: 0 4px 15px rgba(0,0,0,0.5);"></div>
+        </div>
+
+        <div class="header-icons">
+            <!-- زر تبديل الوضع -->
+            <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme" title="Toggle Light/Dark Mode">
+                🌓
+            </button>
+
+            <!-- زر المفضلة -->
+                        <button class="header-icon-btn" onclick="toggleWishlistSidebar()" style="cursor: pointer;" title="Wishlist">
+                ♡ <span id="wishlistCount" style="font-size: 14px; font-weight: 600;">0</span>
+            </button>
+
+            <!-- زر السلة -->
+                        <button class="header-icon-btn" onclick="toggleCart()" style="cursor: pointer;" title="Cart">
+                🛒 <span id="cartCount" style="font-size: 14px; font-weight: 600;">0</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- شريط التصنيفات الأفقية -->
+    <nav class="categories-navbar">
+        <a href="shop.html" class="">View Collections</a>
+        <a href="shop.html">Anime Collection</a>
+        <a href="shop.html">Art Collection</a>
+        <a href="shop.html">Cartoons Collection</a>
+        <a href="shop.html">Couple Collection</a>
+        <a href="shop.html">Games Collection</a>
+        <a href="shop.html">Gym Collection</a>
+        <a href="shop.html">Memes Collection</a>
+        <a href="shop.html">Movies Collection</a>
+    </nav>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="main-content">
+        <div class="home-wrapper" style="width: 100%;">
+    
+    <!-- 1. قسم الترحيب العلوي مع أداة المقارنة Before/After -->
+    <section class="hero-section">
+        
+        <div class="hero-text">
+            <h1>Discover One-of-a-Kind Designs in This Artistic Universe!</h1>
+            <p>From a simple sketch to a premium embroidery file. Explore our exclusive digital embroidery designs crafted with precision and creativity.</p>
+            <a href="custom-design.html" class="btn-hero" style="background: var(--sky-blue); color: #fff; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-block;">
+                Custom Designs
+            </a>
+        </div>
+
+        
+        <div class="comparison-slider-wrapper">
+            <div style="display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 430px;">
+                <div class="comparison-slider" id="compareSlider">
+                    <img src="images/slider/after3.jpg" alt="After Embroidery" class="slider-img-after" id="imgAfter">
+                    <img src="images/slider/before3.jpg" alt="Before Artwork" class="slider-img-before" id="imgBefore">
+                    
+                    <div class="slider-handle" id="sliderHandle">
+                        <div class="slider-handle-circle"></div>
+                    </div>
+
+                    <div class="slider-label label-before">Before</div>
+                    <div class="slider-label label-after">After</div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- 2. أولاً: قسم البطاقات الثلاث (Shop by Collection) مباشرة تحت الهيرو -->
+    <div class="collections-section">
+        <h2 class="section-title" style="margin-top:0;">Shop by Collection</h2>
+        <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 25px;">Hand-picked bundles or request your own custom embroidery design.</p>
+        
+        <div class="collections-grid">
+            <a href="shop.html" class="collection-card">
+                <img src="images/collections/gym.jpg" alt="Gym Collection" class="collection-bg-img" loading="lazy">
+                <div class="collection-overlay"></div>
+                <div class="collection-title">Gym Collection</div>
+            </a>
+
+            <a href="custom-design.html" class="collection-card" style="border-color: var(--sky-blue);">
+                <img src="images/collections/custom.jpg" alt="Custom Design Request" class="collection-bg-img" loading="lazy">
+                <div class="collection-overlay"></div>
+                <div class="collection-title">Custom Design Request</div>
+            </a>
+
+            <a href="shop.html" class="collection-card">
+                <img src="images/collections/music.svg" alt="Music Collection" class="collection-bg-img" loading="lazy">
+                <div class="collection-overlay"></div>
+                <div class="collection-title">Music Collection</div>
+            </a>
+
+            <a href="shop.html" class="collection-card">
+                <img src="images/collections/car.svg" alt="Car Collection" class="collection-bg-img" loading="lazy">
+                <div class="collection-overlay"></div>
+                <div class="collection-title">Car Collection</div>
+            </a>
+
+            <a href="shop.html" class="collection-card">
+                <img src="images/collections/anime.jpg" alt="Anime Collection" class="collection-bg-img" loading="lazy">
+                <div class="collection-overlay"></div>
+                <div class="collection-title">Anime Collection</div>
+            </a>
+        </div>
+    </div>
+
+    <!-- 3. ثانياً: قسم التصاميم وأحدث المنتجات (New Arrivals) بعد البطاقات الثلاث -->
+    <h2 class="section-title">New Arrivals</h2>
+    
+    <div class="slider-container">
+        <button class="slider-arrow slider-prev" onclick="scrollSlider(-1)">&#10094;</button>
+        
+        <div class="products-slider" id="productsSlider">
+                            <div class="home-product-card">
+                    <a href="product-2.html" style="text-decoration: none; color: inherit;">
+                        <div class="home-product-img">
+                                                                                            <img src="storage/products/images/IKokQSzfoGDzfxnlAnOA.png" alt="Embrospace Dragon Ball Embroidery Design">
+                                                    </div>
+                        <div class="home-product-info">
+                            <div class="home-product-name">Embrospace Dragon Ball Embroidery Design</div>
+                        </div>
+                    </a>
+
+                    <div class="home-product-actions">
+                        <div class="home-product-price">$2.50</div>
+                        <form action="http://localhost/cart/add/2" method="POST">
+                            <input type="hidden" name="_token" value="" autocomplete="off">                            <button type="submit" class="btn-cart">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+                            <div class="home-product-card">
+                    <a href="product-3.html" style="text-decoration: none; color: inherit;">
+                        <div class="home-product-img">
+                                                                                            <img src="storage/products/images/vLGwMQiWBPrtaP9LUGXN.png" alt="Embrospace Naruto Embroidery Design">
+                                                    </div>
+                        <div class="home-product-info">
+                            <div class="home-product-name">Embrospace Naruto Embroidery Design</div>
+                        </div>
+                    </a>
+
+                    <div class="home-product-actions">
+                        <div class="home-product-price">$2.50</div>
+                        <form action="http://localhost/cart/add/3" method="POST">
+                            <input type="hidden" name="_token" value="" autocomplete="off">                            <button type="submit" class="btn-cart">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+                            <div class="home-product-card">
+                    <a href="product-4.html" style="text-decoration: none; color: inherit;">
+                        <div class="home-product-img">
+                                                                                            <img src="storage/products/images/AZGCzbOmvniYRfK5HajL.png" alt="Embrospace Embroidery Design">
+                                                    </div>
+                        <div class="home-product-info">
+                            <div class="home-product-name">Embrospace Embroidery Design</div>
+                        </div>
+                    </a>
+
+                    <div class="home-product-actions">
+                        <div class="home-product-price">$2.50</div>
+                        <form action="http://localhost/cart/add/4" method="POST">
+                            <input type="hidden" name="_token" value="" autocomplete="off">                            <button type="submit" class="btn-cart">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+                            <div class="home-product-card">
+                    <a href="product-16.html" style="text-decoration: none; color: inherit;">
+                        <div class="home-product-img">
+                                                                                            <img src="storage/products/images/0LbN2BhWUligiWUyZf3N.png" alt="Embrospace Avatar: The Last Airbender Embroidery Design">
+                                                    </div>
+                        <div class="home-product-info">
+                            <div class="home-product-name">Embrospace Avatar: The Last Airbender Embroidery Design</div>
+                        </div>
+                    </a>
+
+                    <div class="home-product-actions">
+                        <div class="home-product-price">$2.50</div>
+                        <form action="http://localhost/cart/add/16" method="POST">
+                            <input type="hidden" name="_token" value="" autocomplete="off">                            <button type="submit" class="btn-cart">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+                            <div class="home-product-card">
+                    <a href="product-18.html" style="text-decoration: none; color: inherit;">
+                        <div class="home-product-img">
+                                                                                            <img src="storage/products/images/fnYQRLqGYpcMPSSxr9hT.png" alt="Embrospace Bleach Embroidery Design">
+                                                    </div>
+                        <div class="home-product-info">
+                            <div class="home-product-name">Embrospace Bleach Embroidery Design</div>
+                        </div>
+                    </a>
+
+                    <div class="home-product-actions">
+                        <div class="home-product-price">$2.50</div>
+                        <form action="http://localhost/cart/add/18" method="POST">
+                            <input type="hidden" name="_token" value="" autocomplete="off">                            <button type="submit" class="btn-cart">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+                            <div class="home-product-card">
+                    <a href="product-39.html" style="text-decoration: none; color: inherit;">
+                        <div class="home-product-img">
+                                                                                            <img src="storage/products/images/W6u8pZOH2lXFuKjatB02.png" alt="Embrospace One Piece Embroidery Design">
+                                                    </div>
+                        <div class="home-product-info">
+                            <div class="home-product-name">Embrospace One Piece Embroidery Design</div>
+                        </div>
+                    </a>
+
+                    <div class="home-product-actions">
+                        <div class="home-product-price">$2.50</div>
+                        <form action="http://localhost/cart/add/39" method="POST">
+                            <input type="hidden" name="_token" value="" autocomplete="off">                            <button type="submit" class="btn-cart">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+                            <div class="home-product-card">
+                    <a href="product-44.html" style="text-decoration: none; color: inherit;">
+                        <div class="home-product-img">
+                                                                                            <img src="storage/products/images/ZCIdPHcfJeWI7x1Xkqtw.png" alt="Embrospace Attack on Titan Embroidery Design">
+                                                    </div>
+                        <div class="home-product-info">
+                            <div class="home-product-name">Embrospace Attack on Titan Embroidery Design</div>
+                        </div>
+                    </a>
+
+                    <div class="home-product-actions">
+                        <div class="home-product-price">$2.50</div>
+                        <form action="http://localhost/cart/add/44" method="POST">
+                            <input type="hidden" name="_token" value="" autocomplete="off">                            <button type="submit" class="btn-cart">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+                            <div class="home-product-card">
+                    <a href="product-45.html" style="text-decoration: none; color: inherit;">
+                        <div class="home-product-img">
+                                                                                            <img src="storage/products/images/ZFxU5EcxteQfUmjJYzbd.png" alt="Embrospace Berserk Embroidery Design">
+                                                    </div>
+                        <div class="home-product-info">
+                            <div class="home-product-name">Embrospace Berserk Embroidery Design</div>
+                        </div>
+                    </a>
+
+                    <div class="home-product-actions">
+                        <div class="home-product-price">$2.50</div>
+                        <form action="http://localhost/cart/add/45" method="POST">
+                            <input type="hidden" name="_token" value="" autocomplete="off">                            <button type="submit" class="btn-cart">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+                            <div class="home-product-card">
+                    <a href="product-47.html" style="text-decoration: none; color: inherit;">
+                        <div class="home-product-img">
+                                                                                            <img src="storage/products/images/kU7nXpbjE6nvIHjuozlE.png" alt="Embrospace Hunter x Hunter Embroidery Design">
+                                                    </div>
+                        <div class="home-product-info">
+                            <div class="home-product-name">Embrospace Hunter x Hunter Embroidery Design</div>
+                        </div>
+                    </a>
+
+                    <div class="home-product-actions">
+                        <div class="home-product-price">$2.50</div>
+                        <form action="http://localhost/cart/add/47" method="POST">
+                            <input type="hidden" name="_token" value="" autocomplete="off">                            <button type="submit" class="btn-cart">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+                            <div class="home-product-card">
+                    <a href="product-48.html" style="text-decoration: none; color: inherit;">
+                        <div class="home-product-img">
+                                                                                            <img src="storage/products/images/j3VSwsyumHx0k1lNiDqF.png" alt="Embrospace Jujutsu Kaisen Embroidery Design">
+                                                    </div>
+                        <div class="home-product-info">
+                            <div class="home-product-name">Embrospace Jujutsu Kaisen Embroidery Design</div>
+                        </div>
+                    </a>
+
+                    <div class="home-product-actions">
+                        <div class="home-product-price">$2.50</div>
+                        <form action="http://localhost/cart/add/48" method="POST">
+                            <input type="hidden" name="_token" value="" autocomplete="off">                            <button type="submit" class="btn-cart">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+                    </div>
+
+        <button class="slider-arrow slider-next" onclick="scrollSlider(1)">&#10095;</button>
+    </div>
+
+    <div class="all-products-btn-container">
+        <a href="shop.html" class="btn-all-products">All products</a>
+    </div>
+
+    <!-- 4. النشرة البريدية -->
+    <div class="newsletter-section">
+        <h3>Join us and get access to closed sales.</h3>
+        <form class="newsletter-form" onsubmit="event.preventDefault();">
+            <input type="email" placeholder="Your email address" class="newsletter-input" required>
+            <button type="submit" class="newsletter-btn">Sign Up</button>
+        </form>
+    </div>
+
+</div>
+
+<script>
+    const designs = [
+        { before: "images/slider/before1.jpg", after: "images/slider/after1.jpg" },
+        { before: "images/slider/before2.jpg", after: "images/slider/after2.jpg" },
+        { before: "images/slider/before3.jpg", after: "images/slider/after3.jpg" }
+    ];
+
+    let currentDesignIndex = 3;
+    
+    const imgBefore = document.getElementById('imgBefore');
+    const imgAfter = document.getElementById('imgAfter');
+    const compareSlider = document.getElementById('compareSlider');
+    const sliderHandle = document.getElementById('sliderHandle');
+    let isDragging = false;
+    let autoPlayInterval;
+
+    function changeDesign(index) {
+        currentDesignIndex = index;
+        const design = designs[index - 1];
+
+        compareSlider.style.opacity = 0;
+        setTimeout(() => {
+            imgBefore.src = design.before;
+            imgAfter.src = design.after;
+            
+            sliderHandle.style.left = '50%';
+            imgBefore.style.clipPath = 'polygon(0 0, 50% 0, 50% 100%, 0 100%)';
+            
+            compareSlider.style.opacity = 1;
+        }, 300);
+    }
+
+    function startAutoPlay() {
+        autoPlayInterval = setInterval(() => {
+            let nextIndex = currentDesignIndex + 1;
+            if (nextIndex > 3) nextIndex = 1;
+            changeDesign(nextIndex);
+        }, 30000); 
+    }
+
+    function stopAutoPlay() {
+        clearInterval(autoPlayInterval);
+    }
+
+    function moveHandle(e) {
+        if (!isDragging) return;
+        stopAutoPlay();
+        
+        let rect = compareSlider.getBoundingClientRect();
+        let x = e.clientX || (e.touches && e.touches[0].clientX); 
+        let position = ((x - rect.left) / rect.width) * 100;
+
+        if (position < 0) position = 0;
+        if (position > 100) position = 100;
+
+        sliderHandle.style.left = position + '%';
+        imgBefore.style.clipPath = `polygon(0 0, ${position}% 0, ${position}% 100%, 0 100%)`;
+    }
+
+    compareSlider.addEventListener('mousedown', () => { isDragging = true; stopAutoPlay(); });
+    compareSlider.addEventListener('touchstart', () => { isDragging = true; stopAutoPlay(); });
+
+    window.addEventListener('mouseup', () => { isDragging = false; });
+    window.addEventListener('touchend', () => { isDragging = false; });
+
+    window.addEventListener('mousemove', moveHandle);
+    window.addEventListener('touchmove', moveHandle);
+
+    startAutoPlay();
+
+    const slider = document.getElementById('productsSlider');
+
+    function scrollSlider(direction) {
+        const scrollAmount = 300;
+        slider.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+    }
+
+    setInterval(() => {
+        if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 10) {
+            slider.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+            slider.scrollBy({ left: 300, behavior: 'smooth' });
+        }
+    }, 4000); 
+</script>
+    </main>
+
+    <!-- 1. السلة الجانبية Slide-over Cart -->
+    <div class="sidebar-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+    <div class="slide-sidebar" id="cartSidebar">
+        <div class="sidebar-header">
+            <h3 style="margin: 0; font-size: 16px; font-weight: 500;">Cart (<span id="cartSidebarCount">0</span> items)</h3>
+            <button class="sidebar-close-btn" onclick="toggleCart()">&times;</button>
+        </div>
+        
+        <div class="sidebar-body" id="cartBody">
+                            <div id="emptyCartMessage" style="text-align: center; color: var(--text-secondary); margin-top: 60px;">Your cart is empty.</div>
+                    </div>
+
+        <div class="sidebar-footer">
+                        <div class="cart-total-row">
+                <span>Total:</span>
+                <span id="cartTotalPrice" style="color: var(--sky-blue);">$0.00</span>
+            </div>
+            
+                        <a href="shop.html" class="btn-checkout">Proceed to Checkout</a>
+        </div>
+    </div>
+
+    <!-- 2. القائمة الجانبية للمفضلة Slide-over Wishlist -->
+    <div class="sidebar-overlay" id="wishlistOverlay" onclick="toggleWishlistSidebar()"></div>
+    <div class="slide-sidebar" id="wishlistSidebar">
+        <div class="sidebar-header">
+            <h3 style="margin: 0; font-size: 16px; font-weight: 500;">Wishlist (<span id="wishlistSidebarCount">0</span> items)</h3>
+            <button class="sidebar-close-btn" onclick="toggleWishlistSidebar()">&times;</button>
+        </div>
+        
+        <div class="sidebar-body" id="wishlistBody">
+                            <div id="emptyWishlistMessage" style="text-align: center; color: var(--text-secondary); margin-top: 60px;">Your wishlist is empty.</div>
+                    </div>
+    </div>
+
+    <!-- نوافذ التنبيهات -->
+    
+    
+    <!-- جافاسكريبت للتفاعل والتحكم -->
+    <script>
+        // 1. سكربت تغيير الروابط الاجتماعية
+        const socialBanner = document.getElementById('social-banner');
+        const platforms = [
+            { name: 'Pinterest', url: 'https://pinterest.com/embrospace' },
+            { name: 'Telegram', url: 'https://t.me/embrospace' },
+            { name: 'Instagram', url: 'https://instagram.com/embrospace' }
+        ];
+        let currentPlatformIndex = 0;
+
+        if (socialBanner) {
+            setInterval(() => {
+                currentPlatformIndex = (currentPlatformIndex + 1) % platforms.length;
+                const platform = platforms[currentPlatformIndex];
+
+                socialBanner.style.opacity = 0;
+                
+                setTimeout(() => {
+                    socialBanner.innerHTML = `
+                        <span style="color: var(--text-secondary);">More designs on our </span>
+                        <a href="${platform.url}" target="_blank" class="dynamic-social-link">${platform.name}</a>
+                        <span style="color: var(--text-secondary);"> account!</span>
+                    `;
+                    socialBanner.style.opacity = 1;
+                }, 300);
+
+            }, 2000);
+        }
+
+        // 2. التحكم بالوضع المضيء والداكن
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        if (themeToggleBtn) {
+            themeToggleBtn.addEventListener('click', () => {
+                let currentTheme = document.documentElement.getAttribute('data-theme');
+                if (currentTheme === 'light') {
+                    document.documentElement.removeAttribute('data-theme');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+        }
+
+        // 3. التحكم بفتح وإغلاق السلة
+        function toggleCart() {
+            const sidebar = document.getElementById('cartSidebar');
+            const overlay = document.getElementById('cartOverlay');
+            if (!sidebar || !overlay) return;
+
+            // إذا كانت المفضلة مفتوحة، نغلقها أولاً
+            const wishlistSidebar = document.getElementById('wishlistSidebar');
+            const wishlistOverlay = document.getElementById('wishlistOverlay');
+            if (wishlistSidebar && wishlistSidebar.classList.contains('open')) {
+                wishlistSidebar.classList.remove('open');
+                if (wishlistOverlay) wishlistOverlay.style.display = 'none';
+            }
+
+            if (sidebar.classList.contains('open')) {
+                sidebar.classList.remove('open');
+                overlay.style.display = 'none';
+            } else {
+                sidebar.classList.add('open');
+                overlay.style.display = 'block';
+            }
+        }
+
+        function removeFromCart(id) {
+            fetch(`/cart/remove/${id}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        const itemElement = document.getElementById(`cart-item-${id}`);
+                        if (itemElement) itemElement.remove();
+                        
+                        document.getElementById('cartCount').innerText = data.cartCount;
+                        document.getElementById('cartSidebarCount').innerText = data.cartCount;
+                        document.getElementById('cartTotalPrice').innerText = '$' + data.subtotal.toFixed(2);
+
+                        if (data.cartCount === 0) {
+                            document.getElementById('cartBody').innerHTML = '<div id="emptyCartMessage" style="text-align: center; color: var(--text-secondary); margin-top: 60px;">Your cart is empty.</div>';
+                        }
+                    }
+                });
+        }
+
+        // 4. التحكم بفتح وإغلاق المفضلة
+        function toggleWishlistSidebar() {
+            const sidebar = document.getElementById('wishlistSidebar');
+            const overlay = document.getElementById('wishlistOverlay');
+            if (!sidebar || !overlay) return;
+
+            // إذا كانت السلة مفتوحة، نغلقها أولاً
+            const cartSidebar = document.getElementById('cartSidebar');
+            const cartOverlay = document.getElementById('cartOverlay');
+            if (cartSidebar && cartSidebar.classList.contains('open')) {
+                cartSidebar.classList.remove('open');
+                if (cartOverlay) cartOverlay.style.display = 'none';
+            }
+
+            if (sidebar.classList.contains('open')) {
+                sidebar.classList.remove('open');
+                overlay.style.display = 'none';
+            } else {
+                sidebar.classList.add('open');
+                overlay.style.display = 'block';
+            }
+        }
+
+        function removeFromWishlist(id) {
+            fetch(`/wishlist/remove/${id}`)
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        const item = document.getElementById(`wishlist-item-${id}`);
+                        if (item) item.remove();
+
+                        const countEl = document.getElementById('wishlistCount');
+                        if (countEl) countEl.innerText = data.wishlistCount;
+
+                        const sideCountEl = document.getElementById('wishlistSidebarCount');
+                        if (sideCountEl) sideCountEl.innerText = data.wishlistCount;
+
+                        const btn = document.getElementById(`wishlistBtn-${id}`);
+                        if (btn) {
+                            btn.innerHTML = '♡';
+                            btn.classList.remove('active');
+                        }
+
+                        if (data.wishlistCount === 0) {
+                            document.getElementById('wishlistBody').innerHTML = '<div id="emptyWishlistMessage" style="text-align: center; color: var(--text-secondary); margin-top: 60px;">Your wishlist is empty.</div>';
+                        }
+                    }
+                });
+        }
+
+        // 5. فتح السلة تلقائياً عند الضغط على زر Buy
+        
+        // 6. البحث الحي مع الاقتراحات
+        const searchInput = document.getElementById('searchInput');
+        const suggestionsBox = document.getElementById('searchSuggestions');
+
+        if (searchInput && suggestionsBox) {
+            searchInput.addEventListener('input', function() {
+                let query = this.value.trim();
+
+                if (query.length < 2) {
+                    suggestionsBox.style.display = 'none';
+                    return;
+                }
+
+                fetch(`shop.html'';
+                        if (data.length > 0) {
+                            suggestionsBox.style.display = 'block';
+                            data.forEach(product => {
+                                let item = document.createElement('a');
+                                item.href = `/product/${product.id}`;
+                                item.style.cssText = 'display: block; padding: 10px 15px; color: var(--text-primary); text-decoration: none; border-bottom: 1px solid var(--border-color); font-size: 13px;';
+                                item.innerHTML = `${product.name} <span style="float: right; color: var(--sky-blue);">$${parseFloat(product.price).toFixed(2)}</span>`;
+                                
+                                item.addEventListener('mouseenter', () => item.style.background = 'var(--border-color)');
+                                item.addEventListener('mouseleave', () => item.style.background = 'transparent');
+
+                                suggestionsBox.appendChild(item);
+                            });
+                        } else {
+                            suggestionsBox.style.display = 'none';
+                        }
+                    });
+            });
+
+            document.addEventListener('click', function(e) {
+                if (!searchInput.contains(e.target) && !suggestionsBox.contains(e.target)) {
+                    suggestionsBox.style.display = 'none';
+                }
+            });
+        }
+    </script>
+
+    <!-- تذييل الصفحة (Footer) -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>Embrospace</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop All</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="custom-design.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Payment Methods</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contacts</h3>
+                <p>+212 7 06 50 22 85</p>
+                <p>embrospace@gmail.com</p>
+                <p style="font-size: 13px;">Telegram Username:<br>@embrospace</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Embro Space. All rights reserved.</p>
+        </div>
+    </footer>
+
+    
+<style>
+  .issam-demo-bar {
+    position: fixed; bottom: 18px; left: 18px; z-index: 99999;
+    display: inline-flex; align-items: center; gap: 10px;
+    background: rgba(2, 6, 23, 0.92); color: #f8fafc;
+    border: 1px solid rgba(56, 189, 248, 0.5); border-radius: 99px;
+    padding: 9px 16px; font-family: system-ui, -apple-system, sans-serif;
+    font-size: 13px; font-weight: 700; text-decoration: none;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.45); backdrop-filter: blur(10px);
+    transition: transform 0.2s;
+  }
+  .issam-demo-bar:hover { transform: translateY(-2px); color: #7dd3fc; }
+  .issam-demo-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; }
+</style>
+<a href="../../index.html#live-demos" class="issam-demo-bar">
+  <span class="issam-demo-dot"></span>
+  ← Back to ISSAM Portfolio (Live Demo)
+</a>
+<script>
+  // Static Live Demo friendly interactivity (no backend required)
+  document.addEventListener('submit', function(e) {
+    const f = e.target;
+    if (f && f.method && f.method.toLowerCase() === 'post') {
+      e.preventDefault();
+      alert('Interactive Live Demo — This form is connected to a Laravel backend in production.');
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="600" height="800">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#070b16"/>
+      <stop offset="0.55" stop-color="#141c2e"/>
+      <stop offset="1" stop-color="#2a1b10"/>
+    </linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#38bdf8"/>
+      <stop offset="1" stop-color="#818cf8"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e0f2fe"/>
+      <stop offset="1" stop-color="#7dd3fc"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="55%">
+      <stop offset="0" stop-color="#38bdf8" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="800" fill="url(#bg)"/>
+  <rect width="600" height="800" fill="url(#glow)"/>
+
+  <!-- road -->
+  <rect x="0" y="585" width="600" height="6" fill="#38bdf8" opacity="0.35"/>
+  <rect x="40" y="600" width="90" height="5" rx="2" fill="#64748b" opacity="0.6"/>
+  <rect x="180" y="600" width="90" height="5" rx="2" fill="#64748b" opacity="0.6"/>
+  <rect x="320" y="600" width="90" height="5" rx="2" fill="#64748b" opacity="0.6"/>
+  <rect x="460" y="600" width="90" height="5" rx="2" fill="#64748b" opacity="0.6"/>
+
+  <!-- car -->
+  <g>
+    <!-- cabin -->
+    <path d="M165 445 L208 350 Q218 332 242 332 L368 332 Q392 332 402 350 L445 445 Z" fill="url(#body)"/>
+    <!-- windows -->
+    <path d="M215 432 L245 358 Q250 350 262 350 L300 350 L300 432 Z" fill="url(#glass)" opacity="0.9"/>
+    <path d="M315 432 L315 350 L355 350 Q367 350 372 358 L398 432 Z" fill="url(#glass)" opacity="0.9"/>
+    <!-- body -->
+    <rect x="85" y="438" width="430" height="105" rx="34" fill="url(#body)"/>
+    <!-- lights -->
+    <rect x="92" y="470" width="26" height="16" rx="6" fill="#fef08a"/>
+    <rect x="482" y="470" width="26" height="16" rx="6" fill="#f87171"/>
+    <!-- wheels -->
+    <circle cx="178" cy="548" r="52" fill="#0b1020"/>
+    <circle cx="178" cy="548" r="30" fill="#94a3b8"/>
+    <circle cx="178" cy="548" r="12" fill="#334155"/>
+    <circle cx="422" cy="548" r="52" fill="#0b1020"/>
+    <circle cx="422" cy="548" r="30" fill="#94a3b8"/>
+    <circle cx="422" cy="548" r="12" fill="#334155"/>
+  </g>
+</svg>

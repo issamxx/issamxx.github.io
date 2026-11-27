@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embrospace Naruto Embroidery Design | Embro Space</title>
+    <meta name="description" content="Official Embrospace premium machine embroidery design of Naruto. Supported formats: .PES, .DST, .JEF, .EXP.">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="index.html">
+    <meta property="og:site_name" content="Embro Space">
+    <meta property="og:title" content="Embrospace Naruto Embroidery Design | Embro Space">
+    <meta property="og:description" content="Official Embrospace premium machine embroidery design of Naruto. Supported formats: .PES, .DST, .JEF, .EXP.">
+    <meta property="og:type" content="product">
+    <meta property="og:url" content="http://demo.local/">
+    <meta property="og:image" content="images/logo-dark.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Embrospace Naruto Embroidery Design | Embro Space">
+    <meta name="twitter:description" content="Official Embrospace premium machine embroidery design of Naruto. Supported formats: .PES, .DST, .JEF, .EXP.">
+    <link rel="icon" type="image/png" href="images/favicon.ico">
+    <!-- خطوط جوجل الأنيقة -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* 1. متغيرات الألوان للوضع الداكن (الافتراضي) */
+        :root {
+            --bg-main: #121212;
+            --header-purple: #1e1428;
+            --accent-purple: #3b2352;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --sky-blue: #38bdf8;
+            --top-bar-bg: #1a1a1a;
+            --border-color: #262626;
+            --search-bg: #2b1f3d;
+            --nav-bg: #ffffff;
+            --footer-bg: #161616;
+            --footer-border: #222222;
+        }
+
+        /* 2. متغيرات الألوان للوضع المضيء */
+        [data-theme="light"] {
+            --bg-main: #f8fafc;
+            --header-purple: #f1f5f9;
+            --accent-purple: #cbd5e1;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --sky-blue: #0284c7;
+            --top-bar-bg: #e2e8f0;
+            --border-color: #cbd5e1;
+            --search-bg: #ffffff;
+            --nav-bg: #f8fafc;
+            --footer-bg: #f1f5f9;
+            --footer-border: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        /* الشريط العلوي الرفيع */
+        .top-announcement-bar {
+            background-color: var(--top-bar-bg);
+            color: var(--text-secondary);
+            font-size: 13px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 40px;
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.4s ease;
+        }
+        .top-announcement-bar a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-right: 20px;
+            transition: color 0.3s;
+        }
+        .top-announcement-bar a:hover {
+            color: var(--sky-blue);
+        }
+        .top-right-links a {
+            margin-left: 20px;
+            margin-right: 0;
+        }
+
+        /* رابط الداشبورد للأدمن */
+        .admin-dashboard-link {
+            color: #f59e0b !important;
+            font-weight: 700;
+            border: 1px solid #f59e0b;
+            padding: 3px 10px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+        .admin-dashboard-link:hover {
+            background: #f59e0b;
+            color: #121212 !important;
+        }
+
+        /* تنسيق الروابط المتغيرة في الشريط العلوي */
+        .dynamic-social-link {
+            color: var(--sky-blue) !important;
+            text-decoration: none !important;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            margin: 0 !important;
+        }
+        .dynamic-social-link:hover {
+            color: #0284c7 !important;
+            text-decoration: underline !important;
+        }
+
+        /* الشريط الرئيسي */
+        .main-header {
+            background: var(--header-purple);
+            padding: 15px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border-color);
+            transition: background 0.4s ease;
+        }
+        .brand-logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            height: 50px;
+            overflow: visible;
+        }
+        
+        .logo-light, .logo-dark {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+            transform: scale(1.0);
+            transform-origin: left center;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-light { display: none !important; }
+        .logo-dark { display: block !important; }
+
+        [data-theme="light"] .logo-light { display: block !important; }
+        [data-theme="light"] .logo-dark { display: none !important; }
+
+        /* خانة البحث */
+        .search-container {
+            width: 100%;
+            position: relative;
+            display: flex;
+        }
+        .search-input {
+            width: 100%;
+            background-color: var(--search-bg);
+            border: 1px solid var(--accent-purple);
+            border-radius: 30px;
+            padding: 10px 20px;
+            color: var(--text-primary);
+            outline: none;
+            font-size: 14px;
+            transition: all 0.4s ease;
+        }
+        .search-input::placeholder {
+            color: var(--text-secondary);
+        }
+        .search-btn {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--accent-purple);
+            border: none;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            color: var(--text-primary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* أيقونات اليمين */
+        .header-icons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .header-icon-btn, .theme-btn {
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 18px;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: transform 0.3s ease;
+        }
+        .theme-btn {
+            font-size: 22px;
+        }
+        .theme-btn:hover, .header-icon-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* شريط التصنيفات الأفقية */
+.categories-navbar {
+    background: var(--nav-bg);
+    padding: 12px 40px;
+    display: flex;
+    justify-content: center; /* أضف هذا السطر لتوسيط الروابط في المنتصف */
+    align-items: center;     /* لمحاذاة العناصر عمودياً بشكل مثالي */
+    gap: 30px;
+    overflow-x: auto;
+    white-space: nowrap;
+    border-bottom: 1px solid var(--border-color);
+    transition: background 0.4s ease;
+}
+        .categories-navbar::-webkit-scrollbar {
+            display: none;
+        }
+        .categories-navbar a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .categories-navbar a:hover, .categories-navbar a.active {
+            color: var(--sky-blue);
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 30px 20px;
+        }
+
+        /* تنسيقات القوائم الجانبية (السلة والمفضلة) Slide-over */
+        .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 9998;
+            display: none;
+        }
+        .slide-sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 380px;
+            height: 100%;
+            background: var(--bg-main);
+            color: var(--text-primary);
+            z-index: 9999;
+            box-shadow: -5px 0 25px rgba(0,0,0,0.5);
+            transition: right 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .slide-sidebar.open {
+            right: 0;
+        }
+        .sidebar-header {
+            padding: 20px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .sidebar-close-btn {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .sidebar-body {
+            padding: 20px;
+            flex: 1;
+            overflow-y: auto;
+        }
+        .slide-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+            align-items: center;
+        }
+        .slide-item-img {
+            width: 55px;
+            height: 55px;
+            background: var(--border-color);
+            border-radius: 6px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .slide-item-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .slide-item-details {
+            flex: 1;
+            min-width: 0;
+        }
+        .slide-item-title {
+            font-size: 13px;
+            margin-bottom: 5px;
+            color: var(--text-primary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .slide-item-price {
+            font-size: 13px;
+            color: var(--sky-blue);
+            font-weight: bold;
+        }
+        .sidebar-footer {
+            padding: 20px;
+            border-top: 1px solid var(--border-color);
+            background: var(--bg-main);
+        }
+        .cart-total-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 15px;
+            font-weight: bold;
+        }
+        .btn-checkout {
+            display: block;
+            width: 100%;
+            background: var(--sky-blue);
+            color: #fff;
+            text-align: center;
+            padding: 12px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            box-sizing: border-box;
+            transition: opacity 0.2s;
+        }
+        .btn-checkout:hover {
+            opacity: 0.9;
+        }
+
+        /* تذييل الصفحة */
+        .site-footer {
+            background-color: var(--footer-bg);
+            color: var(--text-secondary);
+            padding: 60px 40px 20px;
+            border-top: 1px solid var(--border-color);
+            margin-top: auto;
+            transition: background 0.4s ease;
+        }
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+        }
+        .footer-col h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+        .footer-col ul li a, .footer-col p {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+        .footer-col ul li a:hover {
+            color: var(--sky-blue);
+        }
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 40px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid var(--footer-border);
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+    </style>
+
+    <!-- استرجاع وضع الإضاءة المحفوظ -->
+    <script>
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        }
+    </script>
+            <meta property="product:price:amount" content="2.50">
+    <meta property="product:price:currency" content="USD">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Embrospace Naruto Embroidery Design","description":"Official Embrospace premium machine embroidery design of Naruto. Supported formats: .PES, .DST, .JEF, .EXP.","image":"storage/products/images/vLGwMQiWBPrtaP9LUGXN.png","offers":{"@type":"Offer","priceCurrency":"USD","price":"2.50","availability":"https://schema.org/InStock","url":"http://localhost"}}</script>
+    <style>
+    .shop-page-wrapper {
+        width: 100%;
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 20px;
+        color: var(--text-primary);
+    }
+
+    .shop-layout {
+        display: flex;
+        gap: 40px;
+        align-items: flex-start;
+    }
+
+    /* الشريط الجانبي */
+    .shop-sidebar {
+        flex: 0 0 250px;
+        background: var(--top-bar-bg);
+        padding: 20px;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        color: var(--text-primary);
+    }
+
+    /* منطقة تفاصيل المنتج */
+    .shop-content {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .filter-title {
+        font-size: 20px;
+        font-weight: 400;
+        color: var(--text-primary);
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+    .filter-section {
+        margin-bottom: 15px;
+    }
+    .filter-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--text-primary);
+        margin-bottom: 12px;
+    }
+    .filter-divider {
+        height: 1px;
+        background-color: var(--border-color);
+        margin: 20px 0;
+    }
+    .category-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .category-list li {
+        margin-bottom: 10px;
+    }
+    .category-list a {
+        text-decoration: none;
+        color: var(--text-secondary);
+        font-size: 14px;
+        display: block;
+        transition: color 0.2s ease;
+    }
+    .category-list a:hover {
+        color: var(--sky-blue);
+    }
+    .category-list a.active-cat {
+        color: var(--sky-blue);
+        font-weight: 600;
+    }
+
+    .breadcrumb {
+        font-size: 13px;
+        color: var(--text-secondary);
+        margin-bottom: 20px;
+    }
+    .breadcrumb a {
+        color: var(--text-secondary);
+        text-decoration: none;
+    }
+
+    .product-main-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: start;
+    }
+
+    /* صورة المنتج الأساسية - عرض التصميم بالكامل دون قص */
+    .product-gallery {
+        background-color: var(--top-bar-bg);
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid var(--border-color);
+        text-align: center;
+        aspect-ratio: 1 / 1;
+        width: 100%;
+        max-width: 480px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 18px;
+        box-sizing: border-box;
+    }
+
+    .product-gallery img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 8px;
+    }
+
+    /* معلومات المنتج */
+    .product-details-info h1 {
+        font-size: 22px;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: var(--text-primary);
+    }
+    .product-price-tag {
+        font-size: 20px;
+        font-weight: bold;
+        color: var(--sky-blue);
+        margin-bottom: 20px;
+    }
+
+    .product-action-buttons {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 15px;
+        align-items: center;
+    }
+    .btn-add-cart-lg {
+        flex: 1;
+        background: var(--top-bar-bg);
+        color: var(--text-primary);
+        border: 1px solid var(--border-color);
+        padding: 12px;
+        border-radius: 6px;
+        font-weight: 600;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    .btn-add-cart-lg:hover {
+        background: var(--sky-blue);
+        color: #fff;
+        border-color: var(--sky-blue);
+    }
+    .btn-wishlist {
+        background: var(--top-bar-bg);
+        border: 1px solid var(--border-color);
+        padding: 10px 16px;
+        border-radius: 6px;
+        color: var(--text-primary);
+        cursor: pointer;
+        font-size: 18px;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .btn-wishlist:hover {
+        border-color: #ef4444;
+        color: #ef4444;
+    }
+    .btn-wishlist.active {
+        color: #ef4444 !important;
+        border-color: #ef4444 !important;
+    }
+
+    .btn-buy-now {
+        display: block;
+        width: 100%;
+        background: var(--sky-blue);
+        color: #fff;
+        text-align: center;
+        padding: 12px;
+        border-radius: 6px;
+        font-weight: bold;
+        cursor: pointer;
+        border: none;
+        transition: opacity 0.2s;
+    }
+    .btn-buy-now:hover {
+        opacity: 0.9;
+    }
+
+    .download-notes {
+        font-size: 13px;
+        color: var(--text-secondary);
+        line-height: 1.6;
+        border-top: 1px solid var(--border-color);
+        padding-top: 20px;
+        margin-top: 25px;
+    }
+    .download-notes p {
+        margin-bottom: 10px;
+    }
+
+    .product-specs-section {
+        margin-top: 40px;
+        border-top: 1px solid var(--border-color);
+        padding-top: 25px;
+        font-size: 14px;
+        color: var(--text-secondary);
+        line-height: 1.7;
+    }
+    .specs-title {
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 10px;
+    }
+
+    .reviews-section {
+        margin-top: 50px;
+        text-align: center;
+        border-top: 1px solid var(--border-color);
+        padding-top: 30px;
+    }
+    .rating-number {
+        font-size: 32px;
+        font-weight: bold;
+        color: var(--text-primary);
+    }
+    .stars {
+        color: #f59e0b;
+        font-size: 18px;
+        margin: 5px 0 15px;
+    }
+    .btn-write-review {
+        display: inline-block;
+        background: var(--top-bar-bg);
+        color: var(--text-primary);
+        border: 1px solid var(--border-color);
+        padding: 8px 25px;
+        border-radius: 20px;
+        text-decoration: none;
+        font-size: 13px;
+    }
+
+    .related-section {
+        margin-top: 60px;
+        border-top: 1px solid var(--border-color);
+        padding-top: 30px;
+    }
+    .related-title {
+        text-align: center;
+        font-size: 16px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 25px;
+        color: var(--text-secondary);
+    }
+    .related-grid {
+        display: flex;
+        gap: 20px;
+        overflow-x: auto;
+        padding-bottom: 20px;
+    }
+    .related-card {
+        flex: 0 0 220px;
+        background: var(--top-bar-bg);
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+        text-align: center;
+        padding: 15px;
+    }
+    .related-img {
+        width: 100%;
+        height: 160px;
+        background: var(--bg-main);
+        margin-bottom: 10px;
+        border-radius: 4px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px;
+        box-sizing: border-box;
+    }
+    .related-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+    .related-name {
+        font-size: 13px;
+        color: var(--text-primary);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-bottom: 10px;
+    }
+    .related-price {
+        font-size: 14px;
+        font-weight: bold;
+        color: var(--sky-blue);
+        margin-bottom: 10px;
+    }
+
+</style>
+</head>
+<body>
+
+    <!-- الشريط العلوي الرفيع -->
+    <div class="top-announcement-bar">
+        <div class="top-left-links" style="flex: 1;">
+            <a href="about.html">About Us</a>
+            <a href="support.html">Customer Support</a>
+        </div>
+        
+        <div id="social-banner" style="flex: 1; text-align: center; transition: opacity 0.3s ease;">
+            <span style="color: var(--text-secondary);">More designs on our </span>
+            <a href="https://pinterest.com/embrospace" target="_blank" class="dynamic-social-link">Pinterest</a>
+            <span style="color: var(--text-secondary);"> account!</span>
+        </div>
+        
+        <div class="top-right-links" style="flex: 1; display: flex; gap: 15px; justify-content: flex-end; align-items: center;">
+                            <a href="index.html">Log In</a>
+                <a href="index.html" style="color: var(--sky-blue); font-weight: bold;">Sign Up</a>
+                    </div>
+    </div>
+
+    <!-- الشريط الرئيسي -->
+    <header class="main-header" style="position: relative;">
+        <a href="index.html" class="brand-logo">
+            <img src="images/logo-light.png" alt="Embro Space Logo" class="logo-light">
+            <img src="images/logo-dark.png" alt="Embro Space Logo" class="logo-dark">
+        </a>
+        
+        <!-- نموذج البحث -->
+        <div style="position: relative; flex: 0 0 400px;">
+            <form action="shop.html" method="GET" class="search-container" style="flex: unset;">
+                <input type="text" name="query" id="searchInput" class="search-input" placeholder="Search a product" value="" autocomplete="off" required>
+                <button type="submit" class="search-btn">🔍</button>
+            </form>
+            <div id="searchSuggestions" style="position: absolute; top: 100%; left: 0; width: 100%; background: var(--top-bar-bg); border: 1px solid var(--border-color); border-radius: 8px; margin-top: 5px; z-index: 9999; display: none; box-shadow: 0 4px 15px rgba(0,0,0,0.5);"></div>
+        </div>
+
+        <div class="header-icons">
+            <!-- زر تبديل الوضع -->
+            <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme" title="Toggle Light/Dark Mode">
+                🌓
+            </button>
+
+            <!-- زر المفضلة -->
+                        <button class="header-icon-btn" onclick="toggleWishlistSidebar()" style="cursor: pointer;" title="Wishlist">
+                ♡ <span id="wishlistCount" style="font-size: 14px; font-weight: 600;">0</span>
+            </button>
+
+            <!-- زر السلة -->
+                        <button class="header-icon-btn" onclick="toggleCart()" style="cursor: pointer;" title="Cart">
+                🛒 <span id="cartCount" style="font-size: 14px; font-weight: 600;">0</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- شريط التصنيفات الأفقية -->
+    <nav class="categories-navbar">
+        <a href="shop.html" class="">View Collections</a>
+        <a href="shop.html">Anime Collection</a>
+        <a href="shop.html">Art Collection</a>
+        <a href="shop.html">Cartoons Collection</a>
+        <a href="shop.html">Couple Collection</a>
+        <a href="shop.html">Games Collection</a>
+        <a href="shop.html">Gym Collection</a>
+        <a href="shop.html">Memes Collection</a>
+        <a href="shop.html">Movies Collection</a>
+    </nav>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="main-content">
+        <div class="shop-page-wrapper">
+    <div class="shop-layout">
+        
+        <!-- الشريط الجانبي (يسار) -->
+        <aside class="shop-sidebar">
+            <h2 class="filter-title">Filter by</h2>
+            
+            <div class="filter-section">
+                <div class="filter-header">
+                    <span>Category</span>
+                    <span>&minus;</span>
+                </div>
+                
+                <ul class="category-list">
+                    <li>
+                        <a href="shop.html" class="">
+                            All
+                        </a>
+                    </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Attack on Titan
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Berserk
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Black Clover
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Bleach
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Blue Lock
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Chainsaw Man
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Cowboy Bebop
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Cyberpunk: Edgerunners
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Dandadan
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Darling in the Franxx
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Death Note
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Demon Slayer
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Dragon Ball
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Ito Junji: Collection
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Fairy Tail
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Fate series
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Fullmetal Alchemist
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Grappler Baki
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Great Teacher Onizuka
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Haikyu!!
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Hellsing
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Hunter x Hunter
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Jigokuraku
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                JoJo&#039;s Bizarre Adventure
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Jujutsu Kaisen
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Kamisama Hajimemashita
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Kuroko no Basket
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Mob Psycho 100
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                My Dress-Up Darling
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                My Hero Academia
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Naruto
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Neon Genesis Evangelion
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                One Piece
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                One-Punch Man
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Overlord
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Pokemon
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Pretty Guardian Sailor Moon
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Solo Leveling
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Sousou no Frieren
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Spy x Family
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Tokyo Ghoul
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Tokyo Revengers
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Vagabond
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Vinland Saga
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Anime Collection
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Art Collection
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Cartoons Collection
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Couple Collection
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Games Collection
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Gym Collection
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Memes Collection
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Movies Collection
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="shop.html" class="">
+                                Avatar: The Last Airbender
+                            </a>
+                        </li>
+                                    </ul>
+            </div>
+
+            <div class="filter-divider"></div>
+
+            <div class="filter-section">
+                <div class="filter-header">
+                    <span>Price</span>
+                    <span>&plus;</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- تفاصيل المنتج (يمين) -->
+        <main class="shop-content">
+            
+            <div class="breadcrumb">
+                <a href="shop.html">Home</a> / <span>Embrospace Naruto Embroidery Design</span>
+            </div>
+
+            <div class="product-main-grid">
+                <!-- صورة المنتج الأساسية -->
+                <div class="product-gallery">
+                                                                    <img src="storage/products/images/vLGwMQiWBPrtaP9LUGXN.png" alt="Embrospace Naruto Embroidery Design">
+                                    </div>
+
+                <div class="product-details-info">
+                    <h1>Embrospace Naruto Embroidery Design</h1>
+                    <div class="product-price-tag">$2.50</div>
+
+                    <!-- أزرار إضافة إلى السلة وزر المفضلة -->
+                    
+                    <div class="product-action-buttons">
+                        <form action="http://localhost/cart/add/3" method="POST" style="flex: 1; display: flex;">
+                            <input type="hidden" name="_token" value="" autocomplete="off">                            <button type="submit" class="btn-add-cart-lg" style="width: 100%;">Add to cart</button>
+                        </form>
+                        
+                        <!-- زر المفضلة التفاعلي -->
+                        <button type="button" 
+                                class="btn-wishlist " 
+                                id="wishlistBtn-3" 
+                                onclick="toggleWishlist(3)"
+                                title="Add to Wishlist">
+                            ♡
+                        </button>
+                    </div>
+
+                    <!-- زر الشراء الفوري Buy -->
+                    <form action="http://localhost/cart/add/3" method="POST" style="margin-bottom: 25px;">
+                        <input type="hidden" name="_token" value="" autocomplete="off">                        <input type="hidden" name="buy_now" value="1">
+                        <button type="submit" class="btn-buy-now">Buy</button>
+                    </form>
+
+                    <div class="download-notes">
+                        <p>After download please extract with WINZIP or WINRAR. The file is available in .dst, .pes, .jef, ...</p>
+                        <p style="color: var(--sky-blue); font-weight: 500;">Specification</p>
+                        <p>After the payment has been processed, you will receive a link. Our products consist of digital files.</p>
+                        <p style="color: var(--text-secondary);">Instant download</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- قسم المواصفات -->
+            <div class="product-specs-section">
+                <div class="specs-title">Specifications:</div>
+                                    <p>Default hoop size: 4x4 &amp; 5x7 in</p>
+                                                    <p>Stitch count: 16,500</p>
+                                <p style="margin-top: 15px;">Official Embrospace premium machine embroidery design of Naruto. Supported formats: .PES, .DST, .JEF, .EXP.</p>
+            </div>
+
+            <div class="reviews-section">
+                <div class="rating-number">0.0</div>
+                <div class="stars">☆☆☆☆☆</div>
+                <div style="font-size: 13px; color: var(--text-secondary); margin-bottom: 20px;">0 Reviews</div>
+                <a href="#" class="btn-write-review">Write a review</a>
+            </div>
+
+                        <div class="related-section">
+                <div class="related-title">Related Products</div>
+                <div class="related-grid">
+                                            <div class="related-card">
+                            <div class="related-img">
+                                                                                                        <img src="storage/products/images/IKokQSzfoGDzfxnlAnOA.png" alt="Embrospace Dragon Ball Embroidery Design">
+                                                            </div>
+                            <div class="related-name">Embrospace Dragon Ball Embroidery Design</div>
+                            <div class="related-price">$2.50</div>
+                            <a href="product-2.html" class="btn-add-cart-lg" style="padding: 6px; font-size: 12px; display: block; text-decoration: none;">View Design</a>
+                        </div>
+                                            <div class="related-card">
+                            <div class="related-img">
+                                                                                                        <img src="storage/products/images/AZGCzbOmvniYRfK5HajL.png" alt="Embrospace Embroidery Design">
+                                                            </div>
+                            <div class="related-name">Embrospace Embroidery Design</div>
+                            <div class="related-price">$2.50</div>
+                            <a href="product-4.html" class="btn-add-cart-lg" style="padding: 6px; font-size: 12px; display: block; text-decoration: none;">View Design</a>
+                        </div>
+                                            <div class="related-card">
+                            <div class="related-img">
+                                                                                                        <img src="storage/products/images/0LbN2BhWUligiWUyZf3N.png" alt="Embrospace Avatar: The Last Airbender Embroidery Design">
+                                                            </div>
+                            <div class="related-name">Embrospace Avatar: The Last Airbender Embroidery Design</div>
+                            <div class="related-price">$2.50</div>
+                            <a href="product-16.html" class="btn-add-cart-lg" style="padding: 6px; font-size: 12px; display: block; text-decoration: none;">View Design</a>
+                        </div>
+                                            <div class="related-card">
+                            <div class="related-img">
+                                                                                                        <img src="storage/products/images/fnYQRLqGYpcMPSSxr9hT.png" alt="Embrospace Bleach Embroidery Design">
+                                                            </div>
+                            <div class="related-name">Embrospace Bleach Embroidery Design</div>
+                            <div class="related-price">$2.50</div>
+                            <a href="product-18.html" class="btn-add-cart-lg" style="padding: 6px; font-size: 12px; display: block; text-decoration: none;">View Design</a>
+                        </div>
+                                    </div>
+            </div>
+            
+        </main>
+
+    </div>
+</div>
+    </main>
+
+    <!-- 1. السلة الجانبية Slide-over Cart -->
+    <div class="sidebar-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+    <div class="slide-sidebar" id="cartSidebar">
+        <div class="sidebar-header">
+            <h3 style="margin: 0; font-size: 16px; font-weight: 500;">Cart (<span id="cartSidebarCount">0</span> items)</h3>
+            <button class="sidebar-close-btn" onclick="toggleCart()">&times;</button>
+        </div>
+        
+        <div class="sidebar-body" id="cartBody">
+                            <div id="emptyCartMessage" style="text-align: center; color: var(--text-secondary); margin-top: 60px;">Your cart is empty.</div>
+                    </div>
+
+        <div class="sidebar-footer">
+                        <div class="cart-total-row">
+                <span>Total:</span>
+                <span id="cartTotalPrice" style="color: var(--sky-blue);">$0.00</span>
+            </div>
+            
+                        <a href="shop.html" class="btn-checkout">Proceed to Checkout</a>
+        </div>
+    </div>
+
+    <!-- 2. القائمة الجانبية للمفضلة Slide-over Wishlist -->
+    <div class="sidebar-overlay" id="wishlistOverlay" onclick="toggleWishlistSidebar()"></div>
+    <div class="slide-sidebar" id="wishlistSidebar">
+        <div class="sidebar-header">
+            <h3 style="margin: 0; font-size: 16px; font-weight: 500;">Wishlist (<span id="wishlistSidebarCount">0</span> items)</h3>
+            <button class="sidebar-close-btn" onclick="toggleWishlistSidebar()">&times;</button>
+        </div>
+        
+        <div class="sidebar-body" id="wishlistBody">
+                            <div id="emptyWishlistMessage" style="text-align: center; color: var(--text-secondary); margin-top: 60px;">Your wishlist is empty.</div>
+                    </div>
+    </div>
+
+    <!-- نوافذ التنبيهات -->
+    
+    
+    <!-- جافاسكريبت للتفاعل والتحكم -->
+    <script>
+        // 1. سكربت تغيير الروابط الاجتماعية
+        const socialBanner = document.getElementById('social-banner');
+        const platforms = [
+            { name: 'Pinterest', url: 'https://pinterest.com/embrospace' },
+            { name: 'Telegram', url: 'https://t.me/embrospace' },
+            { name: 'Instagram', url: 'https://instagram.com/embrospace' }
+        ];
+        let currentPlatformIndex = 0;
+
+        if (socialBanner) {
+            setInterval(() => {
+                currentPlatformIndex = (currentPlatformIndex + 1) % platforms.length;
+                const platform = platforms[currentPlatformIndex];
+
+                socialBanner.style.opacity = 0;
+                
+                setTimeout(() => {
+                    socialBanner.innerHTML = `
+                        <span style="color: var(--text-secondary);">More designs on our </span>
+                        <a href="${platform.url}" target="_blank" class="dynamic-social-link">${platform.name}</a>
+                        <span style="color: var(--text-secondary);"> account!</span>
+                    `;
+                    socialBanner.style.opacity = 1;
+                }, 300);
+
+            }, 2000);
+        }
+
+        // 2. التحكم بالوضع المضيء والداكن
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        if (themeToggleBtn) {
+            themeToggleBtn.addEventListener('click', () => {
+                let currentTheme = document.documentElement.getAttribute('data-theme');
+                if (currentTheme === 'light') {
+                    document.documentElement.removeAttribute('data-theme');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+        }
+
+        // 3. التحكم بفتح وإغلاق السلة
+        function toggleCart() {
+            const sidebar = document.getElementById('cartSidebar');
+            const overlay = document.getElementById('cartOverlay');
+            if (!sidebar || !overlay) return;
+
+            // إذا كانت المفضلة مفتوحة، نغلقها أولاً
+            const wishlistSidebar = document.getElementById('wishlistSidebar');
+            const wishlistOverlay = document.getElementById('wishlistOverlay');
+            if (wishlistSidebar && wishlistSidebar.classList.contains('open')) {
+                wishlistSidebar.classList.remove('open');
+                if (wishlistOverlay) wishlistOverlay.style.display = 'none';
+            }
+
+            if (sidebar.classList.contains('open')) {
+                sidebar.classList.remove('open');
+                overlay.style.display = 'none';
+            } else {
+                sidebar.classList.add('open');
+                overlay.style.display = 'block';
+            }
+        }
+
+        function removeFromCart(id) {
+            fetch(`/cart/remove/${id}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        const itemElement = document.getElementById(`cart-item-${id}`);
+                        if (itemElement) itemElement.remove();
+                        
+                        document.getElementById('cartCount').innerText = data.cartCount;
+                        document.getElementById('cartSidebarCount').innerText = data.cartCount;
+                        document.getElementById('cartTotalPrice').innerText = '$' + data.subtotal.toFixed(2);
+
+                        if (data.cartCount === 0) {
+                            document.getElementById('cartBody').innerHTML = '<div id="emptyCartMessage" style="text-align: center; color: var(--text-secondary); margin-top: 60px;">Your cart is empty.</div>';
+                        }
+                    }
+                });
+        }
+
+        // 4. التحكم بفتح وإغلاق المفضلة
+        function toggleWishlistSidebar() {
+            const sidebar = document.getElementById('wishlistSidebar');
+            const overlay = document.getElementById('wishlistOverlay');
+            if (!sidebar || !overlay) return;
+
+            // إذا كانت السلة مفتوحة، نغلقها أولاً
+            const cartSidebar = document.getElementById('cartSidebar');
+            const cartOverlay = document.getElementById('cartOverlay');
+            if (cartSidebar && cartSidebar.classList.contains('open')) {
+                cartSidebar.classList.remove('open');
+                if (cartOverlay) cartOverlay.style.display = 'none';
+            }
+
+            if (sidebar.classList.contains('open')) {
+                sidebar.classList.remove('open');
+                overlay.style.display = 'none';
+            } else {
+                sidebar.classList.add('open');
+                overlay.style.display = 'block';
+            }
+        }
+
+        function removeFromWishlist(id) {
+            fetch(`/wishlist/remove/${id}`)
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        const item = document.getElementById(`wishlist-item-${id}`);
+                        if (item) item.remove();
+
+                        const countEl = document.getElementById('wishlistCount');
+                        if (countEl) countEl.innerText = data.wishlistCount;
+
+                        const sideCountEl = document.getElementById('wishlistSidebarCount');
+                        if (sideCountEl) sideCountEl.innerText = data.wishlistCount;
+
+                        const btn = document.getElementById(`wishlistBtn-${id}`);
+                        if (btn) {
+                            btn.innerHTML = '♡';
+                            btn.classList.remove('active');
+                        }
+
+                        if (data.wishlistCount === 0) {
+                            document.getElementById('wishlistBody').innerHTML = '<div id="emptyWishlistMessage" style="text-align: center; color: var(--text-secondary); margin-top: 60px;">Your wishlist is empty.</div>';
+                        }
+                    }
+                });
+        }
+
+        // 5. فتح السلة تلقائياً عند الضغط على زر Buy
+        
+        // 6. البحث الحي مع الاقتراحات
+        const searchInput = document.getElementById('searchInput');
+        const suggestionsBox = document.getElementById('searchSuggestions');
+
+        if (searchInput && suggestionsBox) {
+            searchInput.addEventListener('input', function() {
+                let query = this.value.trim();
+
+                if (query.length < 2) {
+                    suggestionsBox.style.display = 'none';
+                    return;
+                }
+
+                fetch(`shop.html'';
+                        if (data.length > 0) {
+                            suggestionsBox.style.display = 'block';
+                            data.forEach(product => {
+                                let item = document.createElement('a');
+                                item.href = `/product/${product.id}`;
+                                item.style.cssText = 'display: block; padding: 10px 15px; color: var(--text-primary); text-decoration: none; border-bottom: 1px solid var(--border-color); font-size: 13px;';
+                                item.innerHTML = `${product.name} <span style="float: right; color: var(--sky-blue);">$${parseFloat(product.price).toFixed(2)}</span>`;
+                                
+                                item.addEventListener('mouseenter', () => item.style.background = 'var(--border-color)');
+                                item.addEventListener('mouseleave', () => item.style.background = 'transparent');
+
+                                suggestionsBox.appendChild(item);
+                            });
+                        } else {
+                            suggestionsBox.style.display = 'none';
+                        }
+                    });
+            });
+
+            document.addEventListener('click', function(e) {
+                if (!searchInput.contains(e.target) && !suggestionsBox.contains(e.target)) {
+                    suggestionsBox.style.display = 'none';
+                }
+            });
+        }
+    </script>
+
+    <!-- تذييل الصفحة (Footer) -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>Embrospace</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop All</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="custom-design.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Payment Methods</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contacts</h3>
+                <p>+212 7 06 50 22 85</p>
+                <p>embrospace@gmail.com</p>
+                <p style="font-size: 13px;">Telegram Username:<br>@embrospace</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Embro Space. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+    function toggleWishlist(productId) {
+        fetch(`/wishlist/toggle/${productId}`, {
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': '',
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                const btn = document.getElementById(`wishlistBtn-${productId}`);
+                if (btn) {
+                    if (data.added) {
+                        btn.innerHTML = '♥';
+                        btn.classList.add('active');
+                    } else {
+                        btn.innerHTML = '♡';
+                        btn.classList.remove('active');
+                    }
+                }
+
+                // تحديث عدادات المفضلة في الهيدر والقائمة الجانبية
+                const wishlistCountEl = document.getElementById('wishlistCount');
+                if (wishlistCountEl) wishlistCountEl.innerText = data.wishlistCount;
+
+                const wishlistSidebarCountEl = document.getElementById('wishlistSidebarCount');
+                if (wishlistSidebarCountEl) wishlistSidebarCountEl.innerText = data.wishlistCount;
+
+                // تحديث محتوى القائمة الجانبية للمفضلة
+                const wishlistBody = document.getElementById('wishlistBody');
+                if (wishlistBody && data.wishlist) {
+                    let itemsHtml = '';
+                    const items = Object.entries(data.wishlist);
+                    if (items.length > 0) {
+                        items.forEach(([id, item]) => {
+                            const imgPath = item.image_path ? `/storage/${item.image_path.replace('storage/', '')}` : '';
+                            const imgMarkup = imgPath 
+                                ? `<img src="${imgPath}" alt="${item.name}" style="width:100%;height:100%;object-fit:cover;">` 
+                                : '<span style="font-size:10px;color:var(--text-secondary);">No img</span>';
+
+                            itemsHtml += `
+                                <div class="cart-item" id="wishlist-item-${id}">
+                                    <div class="cart-item-img">${imgMarkup}</div>
+                                    <div class="cart-item-details">
+                                        <div class="cart-item-title">${item.name}</div>
+                                        <div class="cart-item-price">$${parseFloat(item.price).toFixed(2)}</div>
+                                    </div>
+                                    <button onclick="removeFromWishlist(${id})" style="background:none;border:none;color:var(--text-secondary);font-size:18px;cursor:pointer;padding:5px;" title="Remove">
+                                        &times;
+                                    </button>
+                                </div>
+                            `;
+                        });
+                        wishlistBody.innerHTML = itemsHtml;
+                    } else {
+                        wishlistBody.innerHTML = '<div id="emptyWishlistMessage" style="text-align:center;color:var(--text-secondary);margin-top:60px;">Your wishlist is empty.</div>';
+                    }
+                }
+
+                if (data.added && typeof toggleWishlistSidebar === 'function') {
+                    const sidebar = document.getElementById('wishlistSidebar');
+                    if (sidebar && !sidebar.classList.contains('open')) {
+                        toggleWishlistSidebar();
+                    }
+                }
+            }
+        })
+        .catch(error => console.error('Wishlist Error:', error));
+    }
+</script>
+
+<style>
+  .issam-demo-bar {
+    position: fixed; bottom: 18px; left: 18px; z-index: 99999;
+    display: inline-flex; align-items: center; gap: 10px;
+    background: rgba(2, 6, 23, 0.92); color: #f8fafc;
+    border: 1px solid rgba(56, 189, 248, 0.5); border-radius: 99px;
+    padding: 9px 16px; font-family: system-ui, -apple-system, sans-serif;
+    font-size: 13px; font-weight: 700; text-decoration: none;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.45); backdrop-filter: blur(10px);
+    transition: transform 0.2s;
+  }
+  .issam-demo-bar:hover { transform: translateY(-2px); color: #7dd3fc; }
+  .issam-demo-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; }
+</style>
+<a href="../../index.html#live-demos" class="issam-demo-bar">
+  <span class="issam-demo-dot"></span>
+  ← Back to ISSAM Portfolio (Live Demo)
+</a>
+<script>
+  // Static Live Demo friendly interactivity (no backend required)
+  document.addEventListener('submit', function(e) {
+    const f = e.target;
+    if (f && f.method && f.method.toLowerCase() === 'post') {
+      e.preventDefault();
+      alert('Interactive Live Demo — This form is connected to a Laravel backend in production.');
+    }
+  });
+</script>
+
+</body>
+</html>
