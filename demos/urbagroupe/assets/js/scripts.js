@@ -1158,51 +1158,36 @@ $(function () {
 
 
     /* =============================================================================
-    -------------------------------  Preloader svg   -------------------------------
+    -------------------------------  Preloader svg (Fast & Glitch-Free) ------------
     ============================================================================= */
 
-    const svg = document.getElementById("svg");
-    const tl = gsap.timeline();
-    const curve = "M0 502S175 272 500 272s500 230 500 230V0H0Z";
-    const flat = "M0 2S175 1 500 1s500 1 500 1V0H0Z";
-
-    tl.to(".loader-wrap-heading .load-text , .loader-wrap-heading .cont", {
-        delay: 1.5,
-        y: -100,
-        opacity: 0,
-    });
-    tl.to(svg, {
-        duration: 0.5,
-        attr: { d: curve },
-        ease: "power2.easeIn",
-    }).to(svg, {
-        duration: 0.5,
-        attr: { d: flat },
-        ease: "power2.easeOut",
-    });
-    tl.to(".loader-wrap", {
-        y: -1500,
-    });
-    tl.to(".loader-wrap", {
-        zIndex: -1,
-        display: "none",
-    });
-    tl.from(
-        "header",
-        {
-            y: 200,
-        },
-        "-=1.5"
-    );
-    tl.from(
-        "header .container",
-        {
-            y: 40,
-            opacity: 0,
-            delay: 0.3,
-        },
-        "-=1.5"
-    );
+    const loaderWrap = document.querySelector(".loader-wrap");
+    if (loaderWrap) {
+        const hideLoader = () => {
+            if (loaderWrap.dataset.hidden) return;
+            loaderWrap.dataset.hidden = "1";
+            loaderWrap.style.transition = "opacity 0.35s ease, visibility 0.35s ease";
+            loaderWrap.style.opacity = "0";
+            loaderWrap.style.visibility = "hidden";
+            loaderWrap.style.pointerEvents = "none";
+            setTimeout(() => {
+                loaderWrap.style.display = "none";
+                loaderWrap.style.zIndex = "-1";
+            }, 360);
+        };
+        if (typeof gsap !== "undefined") {
+            gsap.to(".loader-wrap-heading .load-text, .loader-wrap-heading .cont", {
+                delay: 0.25,
+                duration: 0.3,
+                y: -24,
+                opacity: 0,
+                onComplete: hideLoader
+            });
+        } else {
+            setTimeout(hideLoader, 250);
+        }
+        setTimeout(hideLoader, 800);
+    }
 
 });
 
@@ -1354,3 +1339,26 @@ $(function () {
                 });
             })();
     
+
+/* === Instant Non-Blocking Preloader (DOMContentLoaded) === */
+(function(){
+    function dismissLoader() {
+        var loaderWrap = document.querySelector(".loader-wrap");
+        if (!loaderWrap || loaderWrap.dataset.hidden) return;
+        loaderWrap.dataset.hidden = "1";
+        loaderWrap.style.transition = "opacity 0.3s ease, visibility 0.3s ease";
+        loaderWrap.style.opacity = "0";
+        loaderWrap.style.visibility = "hidden";
+        loaderWrap.style.pointerEvents = "none";
+        setTimeout(function() {
+            loaderWrap.style.display = "none";
+            loaderWrap.style.zIndex = "-1";
+        }, 320);
+    }
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", function(){ setTimeout(dismissLoader, 220); });
+    } else {
+        setTimeout(dismissLoader, 220);
+    }
+    setTimeout(dismissLoader, 650);
+})();
