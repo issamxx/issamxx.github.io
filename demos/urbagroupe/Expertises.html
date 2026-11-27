@@ -1029,7 +1029,7 @@ img[style*="width: 1100px"], img[style*="width: 600px"], img[style*="width: 450p
 
         <script src="assets/js/ScrollTrigger.min.js"></script>
 
-        <script src="assets/js/scripts.js"></script>
+        <script src="assets/js/scripts.js?v=3"></script>
 
 
 
@@ -1053,6 +1053,148 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 </script>
+
+
+<style id="urba-final-override">
+/* === Instant Zero-Glitch Initial Load & Edge-to-Edge Responsive Fix === */
+.loader-wrap { display: none !important; opacity: 0 !important; visibility: hidden !important; pointer-events: none !important; }
+html, body { max-width: 100% !important; overflow-x: clip !important; margin: 0 !important; }
+.cursor { display: none !important; }
+
+/* Navbar clean on desktop & mobile */
+nav.navbar {
+  background: #ffffff !important;
+  border-bottom: 4px solid #092160 !important;
+  position: relative !important;
+  z-index: 50 !important;
+  min-height: 76px !important;
+  padding: 10px 0 !important;
+  display: flex !important;
+  align-items: center !important;
+}
+nav.navbar .container {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  flex-wrap: wrap !important;
+  width: 100% !important;
+  max-width: 1200px !important;
+  padding: 0 20px !important;
+}
+nav.navbar .logo { margin: 0 !important; padding: 0 !important; width: auto !important; }
+nav.navbar .logo img { height: 44px !important; width: auto !important; margin: 0 !important; }
+#navbarSupportedContent { margin-right: 0 !important; margin-left: auto !important; justify-content: flex-end !important; }
+
+/* Full-viewport edge-to-edge hero slider (ZERO half-page cut & ZERO peeking neighbor slide) */
+header.slider.showcase-full {
+  position: relative !important;
+  width: 100% !important;
+  height: calc(100vh - 76px) !important;
+  height: calc(100svh - 76px) !important;
+  min-height: 520px !important;
+  max-height: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  transform: none !important;
+}
+header.slider.showcase-full .swiper-container {
+  width: 100% !important;
+  height: 100% !important;
+  overflow: hidden !important;
+}
+header.slider.showcase-full .swiper-slide {
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+header.slider.showcase-full .swiper-slide .bg-img {
+  position: relative !important;
+  width: 100% !important;
+  height: 100% !important;
+  left: 0 !important;
+  top: 0 !important;
+  transform: none !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  display: flex !important;
+  align-items: center !important;
+}
+header.slider.showcase-full .bg-img .container {
+  width: 100% !important;
+  max-width: 1200px !important;
+  padding: 0 28px !important;
+  margin: 0 auto !important;
+  position: relative !important;
+  z-index: 5 !important;
+}
+header.slider.showcase-full .bg-img .row {
+  width: 100% !important;
+  margin: 0 !important;
+}
+header.slider.showcase-full .caption {
+  padding: 0 !important;
+  margin: 0 !important;
+  max-width: 780px !important;
+}
+header.slider.showcase-full .caption h1 {
+  display: block !important;
+  margin: 10px 0 12px 0 !important;
+}
+header.slider.showcase-full .caption h1 > a > span,
+header.slider.showcase-full .caption h2 > a > span {
+  font-size: clamp(26px, 4.6vw, 56px) !important;
+  line-height: 1.15 !important;
+  color: #ffffff !important;
+  display: inline-block !important;
+  text-align: left !important;
+}
+header.slider.showcase-full .caption span[style*="display:none"] { display: none !important; }
+header.slider.showcase-full .caption h2:not(:has(span)) {
+  font-size: clamp(14px, 1.8vw, 19px) !important;
+  line-height: 1.5 !important;
+  color: rgba(255,255,255,0.92) !important;
+  margin-top: 8px !important;
+  font-weight: 400 !important;
+}
+header.slider.showcase-full .caption img,
+header.slider.showcase-full .caption .sub-title img {
+  width: clamp(150px, 24vw, 270px) !important;
+  max-width: 72vw !important;
+  height: auto !important;
+  margin: 0 0 14px 0 !important;
+  display: block !important;
+}
+header.slider.showcase-full .slider-contro {
+  bottom: 58px !important;
+  padding: 0 24px !important;
+}
+header.slider.showcase-full .swiper-pagination.dots {
+  bottom: 24px !important;
+}
+
+@media (max-width: 991px) {
+  nav.navbar { min-height: 68px !important; padding: 8px 0 !important; }
+  nav.navbar .logo img { height: 36px !important; }
+  header.slider.showcase-full {
+    height: calc(100svh - 68px) !important;
+    min-height: 480px !important;
+  }
+  header.slider.showcase-full .bg-img .container { padding: 0 20px !important; }
+  header.slider.showcase-full .caption h1 span,
+  header.slider.showcase-full .caption h2 span {
+    font-size: clamp(22px, 6.8vw, 34px) !important;
+  }
+  header.slider.showcase-full .slider-contro {
+    bottom: 66px !important;
+    padding: 0 14px !important;
+  }
+  header.slider.showcase-full .slider-contro span { font-size: 12px !important; }
+}
+</style>
 
 </body>
 
