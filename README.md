@@ -13,7 +13,8 @@
 | :--- | :--- | :--- | :--- |
 | **Embro Space** | Laravel · E-Commerce · Dark/Light UI | Full digital embroidery marketplace, interactive Before/After slider, 50+ collections, shop catalog & custom design requests (21 interactive pages). | `demos/embrospace/index.html` |
 | **Jaouhara Mode** | PHP · Luxury B2B Catalog | Corporate workwear & medical apparel showcase with 32 detailed product sheets, gold & white luxury UI, and realizations gallery (39 interactive pages). | `demos/jawhara/index.html` |
-| **Urbagroupe** | Production Corporate Web · HTTPS | Live production corporate & events web platform with fast mobile navigation. | [urbagroupe.ma](https://urbagroupe.ma) |
+| **Urbagroupe** | Production Corporate Web · HTTPS | Live production corporate & events web platform with fast mobile navigation. | `demos/urbagroupe/index.html` |
+| **Urba Ticket (Mobile App)** | Kotlin · Jetpack Compose · Room · QR | Native Android events & ticketing mobile app with instant scannable QR Code E-Tickets, promo checkout, offline wallet, AR (RTL)/FR & Dark/Light UI. | `demos/urbaticket/index.html` |
 
 ---
 

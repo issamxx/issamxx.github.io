@@ -206,7 +206,7 @@
     .sec-head p { color: var(--muted); font-size: 16px; }
 
     /* Flagship LIVE INTERACTIVE DEMOS */
-    .live-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .live-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
     .live-card {
       background: linear-gradient(180deg, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.68));
       border: 1px solid var(--border-glow); border-radius: 24px; overflow: hidden;
@@ -465,7 +465,7 @@
             <a id="heroWaLink" href="https://wa.me/212706502285" target="_blank" class="btn btn-primary" data-i18n="hero_cta_1">Free Prototype on WhatsApp</a>
           </div>
           <div class="trust-strip">
-            <div class="trust-item"><strong>3+ Live</strong><span data-i18n="stat_1">Interactive Demos</span></div>
+            <div class="trust-item"><strong>4 Live</strong><span data-i18n="stat_1">Web &amp; App Demos</span></div>
             <div class="trust-item"><strong>iOS &amp; Android</strong><span data-i18n="stat_2">Custom Apps</span></div>
             <div class="trust-item"><strong>AR · EN · FR</strong><span data-i18n="stat_3">Multilingual</span></div>
             <div class="trust-item"><strong>100%</strong><span data-i18n="stat_4">Free First Mockup</span></div>
@@ -482,12 +482,12 @@
   <!-- Tech Stack Bar -->
   <div class="tech-bar">
     <div class="container tech-inner">
+      <span class="tech-chip">Kotlin &amp; Jetpack Compose</span>
+      <span class="tech-chip">Android &amp; iOS Apps</span>
       <span class="tech-chip">Laravel &amp; PHP</span>
       <span class="tech-chip">React &amp; Next.js</span>
-      <span class="tech-chip">Android &amp; iOS Apps</span>
       <span class="tech-chip">E-Commerce &amp; Booking</span>
       <span class="tech-chip">HTTPS &amp; Security</span>
-      <span class="tech-chip">Google Maps &amp; SEO</span>
       <span class="tech-chip">WhatsApp Automation</span>
     </div>
   </div>
@@ -555,6 +555,25 @@
             <a href="demos/urbagroupe/index.html" class="btn btn-cyan" style="width:100%;" data-i18n="btn_launch_live">Launch Live Demo ↗</a>
           </div>
         </div>
+
+        <!-- Live Demo 4: Urba Ticket Mobile App -->
+        <div class="live-card reveal" style="border-color: rgba(236, 72, 153, 0.48);">
+          <div class="live-thumb">
+            <img src="assets/live_urbaticket.jpg" alt="Urba Ticket Native Mobile App Showcase" style="object-position: center;">
+            <span class="live-pill" style="color:#f9a8d4; border-color: rgba(236, 72, 153, 0.58);"><span class="pulse-dot" style="background:#ec4899;"></span> MOBILE APP</span>
+          </div>
+          <div class="live-body">
+            <div class="live-tags">
+              <span class="live-tag" style="background:rgba(236,72,153,0.14); color:#f9a8d4; border-color:rgba(236,72,153,0.34);">Kotlin · Compose</span>
+              <span class="live-tag">QR E-Tickets</span>
+              <span class="live-tag">AR (RTL) / FR</span>
+              <span class="live-tag">Dark / Light UI</span>
+            </div>
+            <h3>Urba Ticket (Mobile App)</h3>
+            <p data-i18n="ld4_desc">Native Android events &amp; ticketing mobile app featuring instant scannable QR Code gate passes, promo-code checkout, offline ticket wallet, Luxury Dark/Light themes, and full Arabic RTL &amp; French UI.</p>
+            <a href="demos/urbaticket/index.html" class="btn btn-cyan" style="width:100%; background: linear-gradient(135deg, #ec4899, #2563eb);" data-i18n="btn_explore_app">Explore App Screens ↗</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -607,7 +626,10 @@
             <li><span class="check">✓</span> <span data-i18n="app_f3">Easy-to-use Admin Dashboard to manage everything live</span></li>
             <li><span class="check">✓</span> <span data-i18n="app_f4">Full Arabic (RTL), English &amp; French support</span></li>
           </ul>
-          <a id="appWaLink" href="https://wa.me/212706502285" target="_blank" class="btn btn-primary" data-i18n="app_cta">Discuss Your Mobile App Idea</a>
+          <div style="display:flex; flex-wrap:wrap; gap:10px;">
+            <a id="appWaLink" href="https://wa.me/212706502285" target="_blank" class="btn btn-primary" data-i18n="app_cta">Discuss Your Mobile App Idea</a>
+            <a href="demos/urbaticket/index.html" class="btn btn-outline" data-i18n="app_see_demo">See Urba Ticket App Screens ↗</a>
+          </div>
         </div>
         <div>
           <img src="assets/mobile_apps_pro.jpg" alt="Custom Android and iPhone Mobile Apps">
@@ -626,7 +648,7 @@
       </div>
 
       <div class="filter-bar">
-        <button class="filter-btn active" onclick="filterPortfolio('all', this)" data-i18n="f_all">All Sectors (10)</button>
+        <button class="filter-btn active" onclick="filterPortfolio('all', this)" data-i18n="f_all">All Sectors (11)</button>
         <button class="filter-btn" onclick="filterPortfolio('ecom', this)" data-i18n="f_ecom">E-Commerce &amp; Stores</button>
         <button class="filter-btn" onclick="filterPortfolio('app', this)" data-i18n="f_apps">Mobile Apps</button>
         <button class="filter-btn" onclick="filterPortfolio('health', this)" data-i18n="f_health">Health &amp; Beauty</button>
@@ -762,7 +784,8 @@
         ld1_desc: "Full digital embroidery marketplace with interactive Before/After comparison slider, 50+ collections, shop catalog, product pages, and custom design requests.",
         ld2_desc: "Refined corporate workwear & medical apparel showcase featuring 32 detailed product sheets, gold luxury aesthetic, realizations gallery, and direct contact.",
         ld3_desc: "Live corporate web platform deployed in production—modern institutional presentation, fast mobile navigation, and clear service structure.",
-        btn_launch_live: "Launch Live Demo ↗", btn_visit_live: "Visit Live Website ↗",
+        ld4_desc: "Native Android events & ticketing mobile app featuring instant scannable QR Code gate passes, promo-code checkout, offline ticket wallet, Luxury Dark/Light themes, and full Arabic RTL & French UI.",
+        btn_launch_live: "Launch Live Demo ↗", btn_visit_live: "Visit Live Website ↗", btn_explore_app: "Explore App Screens ↗", app_see_demo: "See Urba Ticket App Screens ↗",
         srv_tag: "EXPERTISE", srv_title: "Complete Digital Solutions for Ambitious Businesses",
         srv_sub: "Everything you need to look credible on Google, convert visitors into WhatsApp clients, and automate bookings.",
         s1_t: "Modern Business Websites", s1_d: "Responsive, ultra-fast HTTPS websites crafted for clinics, hotels, agencies, rentals, and service companies—built to convert on mobile and desktop.",
@@ -776,7 +799,7 @@
         app_cta: "Discuss Your Mobile App Idea",
         port_tag: "INDUSTRY CONCEPTS", port_title: "Tailored Website & App Concepts by Sector",
         port_sub: "Click any design to preview full-size. Every project is 100% customized with your logo, colors, currency, and languages.",
-        f_all: "All Sectors (10)", f_ecom: "E-Commerce & Stores", f_apps: "Mobile Apps", f_health: "Health & Beauty", f_biz: "Real Estate, Rental & Services",
+        f_all: "All Sectors (11)", f_ecom: "E-Commerce & Stores", f_apps: "Mobile Apps", f_health: "Health & Beauty", f_biz: "Real Estate, Rental & Services",
         proc_tag: "HOW WE WORK", proc_title: "Zero-Risk Process in 3 Simple Steps", proc_sub: "See the quality of your custom design before making any commitment.",
         p1_t: "Free Custom Mockup", p1_d: "Send your business name and sector on WhatsApp. We prepare a tailored preview showing how your website or app will look—completely free.",
         p2_t: "Development & Fine-Tuning", p2_d: "Once approved, we develop the complete responsive website or mobile app with your languages, photos, booking forms, and WhatsApp integration.",
@@ -802,7 +825,8 @@
         ld1_desc: "Marketplace complète de broderie digitale avec comparateur interactif Avant/Après, +50 collections, boutique, fiches produits et demandes sur mesure.",
         ld2_desc: "Catalogue élégant de tenues professionnelles & médicales avec 32 fiches produits détaillées, design or & blanc, galerie réalisations et contact direct.",
         ld3_desc: "Site corporate en production réelle — présentation institutionnelle moderne, navigation mobile rapide et mise en valeur claire des prestations.",
-        btn_launch_live: "Ouvrir la Démo Live ↗", btn_visit_live: "Visiter le Site Live ↗",
+        ld4_desc: "Application mobile native Android de billetterie & événements : E-Billets QR Code instantanés, panier avec code promo, portefeuille hors-ligne, thèmes Sombre/Clair et Arabe (RTL) & Français.",
+        btn_launch_live: "Ouvrir la Démo Live ↗", btn_visit_live: "Visiter le Site Live ↗", btn_explore_app: "Voir les Écrans de l'App ↗", app_see_demo: "Voir l'App Urba Ticket ↗",
         srv_tag: "EXPERTISE", srv_title: "Des Solutions Digitales Complètes pour votre Croissance",
         srv_sub: "Tout ce qu'il faut pour inspirer confiance sur Google, convertir vos visiteurs sur WhatsApp et recevoir des réservations directes.",
         s1_t: "Sites Web Professionnels", s1_d: "Sites vitrines et plateformes rapides (HTTPS) pour cliniques, hôtels, agences immobilières, location de voitures et sociétés de services.",
@@ -816,7 +840,7 @@
         app_cta: "Discuter de votre Application Mobile",
         port_tag: "CONCEPTS PAR SECTEUR", port_title: "Modèles Web & Mobile Adaptés à Votre Activité",
         port_sub: "Cliquez sur n'importe quel concept pour l'agrandir. Chaque projet est 100% personnalisé à votre marque, devise et langues.",
-        f_all: "Tous les Secteurs (10)", f_ecom: "E-Commerce & Boutiques", f_apps: "Apps Mobiles", f_health: "Santé & Beauté", f_biz: "Immobilier, Location & Services",
+        f_all: "Tous les Secteurs (11)", f_ecom: "E-Commerce & Boutiques", f_apps: "Apps Mobiles", f_health: "Santé & Beauté", f_biz: "Immobilier, Location & Services",
         proc_tag: "NOTRE MÉTHODE", proc_title: "Un Processus Sans Risque en 3 Étapes", proc_sub: "Découvrez la qualité de votre design avant le moindre engagement.",
         p1_t: "Maquette Gratuite Personnalisée", p1_d: "Envoyez-nous le nom et le secteur de votre entreprise sur WhatsApp. Nous préparons un premier aperçu sur mesure gratuitement.",
         p2_t: "Développement & Ajustements", p2_d: "Une fois validé, nous développons votre site complet ou application mobile avec vos textes, photos, langues et bouton WhatsApp.",
@@ -842,7 +866,8 @@
         ld1_desc: "منصة تجارة إلكترونية متكاملة لتصاميم التطريز الرقمي (Laravel) تضم أداة مقارنة تفاعلية قبل/بعد، أكثر من 50 تصنيفاً، متجراً متكاملاً وطلبات تصميم خاص.",
         ld2_desc: "موقع فاخر لعلامة أزياء مهنية وطبية يضم 32 صفحة منتج تفصيلية بتصميم ذهبي أنيق، معرض أعمال وصفحة تواصل مباشرة.",
         ld3_desc: "موقع مؤسسي حي منشور فعلياً على الإنترنت — واجهة حديثة، تصفح سريع على الجوال وعرض واضح واحترافي للخدمات.",
-        btn_launch_live: "تشغيل العرض الحي ↗", btn_visit_live: "زيارة الموقع المباشر ↗",
+        ld4_desc: "تطبيق أندرويد أصلي لحجز التذاكر والفعاليات يضم توليداً فورياً لتذاكر QR Code، سلة مشتريات بأكواد خصم، حفظ التذاكر بدون إنترنت، الوضع الداكن والمضيء، وواجهة عربية (RTL) وفرنسية.",
+        btn_launch_live: "تشغيل العرض الحي ↗", btn_visit_live: "زيارة الموقع المباشر ↗", btn_explore_app: "تصفّح شاشات التطبيق ↗", app_see_demo: "شاهد تطبيق Urba Ticket ↗",
         srv_tag: "خدماتنا", srv_title: "حلول رقمية متكاملة للشركات والمشاريع الطموحة",
         srv_sub: "كل ما تحتاجه لتعزيز ثقة عملائك على جوجل، تحويل الزوار مباشرة إلى واتساب، واستقبال الحجوزات بدون عمولة.",
         s1_t: "مواقع إلكترونية احترافية", s1_d: "مواقع سريعة ومتجاوبة مع الجوال للعيادات، الفنادق، العقار، تأجير السيارات، وشركات الخدمات بتصميم عصري فخم.",
@@ -856,7 +881,7 @@
         app_cta: "ناقش فكرة تطبيقك عبر واتساب",
         port_tag: "نماذج حسب القطاع", port_title: "تصاميم مواقع وتطبيقات مخصّصة لمختلف المجالات",
         port_sub: "اضغط على أي نموذج لمشاهدته بالحجم الكامل. كل مشروع يُصمّم 100% بشعارك وألوانك وعملتك ولغاتك.",
-        f_all: "جميع القطاعات (10)", f_ecom: "التجارة الإلكترونية والمتاجر", f_apps: "تطبيقات الجوال", f_health: "الصحة والتجميل", f_biz: "العقار، السيارات والخدمات",
+        f_all: "جميع القطاعات (11)", f_ecom: "التجارة الإلكترونية والمتاجر", f_apps: "تطبيقات الجوال", f_health: "الصحة والتجميل", f_biz: "العقار، السيارات والخدمات",
         proc_tag: "كيف نعمل", proc_title: "خطوات واضحة بدون أي مخاطرة", proc_sub: "شاهد جودة التصميم المخصّص لشركتك قبل أي التزام مالي.",
         p1_t: "نموذج أولي مجاني باسمك", p1_d: "أرسل لنا اسم شركتك ومجال عملك عبر واتساب، وسنجهّز لك تصوّراً أولياً مخصّصاً لشكل موقعك أو تطبيقك مجاناً.",
         p2_t: "التطوير والتخصيص الكامل", p2_d: "بعد موافقتك، نبني الموقع أو التطبيق كاملاً باللغات والصور والخدمات ونماذج الحجز المباشر مع واتساب.",
@@ -896,6 +921,7 @@
     ];
 
     const ITEMS = [
+      { img: "assets/live_urbaticket.jpg", cat: "app", badge: { en: "Native App • QR", fr: "App Native • QR", ar: "تطبيق حقيقي • QR" }, title: { en: "Urba Ticket — Events & QR Ticketing App", fr: "Urba Ticket — App Mobile Billetterie QR", ar: "تطبيق Urba Ticket لحجز التذاكر بـ QR Code" }, desc: { en: "Real Kotlin & Jetpack Compose mobile app with instant QR Code E-Tickets, promo checkout, offline wallet, AR (RTL)/FR & Dark Mode.", fr: "Application native Kotlin & Jetpack Compose : E-Billets QR instantanés, panier promo, mode hors-ligne, Arabe (RTL)/FR & Mode Sombre.", ar: "تطبيق أندرويد حقيقي بـ Kotlin & Compose يضم تذاكر QR فورية، أكواد خصم، عمل بدون إنترنت، عربي RTL ووضع داكن." } },
       { img: "assets/live_embrospace.jpg", cat: "ecom", badge: { en: "E-Commerce & COD", fr: "E-Commerce & COD", ar: "متجر إلكتروني" }, title: { en: "High-Converting E-Commerce Store", fr: "Boutique E-Commerce Haute Conversion", ar: "متجر إلكتروني احترافي (COD & دفع أونلاين)" }, desc: { en: "Ultra-fast product catalog, 1-click COD & WhatsApp checkout, upsells & order dashboard with 0% monthly fees.", fr: "Catalogue rapide, commande 1-clic COD & WhatsApp, gestion des commandes et 0% de commission mensuelle.", ar: "متجر فائق السرعة مع نموذج طلب سريع (COD) وتأكيد واتساب ولوحة إدارة الطلبات بدون عمولات شهرية." } },
       { img: "assets/mobile_apps_pro.jpg", cat: "app", badge: { en: "Android & iOS", fr: "Android & iOS", ar: "أندرويد وآيفون" }, title: { en: "Custom Mobile Apps (Android & iPhone)", fr: "Applications Mobiles Sur Mesure", ar: "تطبيقات جوال أندرويد وآيفون حسب الطلب" }, desc: { en: "Booking, e-commerce, live tracking & push notifications with full admin panel.", fr: "Réservation, e-commerce, suivi en direct et notifications push avec back-office.", ar: "حجز فوري، متجر إلكتروني، تتبّع طلبات وإشعارات مع لوحة تحكم متكاملة." } },
       { img: "assets/demo_01_car.png", cat: "business", badge: { en: "Car Rental", fr: "Location Voitures", ar: "تأجير السيارات" }, title: { en: "Luxury Car Rental Platform", fr: "Site Location de Voitures", ar: "موقع وكالة تأجير سيارات" }, desc: { en: "Fleet catalog, instant WhatsApp booking form & zero-commission reservations.", fr: "Catalogue flotte, réservation instantanée sur WhatsApp sans commission.", ar: "كتالوج سيارات متكامل مع نموذج حجز فوري عبر واتساب بدون عمولة." } },
