@@ -383,8 +383,26 @@
       .burger { display: inline-flex; align-items: center; justify-content: center; }
     }
     @media (max-width: 640px) {
-      .services-grid, .portfolio-grid, .trust-strip { grid-template-columns: 1fr; }
-      .cta-box, .spotlight { padding: 26px 20px; }
+      .container { padding: 0 16px; }
+      .nav-inner { padding: 10px 14px; gap: 8px; }
+      .brand { gap: 8px; }
+      .brand img { width: 34px; height: 34px; }
+      .brand-name { font-size: 14px; letter-spacing: 1.2px; }
+      .brand-sub { font-size: 9px; letter-spacing: 0.8px; }
+      .lang-btn { padding: 4px 8px; font-size: 11px; }
+      .burger { width: 36px; height: 36px; font-size: 17px; }
+      .hero { padding: 36px 0 32px; }
+      .hero h1 { font-size: clamp(26px, 7.6vw, 38px); }
+      .hero p { font-size: 15px; margin-bottom: 22px; }
+      .hero-ctas { flex-direction: column; }
+      .hero-ctas .btn { width: 100%; }
+      .trust-strip { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .services-grid, .portfolio-grid { grid-template-columns: 1fr; }
+      .cta-box, .spotlight { padding: 24px 18px; gap: 24px; }
+      section { padding: 52px 0; }
+      .sec-head { margin-bottom: 32px; }
+      .wa-fab { bottom: 16px; inset-inline-end: 16px; padding: 10px 15px; font-size: 13px; }
+      .modal { padding: 12px; }
     }
   </style>
 </head>
